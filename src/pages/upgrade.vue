@@ -16,6 +16,7 @@ definePage({
 
 <template>
   <button @click="console.log(game)">DEBUG</button>
+  <h3>Upgrade</h3>
   <table>
     <th>ID</th>
     <th>Name</th>
