@@ -1,0 +1,41 @@
+{
+  "name": "idlewizardcalc",
+  "description": "Calculator for Idle Wizard",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "testbuild": "vue-tsc && vite build",
+    "generate": "npm --no-git-tag-version version patch && npx tsx build/generateChangelog.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PR0CESSUS/IdleWizardCalc.git"
+  },
+  "keywords": [
+    "IdleWizard",
+    "Calculator"
+  ],
+  "author": "Processus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PR0CESSUS/IdleWizardCalc/issues"
+  },
+  "homepage": "https://github.com/PR0CESSUS/IdleWizardCalc#readme",
+  "dependencies": {
+    "@vueuse/core": "^10.7.2",
+    "pinia": "^2.1.7",
+    "vue": "^3.3.11",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.5.2",
+    "typescript": "^5.2.2",
+    "unplugin-vue-router": "^0.8.5",
+    "vite": "^5.0.8",
+    "vue-tsc": "^1.8.25"
+  }
+}

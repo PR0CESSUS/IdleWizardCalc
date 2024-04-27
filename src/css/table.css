@@ -1,0 +1,14 @@
+tr.summary {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #fff;
+}
+tr.heading {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #fff;
+}
+
+table {
+  border-collapse: collapse;
+}

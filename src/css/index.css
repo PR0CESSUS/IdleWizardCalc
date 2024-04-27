@@ -1,0 +1,43 @@
+@import url(./heading.css);
+@import url(./button.css);
+@import url(./input.css);
+@import url(./color.css);
+@import url(./table.css);
+
+@font-face {
+  font-family: "NotoSansBlack";
+  src: url(/NotoSansCJKjp-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+:focus-visible {
+  outline: 0px solid #00ff00;
+  border-radius: 0px;
+}
+
+body {
+  font-family: "NotoSansBlack";
+  font-size: 14px;
+  background-image: linear-gradient(#0d1010, #161a1e, #1d242c 20%, #212a34, #232c37);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  letter-spacing: 1px;
+}
+p {
+  margin: 0;
+}
+
+a {
+  color: #a7e6ff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #888888;
+}
+
+/* ::backdrop {
+  background-image: linear-gradient(magenta, rebeccapurple, dodgerblue, green);
+  opacity: 0.75;
+} */

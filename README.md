@@ -1,2 +1,3 @@
-# IEH2Calculator
-Calculator for Incremental Epic Hero 2
+# IdleWizardCalc
+
+Calculator for Idle Wizard

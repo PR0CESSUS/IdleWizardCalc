@@ -1,0 +1,61 @@
+button {
+  font-family: NotoSansBlack;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ebebeb;
+  background-image: linear-gradient(#656565, #4a4a4a);
+  border-top-color: #939393;
+  border-bottom-color: #3f3f3f;
+  border-left-color: #474747;
+  border-right-color: #4e4e4e;
+  border-style: outset;
+  border-width: 3px;
+
+  padding: 0px 10px 0px 10px;
+  -webkit-filter: blur(0.4px);
+  filter: blur(0.4px);
+  text-wrap: nowrap;
+  letter-spacing: 1px;
+}
+button:hover {
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.1);
+}
+
+button.orange {
+  background-image: linear-gradient(#b45514, #884110);
+  border-top-color: #dc8540;
+  border-bottom-color: #693816;
+  border-left-color: #873e0c;
+  border-right-color: #98460f;
+}
+
+button.blue {
+  background-image: linear-gradient(#2b487f, #203860);
+  background-color: #2b487f;
+  border-top-color: #5476ae;
+  border-bottom-color: #202f4e;
+  border-left-color: #13213b;
+  border-right-color: #1c3257;
+}
+button.green {
+  background-image: linear-gradient(#4d7432, #375324);
+  background-color: #4d7432;
+  border-top-color: #7da861;
+  border-bottom-color: #334825;
+  border-left-color: #355322;
+  border-right-color: #3b5a26;
+  color: #fff;
+}
+button.small {
+  height: 20px;
+  border-width: 2px;
+  font-size: 11px;
+  padding-top: 0;
+}
+button.xs {
+  height: 18px;
+  border-width: 2px;
+  font-size: 11px;
+  letter-spacing: 1.1px;
+  padding-top: 0;
+}
