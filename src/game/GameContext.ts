@@ -96,7 +96,7 @@ export class GameContext {
 
   public static GenerateContext() {
     // GameContext.resource[`Base.Mana`] = GameManager.Instance.Mana;
-    GameContext.resource[`Base.AllBuildingsProfit`] = GameManager.Instance.Profit;
+    // GameContext.resource[`Base.AllBuildingsProfit`] = GameManager.Instance.Profit;
     // GameContext.resource[`Base.PPS`] = GameManager.Instance.PPS;
     // GameContext.resource[`Base.Souls`] = Reborn.Souls;
     // GameContext.resource[`Base.SoulPower`] = Reborn.SoulPower;

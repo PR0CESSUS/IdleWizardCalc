@@ -4,14 +4,13 @@ import { GameManager } from "./game/GameManager";
 import { DefaultSaveFile } from "./game/DefaultSaveFile";
 
 export class Game {
+  GameManager: GameManager;
   upgrade: Upgrade[] = [];
   upgradeRaw;
 
-  GameManager: GameManager;
-
   constructor() {
     this.upgradeRaw = upgrade;
-    let SaveFile = JSON.parse(localStorage.getItem("SaveFileData"));
+    let SaveFile = JSON.parse(localStorage.getItem("IdleWizardSaveFileData"));
     SaveFile ??= new DefaultSaveFile();
     if (SaveFile) this.GameManager = new GameManager(SaveFile);
 

@@ -4,16 +4,13 @@ import { Building } from "./Building";
 import { VoidMana } from "./VoidMana";
 
 export class GameManager {
-  Profit = {};
   SaveFile: SaveFile;
   VoidManaManager: VoidMana;
   public static Instance: GameManager;
 
   constructor(SaveFile: SaveFile) {
     GameManager.Instance = this;
-    // GameContext.ContextAddBuilding();
     this.SaveFile = SaveFile;
-    this.Profit = SaveFile.BuildingLevels;
     this.VoidManaManager = new VoidMana();
 
     // generate game resources
