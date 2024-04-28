@@ -1,0 +1,15 @@
+export enum ResourceType {
+  Base,
+  VoidMana,
+  Click,
+  Building,
+  Spell,
+  Pet,
+  Hero,
+  Achiev,
+  Char,
+  Exorcist,
+  Chrono,
+  Items,
+  Trial,
+}

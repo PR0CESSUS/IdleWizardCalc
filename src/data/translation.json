@@ -1,0 +1,341 @@
+{
+  "translation": {
+    "Hotkey": { "En": "Hotkey", "Ru": "Гор. клавиша" },
+    "Character": { "En": "Character", "Ru": "Персонаж" },
+    "Journal": { "En": "Journal", "Ru": "Журнал" },
+    "Expedition": { "En": "Expedition", "Ru": "Экспедиции" },
+    "RealmUpgrades": { "En": "Realm Upgrades", "Ru": "Апгрейды Рилма" },
+    "Pantheon": { "En": "Pantheon", "Ru": "Пантеон" },
+    "Memetics": { "En": "Memetics", "Ru": "Меметики" },
+    "Interior": { "En": "Interior", "Ru": "Интерьер" },
+    "Help": { "En": "Help", "Ru": "Помощь" },
+    "Market": { "En": "Market", "Ru": "Магазин" },
+    "Settings": { "En": "Settings", "Ru": "Настройки" },
+    "HideAll": { "En": "Hide/Show windows", "Ru": "Спрятать/Показать окна" },
+    "Cost": { "En": "Cost", "Ru": "Цена" }
+  },
+  "upgrades": {},
+  "bonuses": {
+    "IncreaseVPE#a": { "En": "Increases Void Mana per Entity by #a.", "Ru": "Увеличивает Ману Пустоты за Сущность на #a." },
+    "IncreaseVPE#m": { "En": "Increases Void Mana per Entity by #m.", "Ru": "Увеличивает Ману Пустоты за Сущность на #m." },
+    "IncreaseVESpawnrate#m": { "En": "Increases Void Entities spawnrate by #m.", "Ru": "Увеличивает частоту появления Сущностей Пустоты на #m." },
+    "IncreaseVELifetime#m": {
+      "En": "Increases the time Void Entities remain on Void Traps by #m.",
+      "Ru": "Увеличивает время, в течение которого Сущности Пустоты остаются в Пустотных Ловушках, на #m."
+    },
+    "IncreaseVP#a": { "En": "Increases Void Mana profit by #a.", "Ru": "Увеличивает бонус от Маны Пустоты на #a." },
+    "IncreaseVP#m": { "En": "Increases Void Mana profit by #m.", "Ru": "Увеличивает бонус от Маны Пустоты на #m." },
+    "CritProfit": { "En": "Increase Character critical profit by", "Ru": "Увеличивает бонус от Критических кликов Персонажа на" },
+    "CritProfit#aand#m": {
+      "En": "Increases Character critical profit by #a, and additionally by #m.",
+      "Ru": "Увеличивает бонус от Критических кликов Персонажа на #a и дополнительно на #m."
+    },
+    "CritChance#a": { "En": "Increases Character critical chance by #a.", "Ru": "Увеличивает шанс Критического клика Персонажа на #a." },
+    "CritRating#a": { "En": "Increases Character critical rating by #a.", "Ru": "Увеличивает рейтинг Критических кликов Персонажа на #a." },
+    "ClickProfit#aand#m": { "En": "Increases click profit by #a, and additionally by #m.", "Ru": "Увеличивает Ману получаемую от кликов на #a и дополнительно на #m." },
+    "ClickProfit#m": { "En": "Increases click profit by #m.", "Ru": "Увеличивает Ману получаемую от кликов на #m." },
+    "ClickProfit#a": { "En": "Increases click profit by #a.", "Ru": "Увеличивает Ману получаемую от кликов на #a." },
+    "ClickProfit1%": { "En": "Increases click profit by 1% of your Mana per second.", "Ru": "Увеличивает Ману получаемую от кликов на 1% от вашей Маны в секунду." },
+    "ClickProfit2%": { "En": "Increases click profit by 2% of your Mana per second.", "Ru": "Увеличивает Ману получаемую от кликов на 2% от вашей Маны в секунду." },
+    "ClickProfit5%": { "En": "Increases click profit by 5% of your Mana per second.", "Ru": "Увеличивает Ману получаемую от кликов на 5% от вашей Маны в секунду." },
+    "PetXP#aand#m": { "En": "Increases Pet experience gained by #a, and additionally by #m.", "Ru": "Увеличивает опыт, получаемый Питомцем, на #a и дополнительно на #m." },
+    "PetXP#a": { "En": "Increases Pet experience gained by #a.", "Ru": "Увеличивает опыт, получаемый Питомцем, на #a." },
+    "PetXP#m": { "En": "Increases Pet experience gained by #m.", "Ru": "Увеличивает опыт, получаемый Питомцем, на #m." },
+    "Offline#m": { "En": "Increases offline bonus by #m.", "Ru": "Увеличивает бонус оффлайн-режима на #m." },
+    "Idle#aand#m": { "En": "Increases Idle bonus by #a, and additionally by #m.", "Ru": "Увеличивает бонус Покоя на #a и дополнительно на #m." },
+    "Idle#a": { "En": "Increases Idle bonus by #a.", "Ru": "Увеличивает бонус Покоя на #a." },
+    "Idle#m": { "En": "Increases Idle bonus by #m.", "Ru": "Увеличивает бонус Покоя на #m." },
+    "Profits#mSource1": { "En": "Increases profits by #m, based on amount of Mana Gems.", "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Самоцветов Маны." },
+    "Profits#mSource2": { "En": "Increases profits by #m, based on amount of Grimoires.", "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Гримуаров." },
+    "Profits#mSource3": {
+      "En": "Increases profits by #m, based on amount of Spell Fountains.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Заклинательных Фонтанов."
+    },
+    "Profits#mSource4": {
+      "En": "Increases profits by #m, based on amount of Enchanted Trees.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Зачарованных Деревьев."
+    },
+    "Profits#mSource5": {
+      "En": "Increases profits by #m, based on amount of Alchemy Desks.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Алхимических Столов."
+    },
+    "Profits#mSource6": {
+      "En": "Increases profits by #m, based on amount of Circles of Power.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Кругов Силы."
+    },
+    "Profits#mSource7": {
+      "En": "Increases profits by #m, based on amount of Dimensional Rifts.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Разломов Измерений."
+    },
+    "Profits#m": { "En": "Increases profits by #m.", "Ru": "Увеличивает получаемую Ману на #m." },
+    "Autocast#a": {
+      "En": "Increases the amount of Spells you can set to autocast by #a.",
+      "Ru": "Увеличивает количество заклинаний, для которых можно включить автоматический режим, на #a."
+    },
+    "Scroll1": {
+      "En": "Grants a first Spell Scroll, allowing to choose and cast Spells.",
+      "Ru": "Предоставляет первый Свиток Заклинаний, позволяя выбирать и применять Заклинания."
+    },
+    "Scroll2": { "En": "Grants a second Spell Scroll.", "Ru": "Предоставляет второй Свиток Заклинаний." },
+    "Scroll3": { "En": "Grants a third Spell Scroll.", "Ru": "Предоставляет третий Свиток Заклинаний." },
+    "Scroll4": { "En": "Grants a fourth Spell Scroll.", "Ru": "Предоставляет четвертый Свиток Заклинаний." },
+    "Scroll5": { "En": "Grants a fifth Spell Scroll.", "Ru": "Предоставляет пятый Свиток Заклинаний." },
+    "Scroll6": { "En": "Grants a sixth Spell Scroll.", "Ru": "Предоставляет шестой Свиток Заклинаний." },
+    "Charges#a": {
+      "En": "Increases the maximum amount of charges your Spell Scrolls can have by #a.",
+      "Ru": "Увеличивает максимальное количество зарядов, хранимых в Свитках Заклинаний, на #a."
+    },
+    "PassiveShards#m": { "En": "Increases passive Spell Shards generation by #m.", "Ru": "Увеличивает количество Фрагментов Заклинаний, получаемых пассивно, на #m." },
+    "ClickSpellShards#m": { "En": "Increases Spell Shards generation from clicks by #m.", "Ru": "Увеличивает количество Фрагментов Заклинаний, получаемых из кликов, на #m." },
+    "PassiveShards#a": { "En": "Increases passive Spell Shards generation by #a.", "Ru": "Увеличивает количество Фрагментов Заклинаний, получаемых пассивно, на #a." },
+    "ClickSpellShards#a": { "En": "Increases Spell Shards generation from clicks by #a.", "Ru": "Увеличивает количество Фрагментов Заклинаний, получаемых из кликов, на #a." },
+    "ProdCostReductionSource1": { "En": "Reduces the cost increase multiplier of Mana Gems by 0.0125.", "Ru": "Уменьшает множитель стоимости Самоцветов Маны на 0.0125." },
+    "ProdCostReductionSource2": { "En": "Reduces the cost increase multiplier of Grimoires by 0.0135.", "Ru": "Уменьшает множитель стоимости Гримуаров на 0.0135." },
+    "ProdCostReductionSource3": {
+      "En": "Reduces the cost increase multiplier of Spell Fountains by 0.015.",
+      "Ru": "Уменьшает множитель стоимости Заклинательных Фонтанов на 0.015."
+    },
+    "ProdCostReductionSource4": {
+      "En": "Reduces the cost increase multiplier of Enchanted Trees by 0.017.",
+      "Ru": "Уменьшает множитель стоимости Зачарованных Деревьев на 0.017."
+    },
+    "ProdCostReductionSource5": { "En": "Reduces the cost increase multiplier of Alchemy Desks by 0.019.", "Ru": "Уменьшает множитель стоимости Алхимических Столов на 0.019." },
+    "ProdCostReductionSource6": { "En": "Reduces the cost increase multiplier of Circles of Power by 0.021.", "Ru": "Уменьшает множитель стоимости Кругов Силы на 0.021." },
+    "ProdCostReductionSource7": { "En": "Reduces the cost increase multiplier of Dimensional Rifts by 0.023.", "Ru": "Уменьшает множитель стоимости Разломов Измерений на 0.023." },
+    "ProdCostReductionSource8": { "En": "Reduces the cost increase multiplier of Nexi by 0.025.", "Ru": "Уменьшает множитель стоимости Средоточий на 0.025." },
+    "Profit#mGems": { "En": "Increases Mana Gems profit by #m.", "Ru": "Увеличивает Ману, получаемую от Самоцветов Маны, на #m." },
+    "ProfitBase#aGems": { "En": "Increases Mana Gems base profit by #a.", "Ru": "Увеличивает базовое значение Маны, получаемой от Самоцветов Маны, на #m." },
+    "Profit#mGrimoires": { "En": "Increases Grimoires profit by #m.", "Ru": "Увеличивает Ману, получаемую от Гримуаров, на #m." },
+    "ProfitBase#aGrimoires": { "En": "Increases Grimoires base profit by #a.", "Ru": "Увеличивает базовое значение Маны, получаемой от Гримуаров, на #m." },
+    "Profit#mFounts": { "En": "Increases Spell Fountains profit by #m.", "Ru": "Увеличивает Ману, получаемую от Заклинательных Фонтанов, на #m." },
+    "Profit#mTrees": { "En": "Increases Enchanted Trees profit by #m.", "Ru": "Увеличивает Ману, получаемую от Зачарованных Деревьев, на #m." },
+    "Profit#mAmountTreesOfLife": {
+      "En": "Increases profits by #m, based on amount of Trees Of Life.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Древ Жизни."
+    },
+    "ProfitBase#aTrees": { "En": "Increases Enchanted Trees base profit by #a.", "Ru": "Увеличивает базовое значение Маны, получаемой от Зачарованных Деревьев, на #m." },
+    "Profit#mDesks": { "En": "Increases Alchemy Desks profit by #m.", "Ru": "Увеличивает Ману, получаемую от Алхимических Столов, на #m." },
+    "Profit#mCircles": { "En": "Increases Circles of Power profit by #m.", "Ru": "Увеличивает Ману, получаемую от Кругов Силы, на #m." },
+    "Profit#mRifts": { "En": "Increases Dimensional Rifts profit by #m.", "Ru": "Увеличивает Ману, получаемую от Разломов Измерений, на #m." },
+    "Profit#mNexi": { "En": "Increases Nexi profit by #m.", "Ru": "Увеличивает Ману, получаемую от Средоточий, на #m." },
+    "Profit#mAmountVoidgate": {
+      "En": "Increases profits by #m, based on amount of Voidgates.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Врат Пустоты."
+    },
+    "Profit#mAmountArcanasprings": {
+      "En": "Increases profits by #m, based on amount of Arcanasprings.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Тайноключей."
+    },
+    "Profit#mAmountLaboratories": {
+      "En": "Increases profits by #m, based on amount of Laboratories.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Лабораторий."
+    },
+    "Profit#mAmountLibrams": { "En": "Increases profits by #m, based on amount of Librams.", "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Либрамов." },
+    "Profit#mAmountMonuments": {
+      "En": "Increases profits by #m, based on amount of Monuments.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Монументов."
+    },
+    "Profit#mAmountAntimagicDomes": {
+      "En": "Increases profits by #m, based on amount of Anti-magic Domes.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Антимагических Куполов."
+    },
+    "Profit#mAmountTemporalSingletons": {
+      "En": "Increases profits by #m, based on amount of Ley Temporal Singletons.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Лей-Темпоральных Синглтонов."
+    },
+    "Profit#mAmountWitchingCauldrons": {
+      "En": "Increases profits by #m, based on amount of Witching Cauldrons.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Ведьминых Котлов."
+    },
+    "Profit#mAmountSoulShards": {
+      "En": "Increases profits by #m, based on amount of Soul Shards.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Фрагментов Душ."
+    },
+    "Profit#mAmountGrimTrophies": {
+      "En": "Increases profits by #m, based on amount of Grim Trophies.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Мрачных Трофеев."
+    },
+    "VoidmanaDegen": { "En": "Void Mana degeneration reduced by", "Ru": "Деградация Маны Пустоты замедлена на" },
+    "Shardpool#m": { "En": "Increases Shards Pool capacity by #m.", "Ru": "Увеличивает объем Запаса Фрагментов Заклинаний на #m." },
+    "AutoclickProfits#m": { "En": "Increases autoclick profits by #m.", "Ru": "Увеличивает Ману, получаемую от Автокликов, на #m." },
+    "PAP#m": { "En": "Increases Pet Ability Power by #m.", "Ru": "Увеличивет Силу Способности Питомца на #m." },
+    "CAP#m": { "En": "Increases Character Ability Power by #m.", "Ru": "Увеличивет Силу Способности Персонажа на #m." },
+    "SummEff#m": { "En": "Increases Summoning efficiency by #m.", "Ru": "Увеличивает эффективность заклинаний Призыва на #m." },
+    "EvoEff#m": { "En": "Increases Evocation efficiency by #m.", "Ru": "Увеличивает эффективность заклинаний Манипуляции на #m." },
+    "IncaEff#m": { "En": "Increases Incantation efficiency by #m.", "Ru": "Увеличивает эффективность заклинаний Обрядов на #m." },
+    "HCamount#a": { "En": "Increases maximum amount of Hallowed clicks by #a.", "Ru": "Увеличивает максимальное количество Освященных кликов на #a." },
+    "VPfromHCamount#m": {
+      "En": "Increases Void profits by #m, based on maximum amount of Hallowed clicks.",
+      "Ru": "Увеличивает бонус от Маны Пустоты на #m, в зависимости от максимального количества Освященных кликов."
+    },
+    "HCgenTime#a": { "En": "Reduces Hallowed click generation time by #a seconds.", "Ru": "Уменьшает время генерации Освященных кликов на #a." },
+    "CTperTick#m": { "En": "Increases Compressed Time per tick by #m.", "Ru": "Увеличивает количество Сжатого Времени за тик на #m." },
+    "PassiveLS#a": { "En": "Increases passive Liquid Shadow generation by #a.", "Ru": "Увеличивает количество Жидких Теней получаемых пассивно на #a." },
+    "LS#m": { "En": "Increases all Liquid Shadow income by #m.", "Ru": "Увеличивает количество получаемых Жидких Теней на #m." },
+    "ClotsLifetime#m": {
+      "En": "Increases how long Shadow Clots remain on Void Traps by #m.",
+      "Ru": "Увеличивает время, в течение которого Сгустки Теней остаются в Пустотных Ловушках, на #m."
+    },
+    "ClotsSpawnrate#m": { "En": "Increases Shadow Clots spawnrate by #m.", "Ru": "Увеличивает частоту появления Сгустков Теней на #m." },
+    "ShadowChargeTimeby": {
+      "En": "Decreases delay to charge Shadow Spells with Liquid Shadow by",
+      "Ru": "Уменьшает период зарядки Теневых Заклинаний посредством Жидких Теней на"
+    },
+    "ShadowChargeAmount2%": {
+      "En": "Increases amount of Liquid Shadow converted to Shadow Spell charges per tick by 2% of current Liquid Shadow.",
+      "Ru": "Увеличивет количество Жидких Теней, используемых для зарядки Теневых Заклинаний, на 2% от текущего количества Жидких Теней."
+    },
+    "perachievementpoint": { "En": "per achievement point.", "Ru": "за единицу достижений." },
+    "MysteriesPower1%add": { "En": "Increases Mysteries power by 1% (additive).", "Ru": "Увеличивает бонус от Секретов на 1% (аддитивно)." },
+    "ChargeSpellsChargeTime": { "En": "Reduces charge Spells charging time by", "Ru": "Уменьшает время зарядки заряжаемых заклинаний на" },
+    "HCperClick#a": { "En": "Clicking the orb consumes #a extra Hallowed click.", "Ru": "Клики по сфере используют на #a больше Освященных кликов." },
+    "VoidPrisonUpgrade": { "En": "Adds Void Prison Spell to the Spellbook.", "Ru": "Открывает доступ к заклинанию \"Пустотная Тюрьма\"." },
+    "TemperedArcanomancyUpgrade": { "En": "Adds Tempered Arcanomancy Spell to the Spellbook.", "Ru": "Открывает доступ к заклинанию \"Закаленная Тайномантия\"." },
+    "VoidFissionUpgrade": { "En": "Replace Shadows of the Void Spell with Void Fission in the Spellbook.", "Ru": "Заменяет заклинание \"Тени Пустоты\" на \"Пустотный Распад\"." },
+    "SourceXP#m": { "En": "Increases Character experience gained from Mana Sources by #m.", "Ru": "Увеличивает опыт персонажа, получаемых от Источников Маны, на #m." },
+    "AccumulatedAmount#a": {
+      "En": "Increases Accumulated Spells' starting casts amount by #a.",
+      "Ru": "Увеличивает стартовое количество произнесений Аккумулируемых Заклинаний на #a."
+    },
+    "ActionsXP#m": { "En": "Increases Character experience gained from actions by #m.", "Ru": "Увеличивает опыт персонажа, получаемых от активных действий, на #m." },
+    "BatsRate#m": { "En": "Increase Bats spawnrate by #m.", "Ru": "Увеличивает частоту появления Летучих Мышей на #m." },
+    "SpellcostsBy": { "En": "Reduces Spell costs by", "Ru": "Уменьшает стоимость Заклинаний на" },
+    "MaxTD#a": { "En": "Increases maximum Time Distortion by #a.", "Ru": "Увеличивает максимальное значение Искажения Времени на #a." },
+    "Laboratories#m": { "En": "Increases Laboratories profit by #m.", "Ru": "Увеличивает Ману, получаемую от Лабораторий, на #m." },
+    "Profits#mCharLevel": { "En": "Increases profits by #m, based on Character level.", "Ru": "Увеличивает получаемую Ману на #m, в зависимости от уровня Персонажа." },
+    "Profits#mApprenticeTime": {
+      "En": "Increases profits by #m, based on total time spent as Apprentice.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от времени, проведенного в качестве Ученика."
+    },
+    "EvoEff#mVEamount": {
+      "En": "Increases Evocation efficiency by #m, based on amount of Void Entities collected this Exile.",
+      "Ru": "Увеличивает эффективность заклинаний Манипуляции на #m., в зависимости от количества Сущностей Пустоты, собранных в течение текущего Изгнания."
+    },
+    "EvoEff#mAccumBonus": {
+      "En": "Increases Evocation efficiency by #m, based on Accumulated spell bonus.",
+      "Ru": "Увеличивает эффективность заклинаний Манипуляции на #m., в зависимости от текущего бонуса к количеству произнесенных Аккумулируемых Заклинаний."
+    },
+    "PassiveShards#mCharLevel": {
+      "En": "Increases passive Spell Shards generation by #m, based on Character level.",
+      "Ru": "Увеличивает количество Фрагментов Заклинаний, получаемых пассивно, на #m, в зависимости от уровня Персонажа."
+    },
+    "ClickProfit#mLibrams": {
+      "En": "Increases click profit by #m, based on amount of Librams.",
+      "Ru": "Увеличивает Ману, получаемую от Кликов, на #m, в зависимости от количества Либрамов."
+    },
+    "Profits#mLSamount": {
+      "En": "Increases profits by #m, based on amount of Liquid Shadows.",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Жидких Теней."
+    },
+    "Hic": { "En": "Hic!", "Ru": "Ик!" },
+    "ReduceManaSourceCostsBy": { "En": "Reduce Mana Sources cost of spells by", "Ru": "Уменьшает стоимость Заклинаний, измеряющуюся в Источниках Маны, на" },
+    "SpeedrunUpgrade": {
+      "En": "Increases profits by 0.1% per unlocked achievement (#p). Total bonus: #m",
+      "Ru": "Увеличивает получаемую Ману на 0.1%, в зависимости от количества открытых достижений (#p). Суммарный бонус: #m."
+    },
+    "SpeedDevilUpgrade": {
+      "En": "Increases profits by 1.5% per unlocked secret achievement (#p). Total bonus: #m.",
+      "Ru": "Увеличивает получаемую Ману на 1.5% в зависимости от количества открытых скрытых достижений (#p). Суммарный бонус: #m."
+    },
+    "NoSkillsIssueUpgrade": {
+      "En": "Increases profits by #m, based on amount of time spent in this Realm (#p).",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от времени, проведенного в этой Реальности (#p)."
+    },
+    "PureTheoryUpgrade": {
+      "En": "Increases Idle bonus by #m, based on amount of Trials done this Realm (#p).",
+      "Ru": "Увеличивает бонус Покоя на #m, в зависимости от количества Испытаний, завершенных в этой Реальности (#p)."
+    },
+    "Shut-inUpgrade": {
+      "En": "Increases Catalyst income by #m, based on amount of Monsters killed in Expeditions this Realm (#p).",
+      "Ru": "Увеличивает количество получаемых Катализаторов на #m, в зависимости от количества Монстров, побежденных в Экспедициях в этой Реальности (#p)."
+    },
+    "ClothesSlowMeDownUpgrade": {
+      "En": "Increases Character Ability Power by #m, based on amount of Crafting Dust collected this Realm (#p).",
+      "Ru": "Увеличивает Силу Способности Персонажа на #m, в зависимости от количества Ремесленной Пыли, собранной в этой Реальности (#p)."
+    },
+    "SourceBiasUpgrade": {
+      "En": "Increases Mysteries power by #m, based on amount of Experiments done this Realm (#p).",
+      "Ru": "Увеличивает бонус от Секретов на #m, в зависимости от количества Экспериментов, совершенных в этой Реальности (#p)."
+    },
+    "AllergyUpgrade": {
+      "En": "Increases profits by #m, based on amount of Spell Shards collected this Realm (#p).",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от количества Фрагментов Заклинаний, собранных в этой Реальности (#p)."
+    },
+    "EternalStudentUpgrade": {
+      "En": "Increases profits by #m, based on maximum Apprentice level reached this Realm (#p).",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от максимального уровня Ученика, достигнутого в этой Реальности (#p)."
+    },
+    "BotanistUpgrade": {
+      "En": "Increases Summoning efficiency by #m, based on amount of Autoclicks done this Realm (#p).",
+      "Ru": "Увеличивает эффективность заклинаний Призыва на #m, в зависимости от количества Автокликов, совершенных в этой Реальности (#p)."
+    },
+    "ExcommunicadoUpgrade": {
+      "En": "Increases Void Mana profits by #m, based on amount of Void Entities collected this Realm (#p).",
+      "Ru": "Увеличивает бонус от Маны Пустоты на #m, в зависимости от количества Сущностей Пустоты, собранных в этой Реальности (#p)"
+    },
+    "PlayingWithFireUpgrade": {
+      "En": "Increases Pet Ability Power by #m, based on amount of Enchanting Dust earned this Realm (#p).",
+      "Ru": "Увеличивает Силы Способности Питомца на #m, в зависимости от количества Чаровной Пыли, полученной в этой Реальности (#p)"
+    },
+    "ShardsEnjoyerUpgrade": {
+      "En": "Increases Evocation efficiency by #m, based on amount of Spell casts done this Realm (#p).",
+      "Ru": "Увеличивает эффективность заклинаний Манипуляции на #m, в зависимости от количества Заклинаний, произнесенных в этой Реальности. (#p)"
+    },
+    "NewAndOldMeUpgrade": {
+      "En": "Increases Incantation efficiency by #m, based on amount of time spent in this Realm (#p).",
+      "Ru": "Увеличивает эффективность заклинаний Обрядов на #m, в зависимости от времени, проведенного в этой Реальности (#p)"
+    },
+    "Let'sCookUpgrade": {
+      "En": "Increases Character Ability Power by #m, based on amount of Collectables collected this Realm (#p).",
+      "Ru": "Увеличивает Силу Способности Персонажа на #m, в зависимости от количества Находок, собранных в этой Реальности (#p)"
+    },
+    "DoneInAFlashUpgrade": {
+      "En": "Increases profits by 5% per unlocked Triumph (#p). Total bonus: #m.",
+      "Ru": "Увеличивает получаемую Ману на 5% за каждый полученный Триумф (#p). Суммарный бонус: #m."
+    },
+    "MFUpgrade": { "En": "Adds Meditative Fury Spell to the Spellbook", "Ru": "Открывает доступ к заклинанию \"Медитативная Ярость\"." },
+    "ShieldsAndLasersUpgrade": {
+      "En": "Increases Autoclick profits by #m, based on amount of Evocation Spellcasts done this Exile (#p).",
+      "Ru": "Увеличивает Ману, получаемую от Автокликов, на #m, в зависимости от количества произнесенных заклинаний Манипуляции в этом Изгнании (#p)."
+    },
+    "BruteForceUpgrade": {
+      "En": "Increases Void Mana per Entity by #m, based on current Character Level (#p).",
+      "Ru": "Увеличивает Ману Пустоты за Сущность на #m, в зависимости от текущего Уровня Персонажа (#p)."
+    },
+    "CommandoUpgrade": {
+      "En": "Increases Idle Bonus by #m, based on current Pet Level (#p).",
+      "Ru": "Увеличивает бонус Покоя на #m, в зависимости от текущего Уровня Питомца (#p)."
+    },
+    "YoungGenerationUpgrade": { "En": "Increases minor Gods' experience bonus by #m", "Ru": "Увеличивает получаемый опыт Младших Богов на #m." },
+    "IngotShortageUpgrade": {
+      "En": "Increases Character experience gained from Mana Sources by #m, based on Mysteries power",
+      "Ru": "Увеличивает опыт персонажа, получаемых от Источников Маны, на #m, в зависимости от бонуса от Секретов."
+    },
+    "ChemicallyInertUpgrade": { "En": "Increases profits by #m, based on Mysteries power", "Ru": "Увеличивает получаемую Ману на #m, в зависимости от бонуса от Секретов." },
+    "MightyMissileUpgrade": {
+      "En": "Increases Incantation efficiency by #m, based on Mysteries",
+      "Ru": "Увеличивает эффективность заклинаний Обрядов на #m, в зависимости от количества Секретов."
+    },
+    "NotEnoughManaUpgrade": {
+      "En": "Increases maximum cast rate of Spells attainable by #a",
+      "Ru": "Увеличивает максимальное количество произнесений Заклинаний в секунду на #a."
+    },
+    "DevoidOfVoidUpgrade": {
+      "En": "Increases Void Mana per Entity by #m, based on Void Entities life time",
+      "Ru": "Увеличивает Ману Пустоты за Сущность на #m, в зависимости от времени жизни Сущностей Пустоты."
+    },
+    "PathOfNoExileUpgrade": {
+      "En": "Increases profits by #m, based on current Character Level (#p).",
+      "Ru": "Увеличивает получаемую Ману на #m, в зависимости от текущего Уровня Персонажа (#p)."
+    },
+    "CluelessUpgrade": {
+      "En": "Increases profits by 0.5% per bought upgrade (#p). Total bonus: #m",
+      "Ru": "Увеличивает получаемую Ману на 0.5% за каждое приобретенное Улучшение (#p). Суммарный бонус: #m."
+    },
+    "WhentheClockStrikesTwelveUpgrade": {
+      "En": "Increases Character Ability Power by #m, based on current Character Level (#p).",
+      "Ru": "Увеличивает Силу Способности Персонажа на #m, в зависимости от текущего Уровня Персонажа (#p)."
+    }
+  },
+  "help": {}
+}

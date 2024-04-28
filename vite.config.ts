@@ -7,6 +7,9 @@ import { fileURLToPath, URL } from "url";
 export default defineConfig({
   base: "./",
   plugins: [VueRouter({ importMode: (filepath) => "sync" }), Vue()],
+  server: {
+    port: 15000,
+  },
   build: {
     chunkSizeWarningLimit: 1500,
     rollupOptions: {

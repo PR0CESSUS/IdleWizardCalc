@@ -2,6 +2,33 @@
 import packageInfo from "../package.json";
 import TheBreadcrumb from "./components/TheBreadcrumb.vue";
 import TheMenu from "./components/TheMenu.vue";
+
+function decompress(byteArray, encoding: CompressionFormat) {
+  const cs = new DecompressionStream(encoding);
+  const writer = cs.writable.getWriter();
+  writer.write(byteArray);
+  writer.close();
+  return new Response(cs.readable).arrayBuffer().then(function (arrayBuffer) {
+    return new TextDecoder().decode(arrayBuffer);
+  });
+}
+
+function importSaveFile(event: Event & { target: HTMLInputElement }) {
+  if (!event.target.files) return;
+  const filereader = new FileReader();
+  filereader.readAsText(event.target.files[0]);
+  filereader.onloadend = () => {
+    const stringRaw = filereader.result as string;
+    const buffer = Uint8Array.from(atob(stringRaw), (c) => c.charCodeAt(0));
+
+    decompress(buffer, "gzip").then((result) => {
+      localStorage.setItem("SaveFileData", result);
+      globalThis.Game.GameManager.SaveFile = JSON.parse(result);
+    });
+
+    // window.alert("Save File loaded!");
+  };
+}
 </script>
 
 <template>
@@ -14,8 +41,8 @@ import TheMenu from "./components/TheMenu.vue";
         <!-- <button style="font-size: 12px" @click="dialog.showModal()">&#9776;</button> -->
 
         <!-- <button @click="createSnapshot()">Create Snapshot</button> -->
-        <!-- <label for="saveFileImport" class="importLabel">Import Save File</label> -->
-        <!-- <input type="file" id="saveFileImport" accept=".txt" @change="importSaveFile" /> -->
+        <label for="saveFileImport" class="importLabel">Import Save File</label>
+        <input type="file" id="saveFileImport" accept=".txt" @change="importSaveFile" />
         <!-- <button id="data-restart" type="reset" @click="hardReset()">Hard Reset</button> -->
       </div>
     </div>
