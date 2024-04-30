@@ -1,0 +1,183 @@
+[
+  { "Name": "Mana Gem", "Tier": "1", "BaseProfit": "0.25", "BaseCost": "3", "Percentage": "1.16", "Sprite": "Building1", "Description": "Bread and butter of any wizard." },
+  {
+    "Name": "Grimoire",
+    "Tier": "2",
+    "BaseProfit": "2.5",
+    "BaseCost": "40",
+    "Percentage": "1.17",
+    "Sprite": "Building2",
+    "Description": "The more you know - the stronger you become."
+  },
+  {
+    "Name": "Spell Fountain",
+    "Tier": "3",
+    "BaseProfit": "14",
+    "BaseCost": "460",
+    "Percentage": "1.18",
+    "Sprite": "Building3",
+    "Description": "A nice place to relax, take a bath and regain some mana."
+  },
+  {
+    "Name": "Enchanted Tree",
+    "Tier": "4",
+    "BaseProfit": "126",
+    "BaseCost": "7000",
+    "Percentage": "1.19",
+    "Sprite": "Building4",
+    "Description": "Mana fruits replenish your mana very quickly."
+  },
+  {
+    "Name": "Alchemy Desk",
+    "Tier": "5",
+    "BaseProfit": "1468",
+    "BaseCost": "1.30e5",
+    "Percentage": "1.20",
+    "Sprite": "Building5",
+    "Description": "It's good for many things - primarily for mana potions, obviously."
+  },
+  {
+    "Name": "Circle Of Power",
+    "Tier": "6",
+    "BaseProfit": "16560",
+    "BaseCost": "2.80e7",
+    "Percentage": "1.21",
+    "Sprite": "Building6",
+    "Description": "Directs flows of mana from the surrounding matter - into you."
+  },
+  {
+    "Name": "Dimensional Rift",
+    "Tier": "7",
+    "BaseProfit": "142340",
+    "BaseCost": "5.60e8",
+    "Percentage": "1.22",
+    "Sprite": "Building7",
+    "Description": "Open doors to new dimensions - filled with mana!"
+  },
+  {
+    "Name": "The Nexus",
+    "Tier": "8",
+    "BaseProfit": "1298570",
+    "BaseCost": "1.80e10",
+    "Percentage": "1.23",
+    "Sprite": "Building8",
+    "Description": "Tap into ley lines, supplying you with rich, primordial mana."
+  },
+  {
+    "Name": "Pocket Universe",
+    "Tier": "9",
+    "BaseProfit": "1e12",
+    "BaseCost": "10",
+    "Percentage": "1.175",
+    "Sprite": "Building9_PocketUniverse2",
+    "Description": "Demiurges create these compact, self-contained Universes to experiment and observe. A mortal mind might be better off not knowing what is happening inside these."
+  },
+  {
+    "Name": "Tree Of Life",
+    "Tier": "0",
+    "Sprite": "Building4Druid",
+    "Description": "Druids draw great strength from their symbiotic bond with the forests. Trees Of Life benefit from all effects affecting Enchanted trees."
+  },
+  {
+    "Name": "Hellhole",
+    "Tier": "0",
+    "Sprite": "Building6Demonologist",
+    "Description": "A portal to hell which Demonologist uses to invoke infernal powers directly. Hellholes benefit from all effects affecting Circles Of Power."
+  },
+  {
+    "Name": "Forbidden Tome",
+    "Tier": "0",
+    "Sprite": "Building2Necromancer",
+    "Description": "Tomes imbued with secrets of dark arts. Merely touching them can wither the flesh. Forbidden Tomes benefit from all effects affecting Grimoires."
+  },
+  {
+    "Name": "Arcanaspring",
+    "Tier": "0",
+    "Sprite": "Building3Arcanist",
+    "Description": "An empowered source of magic power. Only Arcanists have the knowledge and skills to tap into them. Arcanasprings benefit from all effects affecting Spell Fountains."
+  },
+  {
+    "Name": "Voidgate",
+    "Tier": "0",
+    "Sprite": "Building7Voidmancer",
+    "Description": "These gates allow Voidmancers to engulf the reality with Void energies and beings at will. Voidgates benefit from all effects affecting Dimensional Rifts."
+  },
+  {
+    "Name": "Libram",
+    "Tier": "0",
+    "Sprite": "Building2Exorcist",
+    "Description": "Exorcists purify and collect grimoires and dark tomes, imbuing them with holy power. Librams benefit from all effects affecting Grimoires."
+  },
+  {
+    "Name": "Ley Apex",
+    "Tier": "0",
+    "Sprite": "Building8Prodigy",
+    "Description": "Mastery over magical energies allows Prodigy to find and connect even more potent ley focuses, further fueling their power. Ley Apexes benefit from all effects affecting Nexi."
+  },
+  {
+    "Name": "Temporal Anchor",
+    "Tier": "0",
+    "Sprite": "Building8Chronomancer",
+    "Description": "While the Nexi are already a powerful source of energy for every sorcerer, they are especially useful to Chronomancers. Converted to Temporal Anchors, they serve as a universal focal points across timelines, allowing navigation through the flows of time. Temporal Anchors benefit from all effects affecting Nexi."
+  },
+  {
+    "Name": "Shadow Coal",
+    "Tier": "0",
+    "Sprite": "Building1Umbramancer",
+    "Description": "Compressed and coalescent shadows, often used by Umbramancer as a raw fuel for the shadow-flames. Shadow Coals benefit from all effects affecting Mana Gems."
+  },
+  {
+    "Name": "Laboratory",
+    "Tier": "0",
+    "Sprite": "Building5Alchemist",
+    "Description": "A simple alchemy desk is more than enough for most dabblers, but isn't nearly enough for an experienced Alchemist. They employ large, well equipped laboratories for their everyday work and studies. Laboratories benefit from all effects affecting Alchemy Desks."
+  },
+  {
+    "Name": "Monument",
+    "Tier": "0",
+    "Sprite": "Building3_Berserker",
+    "Description": "Adepts of Ironsoul have long been building Monuments to honor the strength and spirit of their ancestors, mentors and heroes, drawing power from raw inspiration, emanating from those statues. Monuments benefit from all effects affecting Spell Fountains."
+  },
+  {
+    "Name": "Anti-magic Dome",
+    "Tier": "0",
+    "Sprite": "Building6_Antimage",
+    "Description": "Abolishers spread these magic circles across the land, negating the effect of other mages' Circles of Power by drawing and trapping magical energies inside them. Anti-magic Domes benefit from all effects affecting Circles of Power."
+  },
+  {
+    "Name": "Witching Cauldron",
+    "Tier": "0",
+    "Sprite": "Building5_Shaman",
+    "Description": "Shamans have their own view of preparing potions and elixirs. They set up huge, ever-bubbling Cauldrons, feeding them a wide variety of grotesque ingredients. Witching Cauldrons benefit from all effects affecting Alchemy Desks."
+  },
+  {
+    "Name": "Soul Shard",
+    "Tier": "0",
+    "Sprite": "Building1_Heretic",
+    "Description": "All Heretics' souls are slowly torn out from their mortal bodies, their beliefs eroded and corrupted. To preserve what's left of their humanity and former power, they utilize Soul Shards. storing fractures of their essence in chaotic patterns, resistant to the perversive nature of the Void. Soul Shards benefit from all effects affecting Mana Gems."
+  },
+  {
+    "Name": "Grim Trophy",
+    "Tier": "0",
+    "Sprite": "Building4_Oni",
+    "Description": "Each Oni has his own collection of trophies, from humans and beasts to demons and abominations. They proudly hang these wherever they go as a display of their dominance and bragging rights. Grim Trophies benefit from all effects affecting Enchanted Trees."
+  },
+  {
+    "Name": "Arcane Anomaly",
+    "Tier": "0",
+    "Sprite": "Building7_Archon",
+    "Description": "Archons' powers constantly shift between different polarities, creating zones where usual laws of spellcasting no longer apply. These anomalies actually benefit the Archon, even further reducing the boundaries of his abilities. Arcane Anomalies benefit from all effects affecting Dimensional Rifts."
+  },
+  {
+    "Name": "Ley Temporal Singleton",
+    "Tier": "0",
+    "Sprite": "Building8_Temporalist",
+    "Description": "A result of combining ley-lines mastery of Prodigies and time-stabilizing constructs of Chronomancers, there structures utilize ley energy to create fields of temporal singularity, which exist across all of the timelines at once. Ley Temporal Singletons benefit from all effects affecting Nexi."
+  },
+  {
+    "Name": "Scorched Earth",
+    "Tier": "0",
+    "Sprite": "Building4_Desolator",
+    "Description": "Desolators convert everything they come across into more fuel for their neverending quest of destruction. A barren wasteland is all that's left after the process is finished. Scorched Earth benefits from all effects affecting Enchanted Trees."
+  }
+]

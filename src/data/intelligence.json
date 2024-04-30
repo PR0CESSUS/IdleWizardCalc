@@ -1,0 +1,26 @@
+[
+  { "Level": "0", "Description": "Increases Mysteries power by #1 (multiplier)", "Target": "Base.SoulPower", "m": "1.025" },
+  { "Level": "25", "Description": "Increases Mysteries power by 2% (additive)", "Target": "Base.SoulPower", "a": "0.02" },
+  { "Level": "50", "Description": "Increases Mysteries power by 2% (additive)", "Target": "Base.SoulPower", "a": "0.02" },
+  { "Level": "75", "Description": "Reduces level requirements by 1", "Target": "Base.LevelReq", "a": "1" },
+  { "Level": "100", "Description": "Increases Mysteries power by 3% (additive)", "Target": "Base.SoulPower", "a": "0.03" },
+  { "Level": "125", "Description": "Increases Mysteries power by 5% (additive)", "Target": "Base.SoulPower", "a": "0.05" },
+  {
+    "Level": "150",
+    "Description": "Increases profits for 0.5% per trained attribute point, total bonus #1",
+    "Target": "Base.AllBuildingsProfit",
+    "m": "0.005",
+    "w": "Char.Seached"
+  },
+  { "Level": "175", "Description": "Increases Mysteries power by 10% (additive)", "Target": "Base.SoulPower", "a": "0.10" },
+  { "Level": "200", "Description": "Increases profits for 1.5% per unlocked achievement, total bonus #1", "Target": "Base.AllBuildingsProfit", "m": "0.015", "w": "Achiev.Count" },
+  { "Level": "225", "Description": "Increases Mysteries power by 10% (additive)", "Target": "Base.SoulPower", "a": "0.10" },
+  {
+    "Level": "250",
+    "Description": "Increases profits by #1, based on amount of bought upgrades",
+    "Target": "Base.AllBuildingsProfit",
+    "a": "0",
+    "m": "0.0065",
+    "w": "Base.TotalUpgrades"
+  }
+]

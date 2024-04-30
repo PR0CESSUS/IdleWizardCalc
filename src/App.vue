@@ -22,8 +22,8 @@ function importSaveFile(event: Event & { target: HTMLInputElement }) {
     const buffer = Uint8Array.from(atob(stringRaw), (c) => c.charCodeAt(0));
 
     decompress(buffer, "gzip").then((result) => {
-      localStorage.setItem("SaveFileData", result);
-      globalThis.Game.GameManager.SaveFile = JSON.parse(result);
+      localStorage.setItem("IdleWizardSaveFileData", result);
+      globalThis.Game.SaveFile = JSON.parse(result);
     });
 
     // window.alert("Save File loaded!");

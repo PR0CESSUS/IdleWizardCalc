@@ -1,3 +1,5 @@
+import { Util } from "@/Util";
+
 export class BigNumber {
   Mantissa: number;
   Exponent: number;
@@ -48,6 +50,79 @@ export class BigNumber {
     if (this.Exponent < 3) return (this.Mantissa * Math.pow(10, this.Exponent)).toFixed(2);
     return this.Mantissa.toFixed(2) + "e" + this.Exponent.toString();
   }
+  ToStringPercent() {
+    // this.Check();
+    if (this.Exponent < 3) return (this.Mantissa * Math.pow(10, this.Exponent) * 100).toFixed(2) + "%";
+    return this.Mantissa.toFixed(2) + "e" + this.Exponent.toString() + "%";
+  }
+
+  ToFloat() {
+    const value = this.Mantissa * Math.pow(10, this.Exponent);
+    return value >= 3.4028234663852886e38 ? 3.4028234663852886e38 : value;
+  }
+
+  ToDouble() {
+    // return  this >=  double.MaxValue ? double.MaxValue : this.Mantissa * Math.Pow(10.0, (double) this.Exponent);
+  }
+
+  Log10() {
+    if (this.Mantissa != 0.0) return this.Exponent + Math.log10(this.Mantissa);
+
+    return 0.0;
+  }
+  ToInt() {
+    const value = this.Mantissa * Math.pow(10, this.Exponent);
+    return value == Infinity ? Number.MAX_VALUE : Math.floor(value);
+  }
+  Pow(x: number) {
+    if (x % 1 === 0) return this.PowInt(x);
+    if (x < 0.0) return BigNumber.Division(new BigNumber(1), this.Pow(-x));
+
+    let y1 = x % 1.0; // reminder
+    let bigNumber2 = new BigNumber(this.Mantissa, this.Exponent).PowInt(Math.floor(x));
+    let num = this.Exponent * y1;
+    let y2 = num % 1.0;
+    bigNumber2.Exponent += Math.ceil(num);
+    bigNumber2.Mantissa *= Math.pow(this.Mantissa, y1);
+    bigNumber2.Mantissa *= Math.pow(10.0, y2);
+    // console.log("float");
+    // console.log("x", x);
+    // console.log("bigNumber2:", bigNumber2);
+    // console.log("num = this.Exponent * y1:", num);
+    // console.log("y1 = x % 1.0:", y1);
+    // console.log("y2 = num % 1.0:", y2);
+    // console.log("bigNumber2.Exponent += Math.ceil(num):", (bigNumber2.Exponent += Math.ceil(num)));
+    // console.log("bigNumber2.Mantissa *= Math.pow(this.Mantissa, y1)", Math.pow(this.Mantissa, y1));
+    // console.log("bigNumber2.Mantissa *= Math.pow(10.0, y2):", Math.pow(10.0, y2));
+    // console.log("final", bigNumber2);
+    return bigNumber2;
+  }
+
+  PowInt(x: number) {
+    let bigNumber1 = new BigNumber(this.Mantissa, this.Exponent);
+    let bigNumber2 = new BigNumber(1.0);
+
+    if (x % 1 === 0) {
+      while (x > 0) {
+        if (x % 2 == 0) {
+          bigNumber1 = BigNumber.Multiplication(bigNumber1, bigNumber1);
+
+          x /= 2;
+        } else {
+          bigNumber2 = BigNumber.Multiplication(bigNumber2, bigNumber1);
+          --x;
+        }
+      }
+      return bigNumber2;
+    }
+  }
+  Log_a(a: number) {
+    return this.Exponent * Math.log10(a) + Util.getBaseLog(this.Mantissa, a);
+  }
+
+  Abs() {
+    return new BigNumber(Math.abs(this.Mantissa), this.Exponent);
+  }
 
   public static Add(num1: BigNumber, num2: BigNumber) {
     if (num1.Exponent == num2.Exponent && (Math.sign(num1.Mantissa) < 0 || Math.sign(num2.Mantissa) < 0) && Math.abs(num1.Mantissa + num2.Mantissa) < 1e-13)
@@ -78,6 +153,10 @@ export class BigNumber {
 
   public static Multiplication(num1: BigNumber, num2: BigNumber) {
     return new BigNumber(num1.Mantissa * num2.Mantissa, num1.Exponent + num2.Exponent);
+  }
+
+  public static Division(num1: BigNumber, num2: BigNumber) {
+    return new BigNumber(num1.Mantissa / num2.Mantissa, num1.Exponent - num2.Exponent);
   }
 
   public static IsEqual(num1: BigNumber, num2: BigNumber) {

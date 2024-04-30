@@ -1,0 +1,3 @@
+interface BigInt {
+  toStringTest: () => void;
+}

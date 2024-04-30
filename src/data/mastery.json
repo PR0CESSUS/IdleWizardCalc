@@ -1,0 +1,13 @@
+[
+  { "Level": "0", "Description": "Increases Character Ability Power by #1", "Target": "Hero.AbilityPower", "m": "1.025" },
+  { "Level": "25", "Description": "Increases Character Ability Power growth rate by #1", "Target": "Hero.APSpeed", "m": "1.25" },
+  { "Level": "50", "Description": "Increases Character experience gained from actions by #1", "Target": "Hero.ExpBoost", "m": "1.50" },
+  { "Level": "75", "Description": "Increases Character experience from sources by #1", "Target": "Hero.ExpMS", "m": "1.15" },
+  { "Level": "100", "Description": "Increases Character Ability Power growth rate by #1", "Target": "Hero.APSpeed", "m": "1.50" },
+  { "Level": "125", "Description": "Reduces Level requirements by 1", "Target": "Base.LevelReq", "a": "1" },
+  { "Level": "150", "Description": "Increases profits by #1, based on Character level", "Target": "Base.AllBuildingsProfit", "m": "0.015", "w": "Hero.Level" },
+  { "Level": "175", "Description": "Increases Character experience from sources by #1", "Target": "Hero.ExpMS", "m": "1.25" },
+  { "Level": "200", "Description": "Increases Character Ability Power by #1, based on achievement points", "Target": "Hero.AbilityPower", "m": "0.00075", "w": "Achiev.Points" },
+  { "Level": "225", "Description": "Increases Character experience from sources by #1", "Target": "Hero.ExpMS", "m": "1.25" },
+  { "Level": "250", "Description": "Increases profits by #1, based on Character level", "Target": "Base.AllBuildingsProfit", "m": "0.03", "w": "Hero.Level" }
+]

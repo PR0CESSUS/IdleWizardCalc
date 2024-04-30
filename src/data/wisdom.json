@@ -1,0 +1,37 @@
+[
+  { "Level": "0", "Description": "Increases passive Spell Shards generation by #1", "Target": "Spell.BaseProgress", "m": "1.025" },
+  { "Level": "25", "Description": "Reduces Spell costs by 10%", "Target": "Spell.CostReduction", "a": "-0.1" },
+  { "Level": "50", "Description": "Increases Spell Shards earned per click by #1", "Target": "Spell.ClickProgress", "m": "1.1" },
+  { "Level": "75", "Description": "Increases Shard Pool efficiency by #1", "Target": "Spell.PoolProgress", "m": "1.1" },
+  { "Level": "100", "Description": "Reduces Spell costs by 10%", "Target": "Spell.CostReduction", "a": "-0.1" },
+  { "Level": "125", "Description": "Increases Shard Pool efficiency by #1", "Target": "Spell.PoolProgress", "m": "1.1" },
+  {
+    "Level": "150",
+    "Description": "Increases profits by #1, based on amount of Spell Shards collected in this Exile",
+    "Target": "Base.AllBuildingsProfit",
+    "a": "1.5",
+    "m": "1.2",
+    "w": "Spell.Shards",
+    "e": "Log10"
+  },
+  { "Level": "175", "Description": "Increases Spell Shards earned per click by #1", "Target": "Spell.ClickProgress", "m": "2" },
+  {
+    "Level": "200",
+    "Description": "Increases incantation efficiency by #1, based on amount of evocation spell casts in this Exile",
+    "Target": "Spell.IncantationEfficiency",
+    "a": "0.15",
+    "m": "1.25",
+    "w": "Spell.EvoCastCount",
+    "e": "Log10"
+  },
+  { "Level": "225", "Description": "Reduces Spell costs by 10%", "Target": "Spell.CostReduction", "a": "-0.1" },
+  {
+    "Level": "250",
+    "Description": "Increases profits by #1, based on passive Spell Shards generation",
+    "Target": "Base.AllBuildingsProfit",
+    "a": "1.25",
+    "m": "1.25",
+    "w": "Spell.BaseProgress",
+    "e": "Log10"
+  }
+]

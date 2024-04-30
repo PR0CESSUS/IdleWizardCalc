@@ -1,0 +1,21 @@
+[
+  { "Level": "0", "Description": "Increases Idle bonus by #1", "Target": "Base.IdleBonus", "m": "1.025" },
+  { "Level": "25", "Description": "Reduces time without clicks before Idle mode activates by 5 sec", "Target": "Base.IdleTime", "a": "-10" },
+  { "Level": "50", "Description": "First #1 clicks while in Idle mode don't reset Idle mode. This ability doesn't replenish", "Target": "Base.IdleSaveClicks", "a": "3" },
+  { "Level": "75", "Description": "Grants 1 autoclick per second", "Target": "Click.Auto", "a": "1" },
+  { "Level": "100", "Description": "Ability to click without resetting Idle mode now replenishes once every minute", "Target": "Base.IdleSaveClicksCD", "a": "1" },
+  { "Level": "125", "Description": "Reduces charging Spells' cost by 10%", "Target": "Spell.NonShardCostReduction", "a": "-0.1" },
+  { "Level": "150", "Description": "Increases profits by #1, based on total amount of sources", "Target": "Base.AllBuildingsProfit", "m": "0.00017", "w": "Base.TotalBuildings" },
+  { "Level": "175", "Description": "Reduces charging Spells' cost by 15%", "Target": "Spell.NonShardCostReduction", "a": "-0.15" },
+  {
+    "Level": "200",
+    "Description": "Increases Idle bonus by #1, based on Idle time in this Exile",
+    "Target": "Base.IdleBonus",
+    "a": "0.00025",
+    "m": "1.6",
+    "w": "Base.IdleTimeSession",
+    "e": "LogA"
+  },
+  { "Level": "225", "Description": "Increases green catalysts power by 25% (additive)", "Target": "Catalysts.GreenBonus", "a": "0.25" },
+  { "Level": "250", "Description": "Increases profits by #1, based on total amount of sources", "Target": "Base.AllBuildingsProfit", "m": "0.000289", "w": "Base.TotalBuildings" }
+]

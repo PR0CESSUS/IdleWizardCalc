@@ -1,10 +1,13 @@
 import { Building } from "./Building";
 import { EffectFactory } from "./EffectFactory";
 import { GameManager } from "./GameManager";
+import { Statistic } from "./Statistic";
+import { Variable } from "./Variable";
 
 export class GameContext {
   public static effect;
   public static resource = {};
+  public static OnChange;
   // public static GenerateEffects() {
   //   GameContext.effect = new Object();
   //   GameContext.effect
@@ -89,14 +92,20 @@ export class GameContext {
     try {
       effect = GameContext.effect[id];
     } catch (error) {
-      console.log(error);
+      console.log("error", id);
     }
     return effect;
   }
 
+  public static ContextAddResource(key: string, variable: Variable) {
+    GameContext.resource[key] = variable;
+    if (GameContext.OnChange == null) return;
+    GameContext.OnChange();
+  }
+
   public static GenerateContext() {
     // GameContext.resource[`Base.Mana`] = GameManager.Instance.Mana;
-    // GameContext.resource[`Base.AllBuildingsProfit`] = GameManager.Instance.Profit;
+    GameContext.resource[`Base.AllBuildingsProfit`] = GameManager.Instance.Profit;
     // GameContext.resource[`Base.PPS`] = GameManager.Instance.PPS;
     // GameContext.resource[`Base.Souls`] = Reborn.Souls;
     // GameContext.resource[`Base.SoulPower`] = Reborn.SoulPower;
@@ -127,14 +136,14 @@ export class GameContext {
     // GameContext.resource[`Base.LevelReq`] = GameManager.Instance.LevelReduction);
     // GameContext.resource[`VoidMana.Value`] = GameManager.Instance.VoidMana;
     GameContext.resource[`VoidMana.Power`] = GameManager.Instance.VoidManaManager.Power;
-    // GameContext.resource[`VoidMana.Decrease`] = GameManager.Instance.VoidManaManager.Decrease;
-    // GameContext.resource[`VoidMana.LifeTime`] = GameManager.Instance.VoidManaManager.VoidCore.BonusLifeTime;
-    // GameContext.resource[`VoidMana.SpawnPeriod`] = GameManager.Instance.VoidManaManager.VoidCore.TimeInterval;
-    // GameContext.resource[`VoidMana.SpawnSpeed`] = GameManager.Instance.VoidManaManager.VoidCore.SpawnSpeed;
+    GameContext.resource[`VoidMana.Decrease`] = GameManager.Instance.VoidManaManager.Decrease;
+    GameContext.resource[`VoidMana.LifeTime`] = GameManager.Instance.VoidManaManager.VoidCore.BonusLifeTime;
+    GameContext.resource[`VoidMana.SpawnPeriod`] = GameManager.Instance.VoidManaManager.VoidCore.TimeInterval;
+    GameContext.resource[`VoidMana.SpawnSpeed`] = GameManager.Instance.VoidManaManager.VoidCore.SpawnSpeed;
     GameContext.resource[`VoidMana.Bonus`] = GameManager.Instance.VoidManaManager.VoidCore.BonusProfit;
     // GameContext.resource[`VoidMana.Total`] = Statistic.VoidManaSession;
     // GameContext.resource[`VoidMana.TotalAllTime`] = Statistic.VoidManaAllTime;
-    // GameContext.resource[`VoidMana.Collect`] = Statistic.ClickableCollect;
+    GameContext.resource[`VoidMana.Collect`] = Statistic.ClickableCollect;
     // GameContext.resource[`VoidMana.CollectRealm`] = Statistic.ClickableCollectRealm;
     // GameContext.resource[`VoidMana.CollectTotal`] = Statistic.ClickableCollectTotal;
     // GameContext.resource[`VoidMana.BuffChance`] = GameManager.Instance.VoidManaManager.VoidCore.BuffOnCollect;
@@ -185,10 +194,45 @@ export class GameContext {
     GameContext.effect["Linear"] = EffectFactory.Create(EffectFactory.Linear, EffectFactory.LinearDelete, EffectFactory.LinearPreview);
     // GameContext.effect['Pow']= EffectFactory.Create(new EffectFactory.effect_action(EffectFactory.Power), new EffectFactory.effect_action(EffectFactory.PowerDelete), new EffectFactory.effect_preview(EffectFactory.PowerPreview)));
     // GameContext.effect['PowA']= EffectFactory.Create(new EffectFactory.effect_action(EffectFactory.PowerA), new EffectFactory.effect_action(EffectFactory.PowerADelete), new EffectFactory.effect_preview(EffectFactory.PowerAPreview)));
-    // GameContext.effect['Log10']= EffectFactory.Create(new EffectFactory.effect_action(EffectFactory.Log10), new EffectFactory.effect_action(EffectFactory.Log10Delete), new EffectFactory.effect_preview(EffectFactory.Log10Preview)));
+    GameContext.effect["Log10"] = EffectFactory.Create(EffectFactory.Log10, EffectFactory.Log10Delete, EffectFactory.Log10Preview);
     // GameContext.effect['Ln']= EffectFactory.Create(new EffectFactory.effect_action(EffectFactory.Ln), new EffectFactory.effect_action(EffectFactory.LnDelete), new EffectFactory.effect_preview(EffectFactory.LnPreview)));
     // GameContext.effect['LogA']= EffectFactory.Create(new EffectFactory.effect_action(EffectFactory.LogA), new EffectFactory.effect_action(EffectFactory.LogADelete), new EffectFactory.effect_preview(EffectFactory.LogAPreview)));
     // GameContext.effect['PowIntW']= EffectFactory.Create(new EffectFactory.effect_action(EffectFactory.PowerIntW), new EffectFactory.effect_action(EffectFactory.PowerIntWDelete), new EffectFactory.effect_preview(EffectFactory.PowerIntWPreview)));
     // GameContext.effect['PowW']= EffectFactory.Create(new EffectFactory.effect_action(EffectFactory.PowerW), new EffectFactory.effect_action(EffectFactory.PowerWDelete), new EffectFactory.effect_preview(EffectFactory.PowerWPreview)));
+  }
+
+  public static AddSpellContext() {
+    GameContext.resource["Spell.SpellCast"] = Statistic.CastSpell;
+    GameContext.resource["Spell.SpellCastRealm"] = Statistic.CastSpellRealm;
+    GameContext.resource["Spell.SpellCastTotal"] = Statistic.CastSpellTotal;
+    GameContext.resource["Spell.Shards"] = Statistic.ShardsSession;
+    GameContext.resource["Spell.ShardsRealm"] = Statistic.ShardsRealm;
+    GameContext.resource["Spell.ShardsTotal"] = Statistic.ShardsTotal;
+    GameContext.resource["Spell.ScrollCount"] = GameManager.Instance.Scrolls.ScrollCount;
+    GameContext.resource["Spell.MaxCharge"] = GameManager.Instance.Scrolls.MaxCharge;
+    GameContext.resource["Spell.BaseProgress"] = GameManager.Instance.Scrolls.ShardsPassive;
+    GameContext.resource["Spell.ClickProgress"] = GameManager.Instance.Scrolls.ShardsPerClick;
+    GameContext.resource["Spell.PoolProgress"] = GameManager.Instance.Scrolls.ShardsPool.Efficiency;
+    GameContext.resource["Spell.PoolCapacity"] = GameManager.Instance.Scrolls.ShardsPool.Capacity;
+    GameContext.resource["Spell.AutoCastCount"] = GameManager.Instance.Scrolls.AutoCastCount;
+    GameContext.resource["Spell.EvocationEfficiency"] = GameManager.Instance.Scrolls.EvocationEfficiency;
+    GameContext.resource["Spell.EvocationDuration"] = GameManager.Instance.Scrolls.EvocationDuration;
+    GameContext.resource["Spell.IncantationEfficiency"] = GameManager.Instance.Scrolls.IncantationEfficiency;
+    GameContext.resource["Spell.IncantationDuration"] = GameManager.Instance.Scrolls.IncantationDuration;
+    GameContext.resource["Spell.SummoningEfficiency"] = GameManager.Instance.Scrolls.SummoningEfficiency;
+    GameContext.resource["Spell.SummoningDuration"] = GameManager.Instance.Scrolls.SummoningDurationReduction;
+    GameContext.resource["Spell.PersistentMult"] = GameManager.Instance.Scrolls.PersistentMult;
+    GameContext.resource["Spell.PersistentActiveMult"] = GameManager.Instance.Scrolls.PersistentActiveMult;
+    GameContext.resource["Spell.PersistentSave"] = GameManager.Instance.Scrolls.PersistentSave;
+    GameContext.resource["Spell.AccumutaledCasts"] = GameManager.Instance.Scrolls.AccumulatedCasts;
+    GameContext.resource["Spell.AccumMult"] = GameManager.Instance.Scrolls.AccumMult;
+    GameContext.resource["Spell.AccumCastCount"] = GameManager.Instance.Scrolls.AccumCastCount;
+    GameContext.resource["Spell.EvoCastCount"] = GameManager.Instance.Scrolls.EvoCastCount;
+    GameContext.resource["Spell.AugmentMult"] = GameManager.Instance.Scrolls.AugmentMult;
+    GameContext.resource["Spell.CastRate"] = GameManager.Instance.Scrolls.CastRate;
+    GameContext.resource["Spell.CostReduction"] = GameManager.Instance.Scrolls.SpellShardsCostReduction;
+    GameContext.resource["Spell.NonShardCostReduction"] = GameManager.Instance.Scrolls.SpellChargingCostReduction;
+    GameContext.resource["Spell.SubcostReduction"] = GameManager.Instance.Scrolls.SpellSubcostReduction;
+    GameContext.resource["Spell.NonShardChargeSpeed"] = GameManager.Instance.Scrolls.SpellChargingSpeed;
   }
 }

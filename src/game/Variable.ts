@@ -5,8 +5,8 @@ export class Variable {
   OnChange;
   OnChangeAdd;
 
-  constructor(value: BigNumber) {
-    if (typeof value == "number") {
+  constructor(value: BigNumber | number | string) {
+    if (typeof value == "number" || typeof value == "string") {
       this._value = new BigNumber(value);
     } else {
       this._value = value;

@@ -1,10 +1,10 @@
 import { createPinia } from "pinia";
 import { createApp } from "vue";
 import App from "./App.vue";
-import { Game } from "./Game";
 import "./css/index.css";
 
 import { createRouter, createWebHashHistory } from "vue-router/auto";
+import { GameManager } from "./game/GameManager";
 import { useGlobalStore } from "./stores/global";
 
 const router = createRouter({
@@ -15,7 +15,7 @@ const pinia = createPinia();
 app.use(router);
 app.use(pinia);
 
-const game = new Game();
+const game = new GameManager();
 
 globalThis.Game = game;
 globalThis.globalStore = useGlobalStore();

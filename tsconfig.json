@@ -33,7 +33,7 @@
       "@type/*": ["./src/type/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "test/**/*.ts", "src/pages/upgrade.vue"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "test/**/*.ts", "src/pages/upgrade.vue", "buildins.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "exclude": ["test/**/*.ts", "build/*.ts"],
   "files": ["global.d.ts", "typed-router.d.ts"]

@@ -52,4 +52,57 @@ export class EffectFactory {
           : a.ToString() + "@" + m.ToString();
     return str;
   }
+
+  public static Log10(v: Variable, a: BigNumber, m: BigNumber, w: Variable, e: Variable = null) {
+    if (e != null) a = BigNumber.Multiplication(a, e.Value);
+    let variable = v;
+    let addendum = new BigNumber(0.0);
+    let bigNumber1 = new BigNumber(1.0);
+    let bigNumber2 = a;
+    let bigNumber3 = BigNumber.Add(w.Value, new BigNumber(1.0));
+    bigNumber3 = new BigNumber(bigNumber3.Log10());
+    let bigNumber4 = bigNumber3.Pow(m.ToFloat());
+    let bigNumber5 = BigNumber.Multiplication(bigNumber2, bigNumber4);
+    let multiplier = BigNumber.Multiplication(bigNumber1, bigNumber5);
+    variable.Change(addendum, multiplier);
+  }
+
+  public static Log10Delete(v: Variable, a: BigNumber, m: BigNumber, w: Variable, e: Variable = null) {
+    if (e != null) a = BigNumber.Multiplication(a, e.Value);
+    let variable = v;
+    let addendum = new BigNumber(0.0);
+    let bigNumber1 = new BigNumber(1.0);
+    let bigNumber2 = new BigNumber(1.0);
+    let bigNumber3 = a;
+    let bigNumber4 = BigNumber.Add(w.Value, new BigNumber(1.0));
+    bigNumber4 = new BigNumber(bigNumber4.Log10());
+    let bigNumber5 = bigNumber4.Pow(m.ToFloat());
+    let bigNumber6 = BigNumber.Multiplication(bigNumber3, bigNumber5);
+    let bigNumber7 = BigNumber.Add(bigNumber2, bigNumber6);
+    let multiplier = BigNumber.Division(bigNumber1, bigNumber7);
+    variable.Change(addendum, multiplier);
+  }
+
+  public static Log10Preview(a: BigNumber, m: BigNumber, w: Variable, e: Variable = null, asnumber = false) {
+    if (e != null) a = BigNumber.Multiplication(a, e.Value);
+    let str;
+    if (!asnumber) {
+      let bigNumber1 = BigNumber.Multiplication(new BigNumber(100), a);
+      let bigNumber2 = BigNumber.Add(w.Value, new BigNumber(1.0));
+      bigNumber2 = new BigNumber(bigNumber2.Log10());
+      let bigNumber3 = bigNumber2.Pow(m.ToFloat());
+      bigNumber2 = BigNumber.Multiplication(bigNumber1, bigNumber3);
+      str = bigNumber2.Abs().ToStringPercent();
+    } else {
+      let bigNumber4 = new BigNumber(1.0);
+      let bigNumber5 = a;
+      let bigNumber6 = BigNumber.Add(w.Value, new BigNumber(1.0));
+      bigNumber6 = new BigNumber(bigNumber6.Log10());
+      let bigNumber7 = bigNumber6.Pow(m.ToFloat());
+      let bigNumber8 = BigNumber.Multiplication(bigNumber5, bigNumber7);
+      bigNumber6 = BigNumber.Add(bigNumber4, bigNumber8);
+      str = "0@" + bigNumber6.ToString();
+    }
+    return str;
+  }
 }

@@ -1,0 +1,37 @@
+[
+  { "Level": "0", "Description": "Increases Void Mana per Entity by #1", "Target": "VoidMana.Bonus", "m": "1.025" },
+  { "Level": "25", "Description": "Increases Void Profits by 12% (additive)", "Target": "VoidMana.Power", "a": "0.12" },
+  { "Level": "50", "Description": "Increases Void Profits by 10% (multiplier)", "Target": "VoidMana.Power", "a": "0", "m": "1.10" },
+  { "Level": "75", "Description": "Increases Void Profits by 15% (additive)", "Target": "VoidMana.Power", "a": "0.15" },
+  { "Level": "100", "Description": "Collecting a Void Entity makes the next one appear #1 seconds sooner", "Target": "VoidMana.DecreaseSpawnOnCollect", "a": "2" },
+  { "Level": "125", "Description": "Reduces Void Mana degeneration by 50%.", "Target": "VoidMana.Decrease", "m": "0.5" },
+  {
+    "Level": "150",
+    "Description": "Increases profits by #1, based on amount of Void Entities collected in this Exile",
+    "Target": "Base.AllBuildingsProfit",
+    "a": ".80",
+    "m": "1",
+    "w": "VoidMana.Collect",
+    "e": "Log10"
+  },
+  { "Level": "175", "Description": "Increases Void Profits by 20% (multiplier)", "Target": "VoidMana.Power", "a": "0", "m": "1.20" },
+  {
+    "Level": "200",
+    "Description": "Increases Void Mana per Entity by #1, based on how long Void Entities remain on Void Traps",
+    "Target": "VoidMana.Bonus",
+    "a": "2.5",
+    "m": "1",
+    "w": "VoidMana.LifeTime",
+    "e": "Log10"
+  },
+  { "Level": "225", "Description": "Increases Void Profits by 20% (multiplier)", "Target": "VoidMana.Power", "a": "0", "m": "1.20" },
+  {
+    "Level": "250",
+    "Description": "Increases Void Mana per Entity by #1, based on how often Void Entities spawn",
+    "Target": "VoidMana.Bonus",
+    "a": "2.5",
+    "m": "1",
+    "w": "VoidMana.SpawnSpeed",
+    "e": "Log10"
+  }
+]

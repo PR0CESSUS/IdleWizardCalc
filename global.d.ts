@@ -1,6 +1,4 @@
-import { Game } from "@/Game";
-import { Enums } from "@/Enums";
+import { GameManager } from "@/game/GameManager";
 declare global {
-  var Game: Game;
-  var Enums: Enums;
+  var Game: GameManager;
 }

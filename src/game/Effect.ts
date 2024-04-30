@@ -3,7 +3,7 @@ import { Variable } from "./Variable";
 
 export class Effect {
   apply: (v: Variable, a: BigNumber, m: BigNumber, w: Variable, e?: Variable) => void;
-  Delete: Function;
+  Delete: (v: Variable, a: BigNumber, m: BigNumber, w: Variable, e?: Variable) => void;
   preview: (a: BigNumber, m: BigNumber, w?: Variable, e?: Variable, asnumber?: boolean) => string;
   constructor(apply, Delete, preview = null) {
     this.apply = apply;

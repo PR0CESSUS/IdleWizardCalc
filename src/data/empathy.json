@@ -1,0 +1,21 @@
+[
+  { "Level": "0", "Description": "Increases Pet Ability Power by #1", "Target": "Pet.AbilityPower", "m": "1.025" },
+  { "Level": "25", "Description": "Increases Pet experience gained by #1", "Target": "Pet.BonusExp", "a": "100" },
+  { "Level": "50", "Description": "Increases Pet experience gained by #1", "Target": "Pet.BonusExp", "m": "1.3" },
+  { "Level": "75", "Description": "Increases Pet Ability charging speed by #1", "Target": "Pet.ChargeAbility", "m": "1.05" },
+  { "Level": "100", "Description": "Increases Pet experience gained by #1", "Target": "Pet.BonusExp", "m": "1.3" },
+  { "Level": "125", "Description": "Increases Pet Ability charging speed by #1", "Target": "Pet.ChargeAbility", "m": "1.1" },
+  { "Level": "150", "Description": "Increases Profits by #1, based on Pet level", "Target": "Base.AllBuildingsProfit", "m": "0.0125", "w": "Pet.Level" },
+  { "Level": "175", "Description": "Increases Pet experience gained by #1", "Target": "Pet.BonusExp", "m": "1.3" },
+  {
+    "Level": "200",
+    "Description": "Increases Pet Ability Power by #1, based on current Pet time",
+    "Target": "Pet.AbilityPower",
+    "a": "0.0005",
+    "m": "1.6",
+    "w": "Pet.Time",
+    "e": "LogA"
+  },
+  { "Level": "225", "Description": "Increases Pet Ability charging speed by #1", "Target": "Pet.ChargeAbility", "m": "1.15" },
+  { "Level": "250", "Description": "Increases profits by #1, based on Pet level", "Target": "Base.AllBuildingsProfit", "m": "0.025", "w": "Pet.Level" }
+]

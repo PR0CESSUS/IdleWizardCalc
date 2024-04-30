@@ -1,0 +1,73 @@
+import { BigNumber } from "./BigNumber";
+import { GameManager } from "./GameManager";
+import { VariableBignumber } from "./VariableBignumber";
+import { VariableInt } from "./VariableInt";
+import { VariableLong } from "./VariableLong";
+
+export class Statistic {
+  // const YEAR = 3.1536E+07;
+  // const TEN_YEARS = 3.1536E+08;
+  public static ManaAllTime = new VariableBignumber(0.0);
+  public static ManaRealm = new VariableBignumber(0.0);
+  public static ManaSession = new VariableBignumber(0.0);
+  public static VoidManaAllTime = new VariableBignumber(0.0);
+  public static VoidManaRealm = new VariableBignumber(0.0);
+  public static VoidManaSession = new VariableBignumber(0.0);
+  public static MaxVoidManaSession = new VariableBignumber(0.0);
+  public static ClicksTotal = new VariableBignumber(0.0);
+  public static ClicksRealm = new VariableBignumber(0.0);
+  public static Clicks = new VariableBignumber(0.0);
+  public static AutoClicksTotal = new VariableBignumber(0.0);
+  public static AutoClicksRealm = new VariableBignumber(0.0);
+  public static AutoClicks = new VariableBignumber(0.0);
+  public static CastSpellTotal = new VariableBignumber(0.0);
+  public static CastSpellRealm = new VariableBignumber(0.0);
+  public static CastSpell = new VariableBignumber(0.0);
+  public static ShardsTotal = new VariableBignumber(0.0);
+  public static ShardsRealm = new VariableBignumber(0.0);
+  public static ShardsSession = new VariableBignumber(0.0);
+  // ClickableCollectTotal = new VariableLong(0UL);
+  // ClickableCollectRealm = new VariableLong(0UL);
+  public static ClickableCollect = new VariableLong(0);
+  // TimeTotal = new VariableLong(0UL);
+  // TimeRealm = new VariableLong(0UL);
+  // TimeSession = new VariableLong(0UL);
+  public static SkipedTimeTotal = new VariableBignumber(0.0);
+  public static SkipedTimeRealm = new VariableBignumber(0.0);
+  public static SkipedTimeSession = new VariableBignumber(0.0);
+  // TimeIdleTotal = new VariableLong(0UL);
+  // TimeIdleRealm = new VariableLong(0UL);
+  // TimeIdleSession = new VariableLong(0UL);
+  // TimeOfflineTotal = new VariableLong(0UL);
+  // TimeOfflineRealm = new VariableLong(0UL);
+  // TimeOfflineSession = new VariableLong(0UL);
+  public static PetMaxLevel = new VariableInt(0);
+  public static PetMaxLevelAllTime = new VariableInt(0);
+  public static HeroMaxLevelAllTime = new VariableInt(0);
+  public static ApprenticeMaxLevelRealm = new VariableInt(0);
+  public static BoughtUpgrades = new VariableInt(0);
+  public static TotalBuildings = new VariableInt(0);
+  public static Ascends = new VariableInt(0);
+  public static AscendsInRealm = new VariableInt(0);
+  public static CTTotal = new VariableBignumber(0.0);
+  public static HCTotal = new VariableBignumber(0.0);
+  public static LSTotal = new VariableBignumber(0.0);
+  public static ClassTime = [];
+  public static ResourcesCollected = new VariableBignumber(0.0);
+  public static ResourcesCollectedRealm = new VariableBignumber(0.0);
+  public static ResourcesCollectedTotal = new VariableBignumber(0.0);
+  public static EnchantingDustExile = new VariableBignumber(0.0);
+  public static ResourcesRealm = [];
+  public static ResourcesTotal = [];
+  public static UnlockedItems = new VariableInt(0);
+  public static UnlockedByTiers = [];
+  public static BatsExile = new VariableInt(0);
+  public static CollectablessExile = new VariableInt(0);
+  public static CollectablesRealm = new VariableInt(0);
+  public static Collectables = new VariableInt(0);
+
+  public static Init() {
+    Statistic.CastSpell.SetValue(new BigNumber(GameManager.Instance.SaveFile.CastSpell.Mantissa, GameManager.Instance.SaveFile.CastSpell.Exponent));
+    Statistic.ClickableCollect.SetValue(new BigNumber(GameManager.Instance.SaveFile.ClickableCollect));
+  }
+}

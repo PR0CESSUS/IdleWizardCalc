@@ -29,6 +29,7 @@ export class Upgrade {
 
   constructor(u: UpgradeFormat) {
     // this.manager = manager;
+
     this.Name = u.Name;
     this.ID = parseInt(u.ID);
     this.base_cost_string = u.Cost;
@@ -67,7 +68,17 @@ export class Upgrade {
       // console.log("this.mult:", this.mult);
       // console.log("this.parameter:", this.parameter);
 
-      this.effect.apply(this.target, this.add, this.mult, this.parameter);
+      try {
+        this.effect.apply(this.target, this.add, this.mult, this.parameter);
+      } catch (error) {
+        console.log("ERROR Upgrade Apply()");
+        console.log("this.target:", this.target);
+        console.log("this.add:", this.add);
+        console.log("this.mult:", this.mult);
+        console.log("this.parameter:", this.parameter);
+        console.log("this.Data", this.Data);
+      }
+
       // if (this.effect_type != EffectUpdateType.Permanent) {
       //   this.prev_parameter = (Variable) new VariableComplex(this.parameter.Value);
       // if (this.effect_type == EffectUpdateType.Parameterized)
