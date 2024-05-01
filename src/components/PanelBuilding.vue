@@ -11,9 +11,7 @@ const game = ref(inject<GameManager>("game"));
   <div v-for="building in game.BuildingManager.Buildings" class="building" @click="building.building.CalculatePps()">
     <div class="div1">
       <AppTooltip>
-        <template #trigger
-          ><img :src="'/building/' + building.Icon + '.png'" height="52" width="64" style="object-fit: scale-down" @mouseenter="building.update_tips()"
-        /></template>
+        <template #trigger><img :src="'building/' + building.Icon + '.png'" height="52" width="64" style="object-fit: scale-down" @mouseenter="building.update_tips()" /></template>
         <template #content
           >&nbsp;
           <div v-html="building.tip_label" style="text-align: left"></div>

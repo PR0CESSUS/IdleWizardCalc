@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 // watch(content, () => console.log("TheLog updated"));
 const sprite = ref<HTMLImageElement>();
-const spritePath = ref("/bat/bat1.png");
+const spritePath = ref("bat/bat1.png");
 const spriteTimer = ref(0);
 
 // const targetX = ref(1500);
@@ -14,7 +14,7 @@ const currentY = ref(-30);
 function changeAnimation() {
   if (spriteTimer.value > 4) spriteTimer.value = 0;
   spriteTimer.value++;
-  spritePath.value = `/bat/bat${spriteTimer.value}.png`;
+  spritePath.value = `bat/bat${spriteTimer.value}.png`;
   //   console.log(sprite.value);
   //   console.log(sprite.value);
 }
