@@ -3,9 +3,11 @@ import { GameContext } from "./GameContext";
 import { GameManager } from "./GameManager";
 import { Hero } from "./Hero";
 import { SimpleEffect } from "./SimpleEffect";
+import { Statistic } from "./Statistic";
+import { StringBuilder } from "./StringBuilder";
 
 export class ArcT2 extends Hero {
-  effect1: SimpleEffect;
+  declare effect1: SimpleEffect;
   bonus_mult: BigNumber;
   effect2: SimpleEffect;
   bonus_mult2: BigNumber;
@@ -48,20 +50,23 @@ export class ArcT2 extends Hero {
     //   this.SpellList.push(Spells.NullZone);
     //   this.SpellList.push(Spells.FireWithFire);
     //   this.SpellList.push(Spells.SyphonPower);
-    this.effect1 = new SimpleEffect();
+    // this.effect1 = new SimpleEffect();
+    this.effect1 = SimpleEffect.SimpleEffect();
     this.effect1.effect = GameContext.GetEffect("Linear");
     this.effect1.target = GameManager.Instance.Profit;
     this.effect1.add = new BigNumber(0);
     this.effect1.mult = new BigNumber(1);
-    this.effect2 = new SimpleEffect();
+    this.effect2 = SimpleEffect.SimpleEffect();
     this.effect2.effect = GameContext.GetEffect("Linear");
     this.effect2.target = GameManager.Instance.Profit;
     this.effect2.add = new BigNumber(0);
     this.effect2.mult = new BigNumber(1);
+    // this.ApplyEffects();
     //   this.doll = GameManager.Instance.Craft.window.doll;
   }
 
   ApplyEffects() {
+    // this.update_effect();
     //   let spell: Spell = GameManager.Instance.SpellBook.GetSpell(Spells.ArcaneInfusion);
     //   spell.Delete();
     //   spell.ResetUsesAll(true);
@@ -78,9 +83,9 @@ export class ArcT2 extends Hero {
     //     GameManager.Instance.CurrentPet.SetPet(PetNames.Assistant);
     //     GameManager.Instance.CurrentPet.Block();
     //   }
-    //   GameManager.Instance.BuildingManager.BuildCreator.SetBuilding(7, "Arcane Anomaly");
-    //   GameManager.Instance.BuildingManager.BuildCreator.SetBuilding(6, "Anti-magic Dome");
-    //   GameManager.Instance.BuildingManager.BuildCreator.SetBuilding(3, "Arcanaspring");
+    GameManager.Instance.BuildingManager.BuildCreator.SetBuilding(7, "Arcane Anomaly");
+    GameManager.Instance.BuildingManager.BuildCreator.SetBuilding(6, "Anti-magic Dome");
+    GameManager.Instance.BuildingManager.BuildCreator.SetBuilding(3, "Arcanaspring");
     //   GameManager.Instance.UpgradeManager.on_buy_upgrade += new Action<Upgrade>(this.CheckAI);
   }
 
@@ -128,12 +133,31 @@ export class ArcT2 extends Hero {
   // }
 
   update_effect() {
-    //   this.bonus_mult = new BigNumber(1) + new BigNumber(0)00750000006519258 * (Statistic.CastSpell.Value * GameManager.Instance.CurrentHero.APSpeed.Value / (BigNumber) 10000.0 + new BigNumber(1)) * this.GetBonusMult().Pow(0.5);
-    //   this.effect1.mult = this.bonus_mult;
-    //   this.effect1.Update();
-    //   this.bonus_mult2 = new BigNumber(1) + (BigNumber) 4.9999998736893758E-06 * (Statistic.ShardsSession.Value * GameManager.Instance.CurrentHero.APSpeed.Value / (BigNumber) 100000000.0 + new BigNumber(1)).Pow(0.85) * this.GetBonusMult().Pow(0.5);
-    //   this.effect2.mult = this.bonus_mult2;
-    //   this.effect2.Update();
+    this.bonus_mult = BigNumber.Add(
+      1,
+      BigNumber.Multiplication(
+        0.000750000006519258,
+        BigNumber.Multiplication(
+          BigNumber.Add(BigNumber.Division(BigNumber.Multiplication(Statistic.CastSpell.Value, GameManager.Instance.CurrentHero.APSpeed.Value), 10000.0), 1),
+          this.GetBonusMult().Pow(0.5)
+        )
+      )
+    );
+    this.effect1.mult = this.bonus_mult;
+    this.effect1.Update();
+
+    this.bonus_mult2 = BigNumber.Add(
+      1,
+      BigNumber.Multiplication(
+        4.9999998736893758e-6,
+        BigNumber.Multiplication(
+          BigNumber.Add(BigNumber.Division(BigNumber.Multiplication(Statistic.ShardsSession.Value, GameManager.Instance.CurrentHero.APSpeed.Value), 100000000.0), 1).Pow(0.85),
+          this.GetBonusMult().Pow(0.5)
+        )
+      )
+    );
+    this.effect2.mult = this.bonus_mult2;
+    this.effect2.Update();
   }
 
   // recalculate_bonus() {
@@ -145,4 +169,17 @@ export class ArcT2 extends Hero {
   //   }
   //   GameManager.Instance.CurrentHero.ClassBonusStacks.SetValue((BigNumber) num);
   // }
+
+  Tips_text() {
+    let stringBuilder = new StringBuilder();
+    stringBuilder.Append(super.Tips_text());
+    stringBuilder.Append("Increase profits by ");
+    stringBuilder.Append(this.bonus_mult);
+    stringBuilder.AppendLine(". Increases with spells cast.");
+    stringBuilder.Append("Increase profits by ");
+    stringBuilder.Append(this.bonus_mult2);
+    stringBuilder.AppendLine(". Increases with collected spell shards.");
+    stringBuilder.Append(this.AdditionalDescription());
+    return stringBuilder.ToString();
+  }
 }

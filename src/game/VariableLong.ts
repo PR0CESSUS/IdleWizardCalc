@@ -1,19 +1,22 @@
+import { BigNumberSaveFile } from "@/type/BigNumberSaveFile";
 import { BigNumber } from "./BigNumber";
 import { Variable } from "./Variable";
 
 export class VariableLong extends Variable {
-  constructor(v: number) {
-    super(new BigNumber(v));
+  constructor(v: BigNumber | number | string | BigNumberSaveFile) {
+    super(v);
   }
 
-  get uValueInt() {
+  get ValueInt() {
+    console.log("s", this._value);
     return this._value.ToInt();
   }
-  set uValueInt(value: number) {
+  set ValueInt(value: number) {
     this._value = new BigNumber(value);
   }
 
-  SetValue(v) {
+  SetValue(v: BigNumber | number) {
+    if (typeof v == "number") v = new BigNumber(v);
     this._value = v;
     if (this.OnChange == null) return;
     this.OnChange();

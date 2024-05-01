@@ -1,4 +1,3 @@
-import { BigNumber } from "./BigNumber";
 import { GameManager } from "./GameManager";
 import { VariableBignumber } from "./VariableBignumber";
 import { VariableInt } from "./VariableInt";
@@ -26,21 +25,21 @@ export class Statistic {
   public static ShardsTotal = new VariableBignumber(0.0);
   public static ShardsRealm = new VariableBignumber(0.0);
   public static ShardsSession = new VariableBignumber(0.0);
-  // ClickableCollectTotal = new VariableLong(0UL);
-  // ClickableCollectRealm = new VariableLong(0UL);
+  public static ClickableCollectTotal = new VariableLong(0);
+  public static ClickableCollectRealm = new VariableLong(0);
   public static ClickableCollect = new VariableLong(0);
-  // TimeTotal = new VariableLong(0UL);
-  // TimeRealm = new VariableLong(0UL);
-  // TimeSession = new VariableLong(0UL);
+  public static TimeTotal = new VariableLong(0);
+  public static TimeRealm = new VariableLong(0);
+  public static TimeSession = new VariableLong(0);
   public static SkipedTimeTotal = new VariableBignumber(0.0);
   public static SkipedTimeRealm = new VariableBignumber(0.0);
   public static SkipedTimeSession = new VariableBignumber(0.0);
-  // TimeIdleTotal = new VariableLong(0UL);
-  // TimeIdleRealm = new VariableLong(0UL);
-  // TimeIdleSession = new VariableLong(0UL);
-  // TimeOfflineTotal = new VariableLong(0UL);
-  // TimeOfflineRealm = new VariableLong(0UL);
-  // TimeOfflineSession = new VariableLong(0UL);
+  public static TimeIdleTotal = new VariableLong(0);
+  public static TimeIdleRealm = new VariableLong(0);
+  public static TimeIdleSession = new VariableLong(0);
+  public static TimeOfflineTotal = new VariableLong(0);
+  public static TimeOfflineRealm = new VariableLong(0);
+  public static TimeOfflineSession = new VariableLong(0);
   public static PetMaxLevel = new VariableInt(0);
   public static PetMaxLevelAllTime = new VariableInt(0);
   public static HeroMaxLevelAllTime = new VariableInt(0);
@@ -67,7 +66,12 @@ export class Statistic {
   public static Collectables = new VariableInt(0);
 
   public static Init() {
-    Statistic.CastSpell.SetValue(new BigNumber(GameManager.Instance.SaveFile.CastSpell.Mantissa, GameManager.Instance.SaveFile.CastSpell.Exponent));
-    Statistic.ClickableCollect.SetValue(new BigNumber(GameManager.Instance.SaveFile.ClickableCollect));
+    Statistic.CastSpell.SetValue(GameManager.Instance.SaveFile.CastSpell);
+    Statistic.ShardsRealm.SetValue(GameManager.Instance.SaveFile.ShardsRealm);
+    Statistic.ShardsSession.SetValue(GameManager.Instance.SaveFile.ShardsSession);
+    Statistic.ShardsTotal.SetValue(GameManager.Instance.SaveFile.ShardsTotal);
+    Statistic.ClickableCollect.SetValue(GameManager.Instance.SaveFile.ClickableCollect);
+    Statistic.TotalBuildings.SetValue(GameManager.Instance.SaveFile.TotalBuildings);
+    Statistic.UnlockedItems.SetValue(GameManager.Instance.SaveFile.Craft.Items.length);
   }
 }

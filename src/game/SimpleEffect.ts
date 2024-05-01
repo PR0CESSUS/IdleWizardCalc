@@ -68,12 +68,12 @@ export class SimpleEffect extends EffectDiminishing {
   Apply() {
     if (this.applied) return;
     if (this.target == null) {
-      // Debug.Log((object) "target is null");
-      // Debug.Log((object) this.add);
-      // Debug.Log((object) this.mult);
-      // Debug.Log((object) this.parameter);
+      console.log("target is null");
+      console.log(this.add);
+      console.log(this.mult);
+      console.log(this.parameter);
       if (this.parameter == null) return;
-      // Debug.Log((object) this.parameter.Value);
+      // console.log(this.parameter.Value);
     } else {
       if (this.parameter != null) {
         if (this.prev_w == null) this.prev_w = new VariableBignumber(this.parameter.Value);
@@ -81,10 +81,10 @@ export class SimpleEffect extends EffectDiminishing {
       }
       this.applied_add = this.add;
       this.applied_mult = this.mult;
+      // console.log("chyba tu");
       this.RecalculateEff();
-      if (this.effect == null)
-        //   Debug.Log((object) "effect null");
-        this.effect.apply(this.target, this.applied_add, this.applied_mult, this.parameter, this.prev_e);
+      if (this.effect == null) console.log("effect null");
+      this.effect.apply(this.target, this.applied_add, this.applied_mult, this.parameter, this.prev_e);
       this.applied = true;
     }
   }
@@ -128,42 +128,44 @@ export class SimpleEffect extends EffectDiminishing {
   //   return this.effect.preview(this.add, this.mult, parameter, this.preview_eff);
   // }
 
-  // Preview(key = "") {
-  //   let str = string.Empty;
-  //   this.GetEfficiency();
-  //   switch (key) {
-  //     case "":
-  //       str = this.effect.preview(this.add, this.mult, this.parameter,  this.preview_eff);
-  //       break;
-  //     case "t":
-  //       str = ((this.mult * this.preview_eff.Value -  1.0) *  100.0).ToReadableString() + "%";
-  //       break;
-  //     case "k":
-  //       str = (new BigNumber(this.effect.preview(this.add, this.mult, this.parameter, (Variable) this.preview_eff, true).Split('@', StringSplitOptions.None)[0]) * (BigNumber) 100.0).ToReadableString() + "%";
-  //       break;
-  //     case "q":
-  //       string[] strArray1 = this.effect.preview(this.add, this.mult, this.parameter, (Variable) this.preview_eff, true).Split("@", StringSplitOptions.None);
-  //       bigNumber: BigNumber = (BigNumber) strArray1[0];
-  //       str = !(bigNumber >= (BigNumber) 1.0) ? (((BigNumber) strArray1[1] - (BigNumber) 1.0) * (BigNumber) 100.0).ToReadableString() + "%" : ((bigNumber - (BigNumber) 1.0) * (BigNumber) 100.0).ToReadableString() + "%";
-  //       break;
-  //     case "%":
-  //       str = !(this.add != (BigNumber) 0.0) ? this.effect.preview(this.add, this.mult, this.parameter, (Variable) this.preview_eff) : (!(this.add < (BigNumber) 0.0) ? (this.add * (BigNumber) 100.0).ToReadableString() + "%" : (this.add * (BigNumber) 100.0).Abs().ToReadableString() + "%");
-  //       break;
-  //     case "@":
-  //       str = !(this.mult < (BigNumber) 1.0) ? ((this.mult - (BigNumber) 1.0) * (BigNumber) 100.0).ToReadableString() + "%" : (((BigNumber) 1.0 - this.mult) * (BigNumber) 100.0).ToReadableString() + "%";
-  //       break;
-  //     case "e":
-  //       return ((this.preview_eff.Value - (BigNumber) 1.0) * (BigNumber) 100.0).ToReadableString() + "%";
-  //     default:
-  //       string[] strArray2 = this.effect.preview(this.add, this.mult, this.parameter, (Variable) this.preview_eff, true).Split('@', StringSplitOptions.None);
-  //       if (key == "a")
-  //         str = new BigNumber(strArray2[0]).ToReadableString();
-  //       if (key == "m") {
-  //         str = ((new BigNumber(strArray2[1]) - (BigNumber) 1.0) * (BigNumber) 100.0).ToReadableString();
-  //         break;
-  //       }
-  //       break;
-  //   }
-  //   str: return;
-  // }
+  Preview(key = "") {
+    let str = "";
+    this.GetEfficiency();
+    switch (key) {
+      case "":
+        str = this.effect.preview(this.add, this.mult, this.parameter, this.preview_eff);
+        break;
+      // case "t":
+      //   str = BigNumber.Multiplication(BigNumber.Subtract(BigNumber.Multiplication(this.mult, this.preview_eff.Value), 1), 100).ToStringPercent();
+      //   break;
+      // case "k":
+      //   str = (new BigNumber(this.effect.preview(this.add, this.mult, this.parameter, (Variable) this.preview_eff, true).Split('@', StringSplitOptions.None)[0]) * new BigNumber(100)).ToReadableString() + "%";
+      //   break;
+      // case "q":
+      //   let strArray1 = this.effect.preview(this.add, this.mult, this.parameter, (Variable) this.preview_eff, true).Split("@", StringSplitOptions.None);
+      //   let bigNumber = strArray1[0];
+      //   str = !(bigNumber >= new BigNumber(1)) ? (((BigNumber) strArray1[1] - new BigNumber(1)) * new BigNumber(100)).ToReadableString() + "%" : ((bigNumber - new BigNumber(1)) * new BigNumber(100)).ToReadableString() + "%";
+      //   break;
+      // case "%":
+      //   str = !(this.add != (BigNumber) 0.0) ? this.effect.preview(this.add, this.mult, this.parameter, (Variable) this.preview_eff) : (!(this.add < (BigNumber) 0.0) ? (this.add * new BigNumber(100)).ToReadableString() + "%" : (this.add * new BigNumber(100)).Abs().ToReadableString() + "%");
+      //   break;
+      // case "@":
+      //   str = !(this.mult < new BigNumber(1)) ? ((this.mult - new BigNumber(1)) * new BigNumber(100)).ToReadableString() + "%" : ((new BigNumber(1) - this.mult) * new BigNumber(100)).ToReadableString() + "%";
+      //   break;
+      // case "e":
+      //   return ((this.preview_eff.Value - new BigNumber(1)) * new BigNumber(100)).ToReadableString() + "%";
+      default:
+        // string[] strArray2 = this.effect.preview(this.add, this.mult, this.parameter, (Variable) this.preview_eff, true).Split('@', StringSplitOptions.None);
+        // if (key == "a")
+        //   str = new BigNumber(strArray2[0]).ToReadableString();
+        // if (key == "m") {
+        //   str = ((new BigNumber(strArray2[1]) - new BigNumber(1)) * new BigNumber(100)).ToReadableString();
+        //   break;
+        // }
+        break;
+    }
+    console.log(str);
+
+    return str;
+  }
 }

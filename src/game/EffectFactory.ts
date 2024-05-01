@@ -20,16 +20,16 @@ export class EffectFactory {
     else v.Change(BigNumber.Multiplication(a, w.Value), BigNumber.Add(new BigNumber(1.0), BigNumber.Multiplication(m, w.Value)));
   }
 
-  public static LinearDelete(v: Variable, a, m, w: Variable, e: Variable = null) {
-    // if (e != null) {
-    //   if (m == 1.0 || m == 0.0) a *= e.Value;
-    //   else m *= e.Value;
-    // }
-    // if (w == null) {
-    //   if (m == 0.0) console.log("/0 v= " + v + v.Value);
-    //   else v.Change(-a, 1.0 / m);
-    // } else if (1.0 + m * w.Value == 0.0) console.log("ayayaayaya");
-    // else v.Change(-a * w.Value, 1.0 / (1.0 + m * w.Value));
+  public static LinearDelete(v: Variable, a: BigNumber, m: BigNumber, w: Variable, e: Variable = null) {
+    if (e != null) {
+      if (m.ToFloat() == 1.0 || m.ToFloat() == 0.0) a = BigNumber.Multiplication(a, e.Value);
+      else m = BigNumber.Multiplication(m, e.Value);
+    }
+    if (w == null) {
+      if (m.ToFloat() == 0.0) console.log("/0 v= " + v + v.Value);
+      else v.Change(a.Negative(), BigNumber.Division(new BigNumber(1), m));
+    } //else if (1.0 + m * w.Value == 0.0) console.log("ayayaayaya");
+    else v.Change(BigNumber.Multiplication(a.Negative(), w.Value), BigNumber.Division(new BigNumber(1), BigNumber.Add(new BigNumber(1), BigNumber.Multiplication(m, w.Value))));
   }
 
   public static LinearPreview(a: BigNumber, m: BigNumber, w: Variable = null, e: Variable = null, asnumber: boolean = false) {
@@ -39,12 +39,10 @@ export class EffectFactory {
     }
     let str = "";
     if (!asnumber) {
-      //   if (!BigNumber.IsEqual(a, new BigNumber(0)))
-      //     str = w != null ? str + BigNumber.Multiplication(a, w.Value).ToReadableString("F0") : str + a.ToReadableString("F0");
-      //   if (m != 1.0 && w == null || m != 0.0 && w != null)
-      //     str = w != null ? str + (m * w.Value * 100.0).ToReadableString() + "%" : str + ((m - 1.0) * 100.0).ToReadableString() + "%";
-      //   if (a == 0.0 && m == 1.0)
-      //     str = str + 0.ToString() + "%";
+      if (!BigNumber.IsEqual(a, 0)) str = w != null ? str + BigNumber.Multiplication(a, w.Value).ToString() : str + a.ToString();
+      if ((!BigNumber.IsEqual(m, 1) && w == null) || (!BigNumber.IsEqual(m, 0) && w != null))
+        str = w != null ? str + BigNumber.Multiplication(m, w.Value).ToStringPercent() : str + BigNumber.Multiplication(BigNumber.Subtract(m, 1), 100).ToStringPercent();
+      if (BigNumber.IsEqual(a, 0) && BigNumber.IsEqual(m, 1)) str = str + "0%";
     } else
       str =
         w != null
@@ -102,6 +100,66 @@ export class EffectFactory {
       let bigNumber8 = BigNumber.Multiplication(bigNumber5, bigNumber7);
       bigNumber6 = BigNumber.Add(bigNumber4, bigNumber8);
       str = "0@" + bigNumber6.ToString();
+    }
+    return str;
+  }
+
+  public static PowerA(v: Variable, a: BigNumber, m: BigNumber, w: Variable, e: Variable = null) {
+    if (e != null) a = BigNumber.Multiplication(a, e.Value);
+    v.Change(0, BigNumber.Add(1, BigNumber.Multiplication(a, BigNumber.Add(w.Value, 1.0).Pow(m.ToFloat()))));
+  }
+
+  public static PowerADelete(v: Variable, a: BigNumber, m: BigNumber, w: Variable, e: Variable = null) {
+    if (e != null) a = BigNumber.Multiplication(a, e.Value);
+    v.Change(0.0, BigNumber.Division(1, BigNumber.Add(1, BigNumber.Multiplication(a, BigNumber.Add(w.Value, 1.0).Pow(m.ToFloat())))));
+  }
+
+  public static PowerAPreview(a: BigNumber, m: BigNumber, w: Variable, e: Variable = null, asnumber = false) {
+    if (e != null) a = BigNumber.Multiplication(a, e.Value);
+    let str;
+    if (!asnumber) {
+      // str = (100.0 * a * (w.Value +  1.0).Pow(m.ToDouble())).ToReadableString() + "%";
+      str = "niby procent";
+    } else {
+      let bigNumber1 = new BigNumber(1);
+      let bigNumber2 = a;
+      let bigNumber3 = BigNumber.Add(w.Value, 1.0);
+      let bigNumber4 = bigNumber3.Pow(m.ToDouble());
+      let bigNumber5 = BigNumber.Multiplication(bigNumber2, bigNumber4);
+      bigNumber3 = BigNumber.Add(bigNumber1, bigNumber5);
+      str = "0@" + bigNumber3.ToString();
+    }
+    return str;
+  }
+
+  public static Power(v: Variable, a: BigNumber, m: BigNumber, w: Variable, e: Variable = null) {
+    let bigNumber = new BigNumber(1);
+    if (e != null) bigNumber = BigNumber.Multiplication(bigNumber, e.Value);
+
+    v.Change(0.0, BigNumber.Add(1, BigNumber.Multiplication(bigNumber, BigNumber.Multiplication(a, BigNumber.Add(w.Value, 1.0)).Pow(m.ToDouble()))));
+  }
+
+  public static PowerDelete(v: Variable, a: BigNumber, m: BigNumber, w: Variable, e: Variable = null) {
+    let bigNumber = new BigNumber(1);
+    if (e != null) bigNumber = BigNumber.Multiplication(bigNumber, e.Value);
+    v.Change(0.0, BigNumber.Division(1, BigNumber.Add(1, BigNumber.Multiplication(bigNumber, BigNumber.Multiplication(a, BigNumber.Add(w.Value, 1.0)).Pow(m.ToDouble())))));
+  }
+
+  public static PowerPreview(a: BigNumber, m: BigNumber, w: Variable, e: Variable = null, asnumber = false) {
+    let bigNumber1 = new BigNumber(1);
+    if (e != null) bigNumber1 = BigNumber.Multiplication(bigNumber1, e.Value);
+    let str;
+    if (!asnumber) {
+      // str = (100.0 * bigNumber1 * (a * (w.Value + 1.0)).Pow(m.ToDouble())).ToReadableString() + "%";
+      str = "ni chuja";
+    } else {
+      let bigNumber2 = 1.0;
+      let bigNumber3 = bigNumber1;
+      let bigNumber4 = BigNumber.Multiplication(a, BigNumber.Add(w.Value, 1.0));
+      let bigNumber5 = bigNumber4.Pow(m.ToDouble());
+      let bigNumber6 = BigNumber.Multiplication(bigNumber3, bigNumber5);
+      bigNumber4 = BigNumber.Add(bigNumber2, bigNumber6);
+      str = "0@" + bigNumber4.ToString();
     }
     return str;
   }

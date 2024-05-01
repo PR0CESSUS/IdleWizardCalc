@@ -7,7 +7,7 @@ export class SpellShards {
   Efficiency: VariableComplex;
   // Average: CounterAverageBigNumber;
 
-  SpellShards() {
+  constructor() {
     this.Capacity = new VariableComplex("1e3");
     this.Efficiency = new VariableComplex(new BigNumber(1));
     //   this.Average = new CounterAverageBigNumber();

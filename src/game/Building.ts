@@ -1,3 +1,4 @@
+import { SourceType } from "@/type/SourceType";
 import { BigNumber } from "./BigNumber";
 import { Buyable } from "./Buyable";
 import { GameContext } from "./GameContext";
@@ -14,10 +15,10 @@ export class Building extends Buyable {
   cost_current = new BigNumber(0);
   base_cost_growth = 1.1;
   Tier;
-  ACatalyst;
-  MCatalyst;
-  RCatalyst;
-  Name;
+  ACatalyst: number = 0;
+  MCatalyst: number = 0;
+  RCatalyst: number = 0;
+  Name: string;
   base_pps: string;
   pps_per_building: VariableComplex;
   Pps: VariableComplex;
@@ -29,19 +30,27 @@ export class Building extends Buyable {
   oldTempRed;
   redIsOff;
   Description = "";
+  spec;
 
   // BuildingSpecBase spec { get; set; }
 
   // BigNumber cost_one => this.cost_growth.Value.Pow(this.Level.ValueInt) * this.base_cost.Value;
 
   Init() {
-    this.Level = new VariableInt(0);
+    this.Level = new VariableInt(GameManager.Instance.SaveFile.BuildingLevels[this.Tier - 1]);
     this.TemporalyLevel = new VariableInt(0);
     this.TotalLevel = new VariableInt(0);
     this.pps_per_building = new VariableComplex(this.base_pps);
     this.Pps = new VariableComplex(0.0);
     this.base_cost = new VariableComplex(this.base_cost_string);
     this.cost_growth = new VariableComplex(this.base_cost_growth);
+
+    try {
+      this.ACatalyst = GameManager.Instance.SaveFile.Catalysts.Catalysts[this.Tier - 1].a;
+      this.MCatalyst = GameManager.Instance.SaveFile.Catalysts.Catalysts[this.Tier - 1].m;
+      this.RCatalyst = GameManager.Instance.SaveFile.Catalysts.Catalysts[this.Tier - 1].r;
+    } catch (error) {}
+
     // VariableInt level = this.Level;
     // level.OnChange = level.OnChange + new Action(this.recalculateTotalLevel);
     // VariableInt temporalyLevel = this.TemporalyLevel;
@@ -133,21 +142,35 @@ export class Building extends Buyable {
   }
 
   get GetBasePPS() {
-    // if (this.pps_per_building != null && GameManager.Instance.Profit != null)
-    //   return GameManager.Instance.Profit.ApplyModOnVar(this.pps_per_building.Value) * this.pps_multiplicator * (1.0 + this.ACatalyst * this.GetGreenCataPower()) * (1.0 + GameManager.Instance.BuildingManager.CatalystMultPower.Value).Pow(this.MCatalyst);
-    // Debug.LogError((object) ("PPS is null " + this.Tier.ToString()));
-    return 0.0;
+    if (this.pps_per_building != null && GameManager.Instance.Profit != null)
+      return BigNumber.Multiplication(
+        BigNumber.Multiplication(GameManager.Instance.Profit.ApplyModOnVar(this.pps_per_building.Value), this.pps_multiplicator),
+        BigNumber.Multiplication(
+          BigNumber.Add(1, BigNumber.Multiplication(this.ACatalyst, this.GetGreenCataPower())),
+          BigNumber.Add(1, GameManager.Instance.BuildingManager.CatalystMultPower.Value).Pow(this.MCatalyst)
+        )
+      );
+
+    console.log("PPS is null " + this.Tier.ToString());
+    return new BigNumber(0);
   }
 
   GetGreenCataPower() {
-    // BigNumber greenCataPower = GameManager.Instance.BuildingManager.CatalystAddPower.Value;
-    // if (GameManager.Instance.BuildingManager.CatalystAddPowerScale.ValueFloat > 1.0)
-    //   greenCataPower *= 1.0 + this.ACatalyst * (GameManager.Instance.BuildingManager.CatalystAddPowerScale.Value - 1.0);
-    // greenCataPower: return;
+    let greenCataPower = GameManager.Instance.BuildingManager.CatalystAddPower.Value;
+    if (GameManager.Instance.BuildingManager.CatalystAddPowerScale.ValueFloat > 1.0)
+      greenCataPower = BigNumber.Multiplication(
+        greenCataPower,
+        BigNumber.Add(1, BigNumber.Multiplication(this.ACatalyst, BigNumber.Subtract(GameManager.Instance.BuildingManager.CatalystAddPowerScale.Value, 1)))
+      );
+
+    return greenCataPower;
   }
 
   CalculatePps() {
-    return this.Pps.SetValue(this.TotalLevel.ValueInt * this.GetBasePPS);
+    this.recalculateTotalLevel();
+    console.log("CalculatePps", this.TotalLevel.ValueInt, this.GetBasePPS, this);
+
+    return this.Pps.SetValue(BigNumber.Multiplication(this.TotalLevel.ValueInt, this.GetBasePPS));
   }
 
   OnBuy() {
@@ -157,7 +180,7 @@ export class Building extends Buyable {
   }
 
   recalculateTotalLevel() {
-    // this.TotalLevel.SetValue(this.Level.ValueInt + this.TemporalyLevel.ValueInt);
+    this.TotalLevel.SetValue(this.Level.ValueInt + this.TemporalyLevel.ValueInt);
     // this.recalculate_pps_multiplier();
   }
 
@@ -183,8 +206,6 @@ export class Building extends Buyable {
     // this.NextGoal = GameManager.Instance.BuildingLeveling[length - 2].level + GameManager.Instance.BuildingLeveling[length - 1].level * (1 + x);
     // this.NextGoalBonus = GameManager.Instance.BuildingLeveling[length - 1].increace;
   }
-
-  // IsEnableGoals() {return this.spec == null || this.spec.Key == BuildingGilding.SourceType.Production;}
 
   //  getCostCurrent() => this.getCostFor(this.Level.ValueInt);
 
@@ -229,4 +250,8 @@ export class Building extends Buyable {
   // GetAmountAvailable() {return this.GetAmountAvailable(GameManager.Instance.Mana.Value);}
 
   // GetAmountAvailable( mana) {return (1.0 - (1.0 - this.cost_growth.Value) * mana / this.cost_current).Log_a(this.cost_growth.Value.ToDouble());}
+
+  IsEnableGoals() {
+    return this.spec == null || this.spec.Key == SourceType.Production;
+  }
 }

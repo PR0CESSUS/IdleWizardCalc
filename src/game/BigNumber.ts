@@ -20,10 +20,21 @@ export class BigNumber {
       } else if (typeof arguments[0] == "number") {
         this.Mantissa = arguments[0];
         this.Exponent = 0;
+      } else if (typeof arguments[0] == "object") {
+        this.Mantissa = arguments[0].Mantissa;
+        this.Exponent = arguments[0].Exponent;
       }
     }
 
     this.Check();
+  }
+
+  get ValueFloat() {
+    return this.ToFloat();
+  }
+
+  Add(num: BigNumber | number) {
+    return BigNumber.Add(this, num);
   }
 
   Check() {
@@ -41,11 +52,11 @@ export class BigNumber {
     }
   }
 
-  ToReadableString() {
-    return "string";
+  ToReadableString(type: string = "") {
+    return this.ToString();
   }
 
-  ToString() {
+  ToString(str: string = "") {
     // this.Check();
     if (this.Exponent < 3) return (this.Mantissa * Math.pow(10, this.Exponent)).toFixed(2);
     return this.Mantissa.toFixed(2) + "e" + this.Exponent.toString();
@@ -61,8 +72,12 @@ export class BigNumber {
     return value >= 3.4028234663852886e38 ? 3.4028234663852886e38 : value;
   }
 
+  Negative() {
+    return new BigNumber(-this.Mantissa, this.Exponent);
+  }
+
   ToDouble() {
-    // return  this >=  double.MaxValue ? double.MaxValue : this.Mantissa * Math.Pow(10.0, (double) this.Exponent);
+    return this.ToFloat();
   }
 
   Log10() {
@@ -74,7 +89,7 @@ export class BigNumber {
     const value = this.Mantissa * Math.pow(10, this.Exponent);
     return value == Infinity ? Number.MAX_VALUE : Math.floor(value);
   }
-  Pow(x: number) {
+  Pow(x: number): BigNumber {
     if (x % 1 === 0) return this.PowInt(x);
     if (x < 0.0) return BigNumber.Division(new BigNumber(1), this.Pow(-x));
 
@@ -124,7 +139,13 @@ export class BigNumber {
     return new BigNumber(Math.abs(this.Mantissa), this.Exponent);
   }
 
-  public static Add(num1: BigNumber, num2: BigNumber) {
+  Ln() {
+    return this.Exponent * Math.log(10.0) + Math.log(this.Mantissa);
+  }
+
+  public static Add(num1: BigNumber | number, num2: BigNumber | number) {
+    if (typeof num1 == "number") num1 = new BigNumber(num1);
+    if (typeof num2 == "number") num2 = new BigNumber(num2);
     if (num1.Exponent == num2.Exponent && (Math.sign(num1.Mantissa) < 0 || Math.sign(num2.Mantissa) < 0) && Math.abs(num1.Mantissa + num2.Mantissa) < 1e-13)
       return new BigNumber(0, 1);
     if (Math.abs(Math.abs(num1.Exponent - num2.Exponent)) > 14) return num1.Exponent > num2.Exponent ? num1 : num2;
@@ -151,18 +172,27 @@ export class BigNumber {
     return new BigNumber(mantissa1 + mantissa2, exponent);
   }
 
-  public static Multiplication(num1: BigNumber, num2: BigNumber) {
+  public static Multiplication(num1: BigNumber | number, num2: BigNumber | number) {
+    if (typeof num1 == "number") num1 = new BigNumber(num1);
+    if (typeof num2 == "number") num2 = new BigNumber(num2);
     return new BigNumber(num1.Mantissa * num2.Mantissa, num1.Exponent + num2.Exponent);
   }
 
-  public static Division(num1: BigNumber, num2: BigNumber) {
+  public static Division(num1: BigNumber | number, num2: BigNumber | number) {
+    if (typeof num1 == "number") num1 = new BigNumber(num1);
+    if (typeof num2 == "number") num2 = new BigNumber(num2);
     return new BigNumber(num1.Mantissa / num2.Mantissa, num1.Exponent - num2.Exponent);
   }
 
-  public static IsEqual(num1: BigNumber, num2: BigNumber) {
+  public static IsEqual(num1: BigNumber | number, num2: BigNumber | number) {
+    if (typeof num1 == "number") num1 = new BigNumber(num1);
+    if (typeof num2 == "number") num2 = new BigNumber(num2);
     return Math.abs(num1.Mantissa - num2.Mantissa) < 1e-14 && num1.Exponent == num2.Exponent;
   }
-  public static Subtract(num1: BigNumber, num2: BigNumber) {
+  public static Subtract(num1: BigNumber | number, num2: BigNumber | number) {
+    if (typeof num1 == "number") num1 = new BigNumber(num1);
+    if (typeof num2 == "number") num2 = new BigNumber(num2);
+
     if (num1.Exponent == num2.Exponent && Math.abs(num1.Mantissa - num2.Mantissa) < 1e-13) return new BigNumber(0.0);
     num2.Mantissa = -num2.Mantissa;
     return BigNumber.Add(num1, num2);

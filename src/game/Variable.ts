@@ -1,3 +1,4 @@
+import { BigNumberSaveFile } from "../type/BigNumberSaveFile";
 import { BigNumber } from "./BigNumber";
 
 export class Variable {
@@ -5,11 +6,11 @@ export class Variable {
   OnChange;
   OnChangeAdd;
 
-  constructor(value: BigNumber | number | string) {
-    if (typeof value == "number" || typeof value == "string") {
-      this._value = new BigNumber(value);
+  constructor(v: BigNumber | number | string | BigNumberSaveFile) {
+    if (v instanceof BigNumber) {
+      this._value = v;
     } else {
-      this._value = value;
+      this._value = new BigNumber(v);
     }
   }
 
@@ -19,5 +20,5 @@ export class Variable {
 
   SetValue(value: BigNumber) {}
 
-  Change(addendum: BigNumber, multiplier: BigNumber) {}
+  Change(addendum: BigNumber | number, multiplier: BigNumber | number) {}
 }

@@ -16,8 +16,8 @@ export class UpgradeManager {
   // update_conditional_upgrade: Action;
   // Action<Upgrade> on_buy_upgrade;
   // Action<Upgrade> on_remove_upgrade;
-  timer;
-  d_time = 0.25;
+  // timer;
+  // d_time = 0.25;
 
   Init() {
     this.UpgradeList = [];
@@ -28,11 +28,12 @@ export class UpgradeManager {
     //   GameManager.Instance.CurrentHero.OnChange += new Action(this.filterUpgrades);
   }
   InitUpgrade() {
-    const test = ["VoidMana.Bonus", "Spell.EvocationEfficiency", "VoidMana.Power", "VoidMana.LifeTime"];
+    // const test = ["VoidMana.Bonus", "Spell.EvocationEfficiency", "VoidMana.Power", "VoidMana.LifeTime", "Hero.AbilityPower", "Base.AllBuildingsProfit"];
     for (let index = 0; index < this.UpgradeList.length; index++) {
       const upgrade = this.UpgradeList[index];
 
-      if (GameManager.Instance.SaveFile.Upgrades.includes(upgrade.ID) && test.includes(upgrade.Data.V)) upgrade.Apply();
+      // if (GameManager.Instance.SaveFile.Upgrades.includes(upgrade.ID) && test.includes(upgrade.Data.V)) upgrade.Apply();
+      if (GameManager.Instance.SaveFile.Upgrades.includes(upgrade.ID)) upgrade.Apply();
     }
   }
   // RemoveUpgrade( u: Upgrade) {

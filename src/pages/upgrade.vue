@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import PanelHero from "@/components/PanelHero.vue";
 import StatisticInfo from "@/components/StatisticInfo.vue";
 import { GameContext } from "@/game/GameContext";
 import { GameManager } from "@/game/GameManager";
@@ -24,12 +25,15 @@ definePage({
   <button @click="console.dir(GameContext)">GameContext</button>
   <button @click="console.dir(GlobalData)">GlobalData</button>
   <button @click="console.log(game.UpgradeManager.InitUpgrade())">Init Upgrade</button>
-  <button @click="console.log(game.CurrentHero)">HeroSlot</button>
+  <button @click="console.log(game.VoidManaManager.UpdateEffect())">Void UpdateEffect</button>
+  <button @click="console.log(game.CurrentHero.Hero.ApplyEffects())">Hero Apply Effect</button>
   Upgrade Applied: {{ game.UpgradeManager.UpgradeList.filter((upgrade) => upgrade.applied).length }} / {{ game.SaveFile.Upgrades.length }}
   <hr />
+  <PanelHero />
+  <hr />
   <StatisticInfo />
+  <hr />
 
-  <span style="color: #e2b018">sss</span>
   <h3>Upgrade</h3>
   <table>
     <th @click="game.UpgradeManager.UpgradeList.sort((a, b) => (a.ID > b.ID ? 1 : b.ID > a.ID ? -1 : 0))">ID</th>
@@ -37,7 +41,13 @@ definePage({
     <th
       @click="
         game.UpgradeManager.UpgradeList.sort((a, b) =>
-          !a.Cost.includes('e') && !b.Cost.includes('e') ? 0 : a.Cost.split('e')[1] > b.Cost.split('e')[1] ? 1 : b.Cost.split('e')[1] > a.Cost.split('e')[1] ? -1 : 0
+          !a.Data.Cost.includes('e') && !b.Data.Cost.includes('e')
+            ? 0
+            : a.Data.Cost.split('e')[1] > b.Data.Cost.split('e')[1]
+            ? 1
+            : b.Data.Cost.split('e')[1] > a.Data.Cost.split('e')[1]
+            ? -1
+            : 0
         )
       "
     >
@@ -48,7 +58,7 @@ definePage({
     <tr v-for="upgrade in game.UpgradeManager.UpgradeList" :class="{ green: upgrade.applied }">
       <td>{{ upgrade.ID }}</td>
       <td>{{ upgrade.Name }}</td>
-      <td>{{ upgrade.base_cost_string }}</td>
+      <td>{{ upgrade.Data.Cost }}</td>
       <td>{{ upgrade.GetDescription() }}</td>
       <td>
         <button

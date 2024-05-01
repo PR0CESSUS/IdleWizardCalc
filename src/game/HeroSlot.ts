@@ -49,15 +49,15 @@ export class HeroSlot {
   Heroes: Hero[] = [];
 
   Init() {
-    this.HeroExp = new VariableBignumber(new BigNumber(GameManager.Instance.SaveFile.CharExp.Mantissa, GameManager.Instance.SaveFile.CharExp.Exponent));
+    this.HeroExp = new VariableBignumber(GameManager.Instance.SaveFile.CharExp);
     this.ExpBoost = new VariableBignumber(1.0);
     this.ExpMult = new VariableComplex(1.0);
     this.ExpManaSources = new VariableComplex(1.0);
     this.ExpFlat = new VariableBignumber(0.0);
-    this.Level = new VariableInt(new BigNumber(1));
+    this.Level = new VariableInt(1);
     this.PlayedTime = 1;
     this.SkipedPlayedTime = new VariableBignumber(0.0);
-    this.StartingLevel = new VariableInt(new BigNumber(1));
+    this.StartingLevel = new VariableInt(1);
     this.AbilityPower = new VariableComplex(1.0);
     this.ClassBonusStacks = new VariableBignumber(0.0);
     this.APSpeed = new VariableBignumber(1.0);
@@ -183,7 +183,7 @@ export class HeroSlot {
     this.Hero.experience = this.HeroExp;
     //   GameManager.Instance.CurrentHero.ClassBonusStacks.SetValue(0.0);
     //   GameManager.Instance.VoidMana.SetValue(0.0);
-    //   this.Hero.ApplyEffects();
+    // this.Hero.ApplyEffects();
     //   GameManager.Instance.Interior.Orbs.ActivateCurrent();
     //   if (this.OnSelect != null)
     //     this.OnSelect();
@@ -191,6 +191,7 @@ export class HeroSlot {
     //   if (!Settings.Cursor)
     //     return;
     //   GameManager.Instance.Interior.Cursors.UpdateCursor();
+    this.Hero.Init();
   }
 
   // SetHero(key: HeroesNames) {return this.SetHero(this.HeroPanel.GetHero(key));}

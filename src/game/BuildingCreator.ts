@@ -23,13 +23,13 @@ export class BuildingCreator {
     // this.InitBuilding(GameManager.Instance.BuildingManager.special, this.BuildingsFormatList.Find(Predicate<BuildingFormat>((x) => x.Tier == "9")));
   }
 
-  SetBuilding(tier, name) {
-    // let buildingFormat = this.BuildingsFormatList.filter((x) => x.Name == name)[0];
-    // let buildingVisual = GameManager.Instance.BuildingManager.Buildings.filter((x) => x.Tier == tier);
+  SetBuilding(tier, name: string) {
+    let buildingFormat = this.BuildingsFormatList.filter((x) => x.Name == name)[0];
+    let buildingVisual = GameManager.Instance.BuildingManager.Buildings.filter((x) => x.Tier == tier)[0];
     // buildingVisual.NameLabel.text = buildingFormat.Name;
-    // buildingVisual.building.Name = buildingFormat.Name;
-    // buildingVisual.building.Description = buildingFormat.Description;
-    // buildingVisual.Icon.sprite = this.Atlas.Get(buildingFormat.Sprite);
+    buildingVisual.building.Name = buildingFormat.Name;
+    buildingVisual.building.Description = buildingFormat.Description;
+    buildingVisual.Icon = buildingFormat.Sprite;
   }
 
   InitBuilding(visual: BuildingVisual, format: BuildingFormat) {
@@ -41,7 +41,7 @@ export class BuildingCreator {
     visual.building.base_cost_growth = parseFloat(format.Percentage);
     visual.building.base_pps = format.BaseProfit;
     visual.building.Description = format.Description;
-    // visual.Icon.sprite = this.Atlas.Get(format.Sprite);
+    visual.Icon = format.Sprite;
     visual.building.Init();
   }
 }

@@ -1,18 +1,20 @@
 import { BigNumber } from "./BigNumber";
 import { Building } from "./Building";
+import { GameManager } from "./GameManager";
+import { StringBuilder } from "./StringBuilder";
 
 export class BuildingVisual {
   Tier: number;
   building: Building;
   // NameLabel: TextMeshProUGUI;
-  // Icon: Image;
+  Icon: string;
   // sprite: Image;
   // button: Button;
   // level_label: TextMeshProUGUI;
   // cost_label: TextMeshProUGUI;
   // profit_label: TextMeshProUGUI;
   // profit_part_label: TextMeshProUGUI;
-  // tip_label: TextMeshProUGUI;
+  tip_label: string;
   PartOfProfit;
   count_to_buy;
   prev_pack = -1;
@@ -161,4 +163,77 @@ export class BuildingVisual {
   }
 
   // isAvailableToBuy() {return this.cost <= GameManager.Instance.Mana.Value;}
+  update_tips() {
+    let stringBuilder = new StringBuilder();
+    stringBuilder.Append("<b>");
+    stringBuilder.Append(this.building.Name);
+    stringBuilder.AppendLine("</b>");
+    stringBuilder.AppendLine();
+    stringBuilder.Append("Number: ");
+
+    stringBuilder.AppendLine((this.building.Level.ValueInt + this.building.TemporalyLevel.ValueInt).toString());
+    stringBuilder.AppendLine();
+    stringBuilder.Append("Cost for ");
+    if (this.count_to_buy > 0) {
+      stringBuilder.Append(this.count_to_buy);
+      stringBuilder.Append(": ");
+      stringBuilder.Append(this.cost.ToReadableString());
+    } else {
+      stringBuilder.Append(1);
+      stringBuilder.Append(": ");
+      stringBuilder.Append(this.building.cost_current.ToReadableString());
+    }
+    stringBuilder.AppendLine();
+    stringBuilder.Append("One source produces: ");
+    stringBuilder.AppendLine(this.building.GetBasePPS.ToReadableString());
+    if (this.building.Level.ValueInt + this.building.TemporalyLevel.ValueInt > 0) {
+      stringBuilder.Append("All sources produce: ");
+      stringBuilder.AppendLine(this.building.Pps.Value.ToReadableString());
+      stringBuilder.Append((this.PartOfProfit * 100.0).toString());
+      stringBuilder.AppendLine("% of total profit");
+    }
+    stringBuilder.AppendLine();
+    // if (this.building.IsEnableGoals()) {
+    //   stringBuilder.Append("Next goal: ");
+    //   stringBuilder.Append(this.building.NextGoal);
+    //   stringBuilder.Append(", x");
+    //   stringBuilder.AppendLine(this.building.NextGoalBonus.ToString());
+    // } else {
+    //   stringBuilder.AppendLine(this.building.spec.GetFullDescription());
+    //   stringBuilder.Append("Next goal: ");
+    //   stringBuilder.AppendLine(this.building.spec.GetNextGoal().ToString());
+    // }
+    stringBuilder.AppendLine();
+    stringBuilder.AppendLine(this.building.Description);
+    stringBuilder.AppendLine();
+    stringBuilder.AppendLine("Catalysts:");
+    stringBuilder.Append("<sprite=7>x");
+    stringBuilder.Append(this.building.ACatalyst);
+    stringBuilder.Append(" +");
+    stringBuilder.Append(BigNumber.Multiplication(this.building.GetGreenCataPower(), 10.0));
+    stringBuilder.Append("% each, total: ");
+    stringBuilder.Append((1.0 + this.building.ACatalyst * this.building.GetGreenCataPower().ToFloat() - 1.0) * 100.0);
+    stringBuilder.AppendLine("%");
+    stringBuilder.Append("<sprite=6>x");
+    stringBuilder.Append(this.building.MCatalyst);
+    stringBuilder.Append(" x");
+    stringBuilder.Append(BigNumber.Multiplication(GameManager.Instance.BuildingManager.CatalystMultPower.Value, 100.0).ToReadableString());
+    stringBuilder.Append("% each, total: ");
+
+    stringBuilder.Append(
+      BigNumber.Multiplication(
+        BigNumber.Subtract(BigNumber.Add(1.0, GameManager.Instance.BuildingManager.CatalystMultPower.Value).Pow(this.building.MCatalyst), 1.0),
+        100
+      ).ToReadableString()
+    );
+    stringBuilder.AppendLine("%");
+    stringBuilder.Append("<sprite=10>x");
+    stringBuilder.Append(this.building.RCatalyst);
+    stringBuilder.Append(" +");
+    stringBuilder.Append(GameManager.Instance.BuildingManager.CatalystTempPower.Value.ToReadableString("F1"));
+    stringBuilder.Append(" free mana source for each, total: ");
+    stringBuilder.Append(GameManager.Instance.BuildingManager.CatalystTempPower.Value.ToFloat() * this.building.RCatalyst);
+
+    this.tip_label = stringBuilder.ToString();
+  }
 }

@@ -4,35 +4,32 @@ import { UpgradeFormat } from "../type/UpgradeFormat";
 import { BigNumber } from "./BigNumber";
 import { Effect } from "./Effect";
 import { GameContext } from "./GameContext";
+import { UpgradeManager } from "./UpgradeManager";
 import { Variable } from "./Variable";
 
 export class Upgrade {
-  ID: number;
   Name: string;
-  base_cost_string: string;
+  ID: number;
+  Description: string;
   SpriteKey: string;
   Class: string;
-  Description: string;
   add: BigNumber;
   mult: BigNumber;
   effect: Effect;
-  manager;
+  manager: UpgradeManager;
   parameter: Variable;
-  Cost: string;
-  Addendum: string;
-  Multiplier: string;
-  target;
+  target: Variable;
   Data: UpgradeFormat;
   effect_type: EffectUpdateType;
   applied: boolean;
-  isSpell;
+  isSpell: boolean;
+  Available: boolean;
 
   constructor(u: UpgradeFormat) {
     // this.manager = manager;
 
     this.Name = u.Name;
     this.ID = parseInt(u.ID);
-    this.base_cost_string = u.Cost;
     this.SpriteKey = u.Sprite;
     this.Class = u.Class == null ? "" : u.Class;
     this.Description = u.Description;
@@ -42,8 +39,6 @@ export class Upgrade {
     this.add = new BigNumber(u.Addendum);
     if (u.Multiplier == null || u.Multiplier == "") u.Multiplier = "1";
     this.mult = new BigNumber(u.Multiplier);
-    this.Addendum = u.Addendum;
-    this.Multiplier = u.Multiplier;
 
     //
 
@@ -62,21 +57,18 @@ export class Upgrade {
     if (this.applied && !this.isSpell) {
       console.log(this.applied + " " + this.ID);
     } else {
-      // console.log(this.effect.apply);
-      // console.log("this.target:", this.target);
-      // console.log("this.add:", this.add);
-      // console.log("this.mult:", this.mult);
-      // console.log("this.parameter:", this.parameter);
-
       try {
         this.effect.apply(this.target, this.add, this.mult, this.parameter);
       } catch (error) {
         console.log("ERROR Upgrade Apply()");
+        console.log(this.Data.V, this.Data.W);
+
         console.log("this.target:", this.target);
-        console.log("this.add:", this.add);
-        console.log("this.mult:", this.mult);
+        console.log("this.add:", this.add.ToString());
+        console.log("this.mult:", this.mult.ToString());
         console.log("this.parameter:", this.parameter);
         console.log("this.Data", this.Data);
+        console.log("-----------------------------------");
       }
 
       // if (this.effect_type != EffectUpdateType.Permanent) {

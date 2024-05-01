@@ -1,15 +1,16 @@
+import { BigNumberSaveFile } from "@/type/BigNumberSaveFile";
 import { BigNumber } from "./BigNumber";
 import { Variable } from "./Variable";
 
 export class VariableFloat extends Variable {
-  constructor(value) {
+  constructor(value: BigNumber | number | string | BigNumberSaveFile) {
     super(value);
   }
   get ValueFloat() {
-    return this._value;
+    return this._value.ToFloat();
   }
-  set ValueFloat(value) {
-    this._value = value;
+  set ValueFloat(value: number) {
+    this._value = new BigNumber(value);
   }
 
   // SetValue(value: BigNumber) {return this.SetValue(value.ToFloat());}

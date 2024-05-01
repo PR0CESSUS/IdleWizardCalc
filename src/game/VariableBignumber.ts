@@ -1,16 +1,17 @@
+import { BigNumberSaveFile } from "@/type/BigNumberSaveFile";
 import { BigNumber } from "./BigNumber";
 import { Variable } from "./Variable";
 
 export class VariableBignumber extends Variable {
-  constructor(value: BigNumber | number | string) {
+  constructor(value: BigNumber | number | string | BigNumberSaveFile) {
     super(value);
   }
 
-  SetValue(v: BigNumber | number | string) {
-    if (typeof v == "string" || typeof v == "number") {
-      this._value = new BigNumber(v);
-    } else {
+  SetValue(v: BigNumber | number | string | BigNumberSaveFile) {
+    if (v instanceof BigNumber) {
       this._value = v;
+    } else {
+      this._value = new BigNumber(v);
     }
 
     if (this.OnChange == null) return;

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import packageInfo from "../package.json";
+import PanelBuilding from "./components/PanelBuilding.vue";
+import TheBat from "./components/TheBat.vue";
 import TheBreadcrumb from "./components/TheBreadcrumb.vue";
 import TheMenu from "./components/TheMenu.vue";
 
@@ -32,6 +34,7 @@ function importSaveFile(event: Event & { target: HTMLInputElement }) {
 </script>
 
 <template>
+  <TheBat />
   <div class="wrapper">
     <div class="header">
       <h1 id="title">
@@ -52,7 +55,7 @@ function importSaveFile(event: Event & { target: HTMLInputElement }) {
     </div>
 
     <div id="content"><router-view></router-view></div>
-
+    <div id="buildings"><PanelBuilding /></div>
     <div id="footer" class="footer">
       Version: <span id="version"> {{ packageInfo.version }} </span> <a href="https://github.com/pr0cessus/IEH2Calculator">Github Repository Page</a>
     </div>
@@ -97,15 +100,19 @@ nav a.router-link-active {
   /* grid-gap: 10px; */
   grid-template-columns: 151px auto;
   grid-template-areas:
-    "header header"
-    "sidebar content"
-    "footer  footer";
+    "header header header"
+    "sidebar content buildings"
+    "footer  footer footer";
   color: #444;
 }
 .header,
 .footer {
   color: #f3f3f6;
   padding: 5px;
+}
+.buildings {
+  grid-area: buildings;
+  background-color: #873e0c;
 }
 
 #title {

@@ -1,3 +1,4 @@
+import { BigNumberSaveFile } from "@/type/BigNumberSaveFile";
 import { BigNumber } from "./BigNumber";
 import { Variable } from "./Variable";
 
@@ -6,7 +7,7 @@ export class VariableComplex extends Variable {
   mult: BigNumber;
   OnChangeVector;
 
-  constructor(value) {
+  constructor(value: BigNumber | number | string | BigNumberSaveFile) {
     super(value);
 
     this.add = new BigNumber(0);
@@ -18,7 +19,7 @@ export class VariableComplex extends Variable {
   }
 
   get ValueFloat() {
-    return this.Value;
+    return this.Value.ToFloat();
   }
 
   get Value() {
@@ -69,8 +70,8 @@ export class VariableComplex extends Variable {
     this.OnChangeVector(addendum, multiplier);
   }
 
-  ApplyModOnVar(target) {
-    // return (target + this.add) * this.mult;
+  ApplyModOnVar(target: BigNumber) {
+    return BigNumber.Multiplication(BigNumber.Add(target, this.add), this.mult);
   }
 
   ApplyComponents(component) {

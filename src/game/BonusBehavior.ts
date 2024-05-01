@@ -1,3 +1,4 @@
+import { BigNumber } from "./BigNumber";
 import { Variable } from "./Variable";
 import { VariableComplex } from "./VariableComplex";
 
@@ -18,10 +19,6 @@ export class BonusBehavior {
   Objects;
   OnCollect;
   IncomeMode: Variable;
-
-  constructor() {
-    this.Init();
-  }
 
   Init(OnCollectEvent = null, incomeMod: Variable = null) {
     this.TimeInterval = new VariableComplex(this.baseTimeInterval);
@@ -56,6 +53,6 @@ export class BonusBehavior {
   }
 
   GetBonusValue() {
-    // return this.IncomeMode == null ? this.BonusProfit.Value : this.BonusProfit.Value * this.IncomeMode.Value;
+    return this.IncomeMode == null ? this.BonusProfit.Value : BigNumber.Multiplication(this.BonusProfit.Value, this.IncomeMode.Value);
   }
 }

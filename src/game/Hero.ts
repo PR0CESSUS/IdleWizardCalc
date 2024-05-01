@@ -4,27 +4,32 @@ import { GameManager } from "./GameManager";
 import { Spec } from "./Spec";
 import { VariableBignumber } from "./VariableBignumber";
 import { VariableInt } from "./VariableInt";
+import { SimpleEffect } from "./SimpleEffect";
+import { StringBuilder } from "./StringBuilder";
+import { Statistic } from "./Statistic";
 
 export class Hero extends Spec {
   NameKey: HeroesNames;
   Level: VariableInt;
   LevelProgress;
-  Exp2evelUp: BigNumber;
+  Exp2LevelUp: BigNumber;
   CurrentExp: BigNumber;
   Feature;
   SpellList = [];
   ClosedBuildings = [];
   experience: VariableBignumber = new VariableBignumber(new BigNumber(0.0));
   RequedClasses;
+  effect1: SimpleEffect;
   // OnApplyEffect: Action;
   // protected quotes: QuotesSystem;
 
   Init() {
     // base.Init();
-    this.Level = new VariableInt(new BigNumber(1));
+    this.Level = new VariableInt(1);
     this.CurrentExp = new BigNumber(0);
     this.RequedClasses = [];
     this.close_buildings();
+    this.Exp2LevelUp = new BigNumber(0);
   }
 
   SubEffect() {
@@ -72,19 +77,25 @@ export class Hero extends Spec {
     //   }
     // }
   }
-
+  RecalculateExp(starting_exp, boost) {
+    if (Statistic.TotalBuildings.ValueInt < 0) Statistic.TotalBuildings.SetValue(0);
+    this.experience.SetValue(starting_exp + GameManager.Instance.CurrentHero.ExpFlat.Value.ToFloat() + this.GetExpMultPart());
+  }
   UpdateExp() {
+    console.log("UpdateExp");
+
     let y = GameManager.Instance.CurrentHero.StartingLevel.ValueInt - 1;
     let growBaseLevel = GameManager.Instance.CurrentHero.GrowBaseLevel;
     let num = 1500;
     // let valueInt = this.Level.ValueInt;
+
     this.RecalculateExp((num * (1.0 - Math.pow(growBaseLevel, y))) / (1.0 - growBaseLevel), GameManager.Instance.CurrentHero.ExpBoost.Value.ToDouble());
     let p = BigNumber.Division(
-      BigNumber.Multiplication(BigNumber.Subtract(new BigNumber(1), this.experience.Value), BigNumber.Subtract(new BigNumber(1), new BigNumber(growBaseLevel))),
+      BigNumber.Multiplication(BigNumber.Subtract(1, this.experience.Value), BigNumber.Subtract(1, new BigNumber(growBaseLevel))),
       new BigNumber(new BigNumber(150).Log_a(growBaseLevel))
     );
-    if (this.Level.ValueInt != p.ToInt() + 1) this.Level.SetValue(new BigNumber(p.ToInt() + 1));
-    this.Exp2evelUp = BigNumber.Multiplication(new BigNumber(num), new BigNumber(Math.pow(growBaseLevel, p.ToFloat())));
+    if (this.Level.ValueInt != p.ToInt() + 1) this.Level.SetValue(p.ToInt() + 1);
+    this.Exp2LevelUp = BigNumber.Multiplication(num, Math.pow(growBaseLevel, p.ToFloat()));
     this.CurrentExp = BigNumber.Subtract(this.experience.Value, new BigNumber((num * (1.0 - Math.pow(growBaseLevel, p.ToFloat()))) / (1.0 - growBaseLevel)));
 
     // this.LevelProgress = (this.CurrentExp / this.Exp2evelUp).ToDouble();
@@ -100,36 +111,69 @@ export class Hero extends Spec {
   }
 
   GetExpBuildings() {
-    // return ((BigNumber) Statistic.TotalBuildings.ValueInt * GameManager.Instance.CurrentHero.ExpManaSources.Value + new BigNumber(1)).Pow(0.85500001907348633);
+    return BigNumber.Add(BigNumber.Multiplication(Statistic.TotalBuildings.ValueInt, GameManager.Instance.CurrentHero.ExpManaSources.Value), 1).Pow(0.85500001907348633);
   }
 
   GetExpActive() {
-    // num1 = GameManager.Instance.CurrentHero.ExpBoost.Value.ToDouble();
-    // bigNumber: BigNumber = (Statistic.Clicks.Value + Statistic.AutoClicks.Value) * (BigNumber) num1 + new BigNumber(1);
-    // num2 = bigNumber.Log10() + 1.0;
-    // bigNumber = Statistic.CastSpell.Value * (BigNumber) num1 + new BigNumber(1);
-    // num3 = bigNumber.Ln() / 4.0 + 1.0;
-    // num4 = num2 * num3;
-    // bigNumber = Statistic.ManaSession.Value + new BigNumber(1);
-    // num5 = bigNumber.Log10() + 1.0;
-    // return (BigNumber) (num4 * num5 * (Math.log(Statistic.ClickableCollect.ValueInt * num1 + 1.0) / 2.0 + 1.0));
+    let num1 = GameManager.Instance.CurrentHero.ExpBoost.Value.ToDouble();
+    let bigNumber = BigNumber.Add(BigNumber.Multiplication(BigNumber.Add(Statistic.Clicks.Value, Statistic.AutoClicks.Value), num1), 1);
+    let num2 = bigNumber.Log10() + 1.0;
+    bigNumber = BigNumber.Add(BigNumber.Multiplication(Statistic.CastSpell.Value, num1), 1);
+
+    let num3 = bigNumber.Ln() / 4.0 + 1.0;
+
+    let num4 = num2 * num3;
+    bigNumber = BigNumber.Add(Statistic.ManaSession.Value, 1);
+    let num5 = bigNumber.Log10() + 1.0;
+
+    return num4 * num5 * (Math.log(Statistic.ClickableCollect.ValueInt * num1 + 1.0) / 2.0 + 1.0);
   }
 
   GetExpMultPart() {
-    // return GameManager.Instance.CurrentHero.ExpMult.Value * ((this.GetExpBuildings() + (BigNumber) 100.0) * this.GetExpActive() - (BigNumber) 100.0);
-  }
-
-  RecalculateExp(starting_exp, boost) {
-    // if (Statistic.TotalBuildings.ValueInt < 0)
-    //   Statistic.TotalBuildings.SetValue(0);
-    // this.experience.SetValue((BigNumber) starting_exp + GameManager.Instance.CurrentHero.ExpFlat.Value + this.GetExpMultPart());
+    return BigNumber.Multiplication(
+      GameManager.Instance.CurrentHero.ExpMult.Value,
+      BigNumber.Subtract(BigNumber.Multiplication(BigNumber.Add(this.GetExpBuildings(), 100.0), this.GetExpActive()), 100)
+    );
   }
 
   GetBonusMult() {
     let currentHero = GameManager.Instance.CurrentHero;
+    let value = BigNumber.Multiplication(BigNumber.Multiplication(currentHero.AbilityPower.Value, currentHero.Level.Value), currentHero.Level.Value);
+    // if (mul) return BigNumber.Multiplication(mul, value);
 
-    return BigNumber.Multiplication(BigNumber.Multiplication(currentHero.AbilityPower.Value, currentHero.Level.Value), currentHero.Level.Value);
+    return value;
   }
 
   PostLoad() {}
+
+  Tips_text() {
+    return this.BaseTip();
+  }
+
+  AdditionalDescription() {
+    let stringBuilder = new StringBuilder();
+    let bigNumber = GameManager.Instance.CurrentHero.AbilityPower.Value;
+    if (!BigNumber.IsEqual(bigNumber, 1)) {
+      stringBuilder.AppendLine();
+      stringBuilder.Append("Ability power: ");
+      stringBuilder.Append(this.GetBonusMult());
+    }
+
+    return stringBuilder.ToString();
+  }
+
+  BaseTip() {
+    let stringBuilder = new StringBuilder();
+    stringBuilder.Append("<b>");
+    stringBuilder.Append(this.Name);
+    stringBuilder.Append("</b>");
+    stringBuilder.Append(" Level: ");
+    stringBuilder.AppendLine(this.Level.ValueInt.toString());
+    stringBuilder.Append("Experience ");
+    stringBuilder.Append(this.CurrentExp.ToReadableString("F0"));
+    stringBuilder.Append(" / ");
+    stringBuilder.AppendLine(this.Exp2LevelUp.ToReadableString("F0"));
+    stringBuilder.AppendLine();
+    return stringBuilder.ToString();
+  }
 }
