@@ -35,8 +35,13 @@ export class VariableComplex extends Variable {
     this.OnChangeVector(a, m);
   }
 
-  SetValue(v) {
-    this._value = v;
+  SetValue(v: BigNumber | number | string | BigNumberSaveFile) {
+    if (v instanceof BigNumber) {
+      this._value = v;
+    } else {
+      this._value = new BigNumber(v);
+    }
+
     if (this.OnChange == null) return;
     this.OnChange();
   }

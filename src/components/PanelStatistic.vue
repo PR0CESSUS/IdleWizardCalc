@@ -21,7 +21,7 @@ const game = ref(inject<GameManager>("game"));
   Void Spawn Rate: <span>{{ game.VoidManaManager.VoidCore.SpawnSpeed.Value.ToStringPercent() }}</span>
 
   <h3>Spell</h3>
-  Evocation Efficiency: <span>{{ game.Scrolls.EvocationEfficiency.Value.ToStringPercent() }}</span
+  Evocation Efficiency: <span @click="console.log(game.Scrolls.EvocationEfficiency)">{{ game.Scrolls.EvocationEfficiency.Value.ToStringPercent() }}</span
   ><br />
   Incantation Efficiency: <span>{{ game.Scrolls.IncantationEfficiency.Value.ToStringPercent() }}</span
   ><br />

@@ -195,7 +195,7 @@ export class GameContext {
     GameContext.effect["PowA"] = EffectFactory.Create(EffectFactory.PowerA, EffectFactory.PowerADelete, EffectFactory.PowerAPreview);
     GameContext.effect["Log10"] = EffectFactory.Create(EffectFactory.Log10, EffectFactory.Log10Delete, EffectFactory.Log10Preview);
     // GameContext.effect['Ln']= EffectFactory.Create(EffectFactory.Ln, EffectFactory.LnDelete, EffectFactory.LnPreview);
-    // GameContext.effect['LogA']= EffectFactory.Create(EffectFactory.LogA, EffectFactory.LogADelete, EffectFactory.LogAPreview);
+    GameContext.effect["LogA"] = EffectFactory.Create(EffectFactory.LogA, EffectFactory.LogADelete, EffectFactory.LogAPreview);
     // GameContext.effect['PowIntW']= EffectFactory.Create(EffectFactory.PowerIntW, EffectFactory.PowerIntWDelete, EffectFactory.PowerIntWPreview);
     // GameContext.effect['PowW']= EffectFactory.Create(EffectFactory.PowerW, EffectFactory.PowerWDelete, EffectFactory.PowerWPreview);
   }

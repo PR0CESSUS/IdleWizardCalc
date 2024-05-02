@@ -53,18 +53,22 @@ export class BigNumber {
   }
 
   ToReadableString(type: string = "") {
+    // console.log(this);
     return this.ToString();
   }
 
-  ToString(str: string = "") {
+  ToString() {
     // this.Check();
+
     if (this.Exponent < 3) return (this.Mantissa * Math.pow(10, this.Exponent)).toFixed(2);
     return this.Mantissa.toFixed(2) + "e" + this.Exponent.toString();
   }
   ToStringPercent() {
     // this.Check();
-    if (this.Exponent < 3) return (this.Mantissa * Math.pow(10, this.Exponent) * 100).toFixed(2) + "%";
-    return this.Mantissa.toFixed(2) + "e" + this.Exponent.toString() + "%";
+
+    if (this.Exponent >= 3 || this.Exponent + 2 >= 3) return this.Mantissa.toFixed(2) + "e" + (this.Exponent + 2) + "%";
+    // console.log("less than 3", this.Mantissa * Math.pow(10, this.Exponent) * 100, this.Exponent);
+    return (this.Mantissa * Math.pow(10, this.Exponent) * 100).toFixed(2) + "%";
   }
 
   ToFloat() {

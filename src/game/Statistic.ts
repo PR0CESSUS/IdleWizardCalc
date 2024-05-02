@@ -73,5 +73,7 @@ export class Statistic {
     Statistic.ClickableCollect.SetValue(GameManager.Instance.SaveFile.ClickableCollect);
     Statistic.TotalBuildings.SetValue(GameManager.Instance.SaveFile.TotalBuildings);
     Statistic.UnlockedItems.SetValue(GameManager.Instance.SaveFile.Craft.Items.length);
+    Statistic.CastSpellRealm.SetValue(GameManager.Instance.SaveFile.AccumCasts);
+    // Statistic.A.SetValue(GameManager.Instance.SaveFile.AccumCasts)
   }
 }

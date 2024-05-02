@@ -1,4 +1,5 @@
 import { BigNumberSaveFile } from "@/type/BigNumberSaveFile";
+import { HeroesNames } from "@/type/HeroesNames";
 
 export class DefaultSaveFile {
   BuildingLevels: number[] = Array(8).fill(0);
@@ -184,8 +185,16 @@ export class DefaultSaveFile {
   Stance: number;
   OtherSpellShards: null;
   AccumCasts: BigNumberSaveFile = { Mantissa: 0, Exponent: 0 };
-  SpellUses: null;
-  SpellUsesTR: null;
+  SpellUses: {
+    aver: number;
+    key: number;
+    value: number;
+  }[] = [];
+  SpellUsesTR: {
+    aver: number;
+    key: number;
+    value: number;
+  }[] = [];
   Resources: null;
   Jars: null;
   Craft: {
@@ -208,7 +217,10 @@ export class DefaultSaveFile {
   Corruption: null;
   Gamble: null;
   EventSave: null;
-  SpellPresets: null;
+  SpellPresets: {
+    prime: { [key in keyof typeof HeroesNames]: string };
+    quasi: {};
+  };
   ItemPresets: null;
   AchievementsSave: null;
   RAchieves: null;

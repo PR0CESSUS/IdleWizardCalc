@@ -13,7 +13,7 @@ export class CharacterEffect {
   applyed;
   isDump;
 
-  constructor(b, t: Variable, l: VariableInt) {
+  constructor(b: number, t: Variable, l: VariableInt) {
     this.based = b - 1;
     this.target = t;
     this.level = l;
@@ -41,8 +41,10 @@ export class CharacterEffect {
   }
 
   apply() {
-    this.applied_mult = BigNumber.Add(new BigNumber(1), this.GetMainBonus()).Pow(this.level.ValueInt);
-    this.target.Change(new BigNumber(0), this.applied_mult);
+    this.applied_mult = BigNumber.Add(1, this.GetMainBonus()).Pow(this.level.ValueInt);
+    // console.log("changed before", this.target.Value.ToString());
+    this.target.Change(0, this.applied_mult);
+    // console.log("changed after", this.target.Value.ToString());
   }
 
   GetEfficiency() {
@@ -60,5 +62,8 @@ export class CharacterEffect {
     this.Apply();
   }
 
-  //   Preview() {return Settings.ColoredTips ? "<color=#e2b018>" + ((this.applied_mult - (BigNumber) 1.0) * (BigNumber) 100.0).ToReadableString() + "%</color>" : ((this.applied_mult - (BigNumber) 1.0) * (BigNumber) 100.0).ToReadableString() + "%";}
+  Preview() {
+    return this.applied_mult.ToStringPercent();
+    return BigNumber.Multiplication(BigNumber.Subtract(this.applied_mult, 1.0), 100).ToReadableString();
+  }
 }

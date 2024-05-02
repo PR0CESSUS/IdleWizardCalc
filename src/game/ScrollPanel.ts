@@ -1,5 +1,6 @@
 import { BigNumber } from "./BigNumber";
 import { GameContext } from "./GameContext";
+import { GameManager } from "./GameManager";
 import { SpellShards } from "./SpellShards";
 import { VariableBignumber } from "./VariableBignumber";
 import { VariableComplex } from "./VariableComplex";
@@ -59,43 +60,46 @@ export class ScrollPanel {
   shardsInSec = new BigNumber(0);
   evoInSec;
 
-  Init() {
+  constructor() {
     this.ShardsPool = new SpellShards();
-    this.ScrollCount = new VariableInt(new BigNumber(0));
+    this.ScrollCount = new VariableInt(0);
     //   VariableInt scrollCount1 = this.ScrollCount;
     //   scrollCount1.OnChange = scrollCount1.OnChange + new Action(this.change_scroll_count);
-    this.ShardsPassive = new VariableComplex(new BigNumber(3));
-    this.ShardsPerClick = new VariableComplex(BigNumber.Division(new BigNumber(0.5), new BigNumber(this.drop_chance)));
-    this.PersistentMult = new VariableComplex(new BigNumber(1));
-    this.PersistentActiveMult = new VariableComplex(new BigNumber(1));
-    this.AccumMult = new VariableComplex(new BigNumber(1));
+    this.ShardsPassive = new VariableComplex(3);
+    this.ShardsPerClick = new VariableComplex(BigNumber.Division(0.5, new BigNumber(this.drop_chance)));
+    this.PersistentMult = new VariableComplex(1);
+    this.PersistentActiveMult = new VariableComplex(1);
+    this.AccumMult = new VariableComplex(1);
     this.PersistentSave = new VariableFloat(1);
-    this.AugmentMult = new VariableComplex(new BigNumber(1));
-    this.CastRate = new VariableComplex(new BigNumber(60));
+    this.AugmentMult = new VariableComplex(1);
+    this.CastRate = new VariableComplex(60);
     this.CastRateMult = new VariableFloat(1);
-    this.MaxCharge = new VariableInt(new BigNumber(1));
+    this.MaxCharge = new VariableInt(1);
     //   let maxCharge = this.MaxCharge;
     //   maxCharge.OnChange = maxCharge.OnChange + new Action(this.on_change_max_charge);
-    this.EvocationEfficiency = new VariableComplex(new BigNumber(1));
-    this.EvocationDuration = new VariableComplex(new BigNumber(1));
-    this.IncantationEfficiency = new VariableComplex(new BigNumber(1));
-    this.IncantationDuration = new VariableComplex(new BigNumber(1));
-    this.SummoningEfficiency = new VariableComplex(new BigNumber(1));
-    this.SummoningDurationReduction = new VariableComplex(new BigNumber(1));
-    this.AccumCastCount = new VariableBignumber(new BigNumber(0));
-    this.EvoCastCount = new VariableBignumber(new BigNumber(0));
-    this.SpellShardsCostReduction = new VariableComplex(new BigNumber(1));
+    this.EvocationEfficiency = new VariableComplex(1);
+
+    this.EvocationDuration = new VariableComplex(1);
+    this.IncantationEfficiency = new VariableComplex(1);
+    this.IncantationDuration = new VariableComplex(1);
+    this.SummoningEfficiency = new VariableComplex(1);
+    this.SummoningDurationReduction = new VariableComplex(1);
+    this.AccumCastCount = new VariableBignumber(GameManager.Instance.SaveFile.AccumCasts);
+    this.EvoCastCount = new VariableBignumber(0);
+    this.SpellShardsCostReduction = new VariableComplex(1);
     //   VariableComplex shardsCostReduction = this.SpellShardsCostReduction;
     //   shardsCostReduction.OnChange = shardsCostReduction.OnChange + new Action(this.CheckFilledList);
-    this.SpellChargingCostReduction = new VariableComplex(new BigNumber(1));
-    this.SpellSubcostReduction = new VariableComplex(new BigNumber(1));
-    this.SpellChargingSpeed = new VariableComplex(new BigNumber(1));
-    this.AccumulatedCasts = new VariableComplex(new BigNumber(0));
+    this.SpellChargingCostReduction = new VariableComplex(1);
+    this.SpellSubcostReduction = new VariableComplex(1);
+    this.SpellChargingSpeed = new VariableComplex(1);
+    this.AccumulatedCasts = new VariableComplex(0);
+    // console.log(this.AccumulatedCasts);
+
     //   VariableComplex accumulatedCasts = this.AccumulatedCasts;
     //   accumulatedCasts.OnChange = accumulatedCasts.OnChange + new Action(this.OnChangeAccum);
-    this.AutoCastCount = new VariableInt(new BigNumber(0));
+    this.AutoCastCount = new VariableInt(0);
     //   this.castsInSec = new Counter();
-    GameContext.AddSpellContext();
+
     //   this.auto_cast_scrolls = new List<Scroll>();
     //   this.unfilled_scrolls = new List<Scroll>();
     //   for (let index = 0; index < this.Scrolls.length; index++) {
@@ -109,6 +113,10 @@ export class ScrollPanel {
     //   scrollCount2.OnChange = scrollCount2.OnChange + new Action(this.pool_bar);
     //   VariableLong timeSession = Statistic.TimeSession;
     //   timeSession.OnChange = timeSession.OnChange + new Action(this.ApplyChangeInSecond);
+  }
+
+  Init() {
+    GameContext.AddSpellContext();
   }
 
   RecheckSpells() {
@@ -129,7 +137,7 @@ export class ScrollPanel {
   OnChangeAccum() {
     //   BigNumber addendum = this.AccumulatedCasts.Value - this.prevAccumValue;
     //   foreach (Spell accumalatedSpell in GameManager.Instance.SpellBook.AccumalatedSpellList)
-    //     accumalatedSpell.Use.Change(addendum, new BigNumber(1));
+    //     accumalatedSpell.Use.Change(addendum, 1);
     //   this.prevAccumValue += addendum;
   }
 
@@ -155,7 +163,7 @@ export class ScrollPanel {
     //   BigNumber bigNumber1 = new BigNumber(0);
     //   foreach (Spell spell in all) {
     //     BigNumber bigNumber2 = spell.Use.Value * (BigNumber) (GameManager.Instance.Scrolls.PersistentSave.ValueFloat - 1.0);
-    //     if (bigNumber2 >= new BigNumber(1))
+    //     if (bigNumber2 >= 1)
     //       dictionary.push(spell.NameKey, bigNumber2);
     //   }
     //   return dictionary.length == 0 ? (Dictionary<int, BigNumber>) null : dictionary;
@@ -172,12 +180,12 @@ export class ScrollPanel {
     //   this.ScrollCount.SetValue(0);
     //   this.AutoCastCount.SetValue(0);
     //   this.shards_pool_timer = 0.0;
-    //   this.EvocationEfficiency.Reset(new BigNumber(1));
-    //   this.EvocationDuration.Reset(new BigNumber(1));
-    //   this.IncantationEfficiency.Reset(new BigNumber(1));
-    //   this.IncantationDuration.Reset(new BigNumber(1));
-    //   this.SummoningEfficiency.Reset(new BigNumber(1));
-    //   this.SummoningDurationReduction.Reset(new BigNumber(1));
+    //   this.EvocationEfficiency.Reset(1);
+    //   this.EvocationDuration.Reset(1);
+    //   this.IncantationEfficiency.Reset(1);
+    //   this.IncantationDuration.Reset(1);
+    //   this.SummoningEfficiency.Reset(1);
+    //   this.SummoningDurationReduction.Reset(1);
     //   this.AccumCastCount.Reset(new BigNumber(0));
     //   this.EvoCastCount.SetValue(new BigNumber(0));
     //   this.Seventh.Clear();

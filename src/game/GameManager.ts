@@ -8,6 +8,7 @@ import Patience from "@/data/patience.json";
 import Spellcraft from "@/data/spellcraft.json";
 import Upgrades from "@/data/upgrades.json";
 import Wisdom from "@/data/wisdom.json";
+import Spells from "@/data/Spells.json";
 import { GlobalData } from "@/game/GlobalData";
 import { AttributeManager } from "./AttributeManager";
 import { BuildingManager } from "./BuildingManager";
@@ -28,6 +29,7 @@ import { VariableInt } from "./VariableInt";
 import { Reborn } from "./Reborn";
 import { MovableBonusSpawner } from "./MovableBonusSpawner";
 import { CardGameManager } from "./CardGameManager";
+import { SpellBook } from "./SpellBook";
 export class GameManager {
   public static Instance: GameManager;
   SaveFile: DefaultSaveFile;
@@ -49,6 +51,7 @@ export class GameManager {
   Reborn: Reborn;
   MBSpawner: MovableBonusSpawner;
   CardGame: CardGameManager;
+  SpellBook: SpellBook;
 
   constructor() {
     GameManager.Instance = this;
@@ -63,12 +66,12 @@ export class GameManager {
     GameContext.AddItems();
     GameContext.GenerateEffects();
 
+    this.Scrolls = new ScrollPanel();
     this.VoidManaManager = new VoidMana();
     this.AttributeManager = new AttributeManager();
     this.CurrentPet = new PetSlot();
     this.UpgradeManager = new UpgradeManager();
     this.CurrentHero = new HeroSlot();
-    this.Scrolls = new ScrollPanel();
     this.BuildingManager = new BuildingManager();
     this.Trials = new TrialManager();
     this.Orb = new Orb();
@@ -76,6 +79,7 @@ export class GameManager {
     this.Reborn = new Reborn();
     this.MBSpawner = new MovableBonusSpawner();
     this.CardGame = new CardGameManager();
+    this.SpellBook = new SpellBook();
 
     // generate game resources
 
@@ -97,13 +101,17 @@ export class GameManager {
     this.VoidManaManager.Init();
     this.Idle.Init();
     GameContext.GenerateContext();
+    GameContext.AddSpellContext();
     this.Trials.InitContext();
-    this.Scrolls.Init();
     this.CurrentHero.Init();
+    this.SpellBook.Init();
     this.UpgradeManager.Init();
+    this.AttributeManager.Init();
 
     this.UpgradeManager.InitUpgrade();
     this.CurrentHero.Hero.ApplyEffects();
+    this.VoidManaManager.UpdateEffect();
+    this.BuildingManager.UpdateEffect();
   }
 
   InitGlobalData() {
@@ -117,5 +125,6 @@ export class GameManager {
     GlobalData.Insight = Insight;
     GlobalData.Upgrades = Upgrades;
     GlobalData.Buildings = Buildings;
+    GlobalData.Spells = Spells;
   }
 }

@@ -7,17 +7,15 @@ export class EffectFactory {
     return new Effect(apply, delete2, preview);
   }
 
-  public static effect_action(v: Variable, a: BigNumber, m: BigNumber, w: Variable, e: Variable = null) {}
-
   public static Linear(v: Variable, a: BigNumber, m: BigNumber, w: Variable, e: Variable = null) {
     // console.log("start linear", v, a, m, w, e);
 
     if (e != null) {
-      if (BigNumber.IsEqual(m, new BigNumber(1)) || BigNumber.IsEqual(m, new BigNumber(0))) a = BigNumber.Multiplication(a, e.Value);
+      if (BigNumber.IsEqual(m, 1) || BigNumber.IsEqual(m, 0)) a = BigNumber.Multiplication(a, e.Value);
       else m = BigNumber.Multiplication(m, e.Value);
     }
     if (w == null) v.Change(a, m);
-    else v.Change(BigNumber.Multiplication(a, w.Value), BigNumber.Add(new BigNumber(1.0), BigNumber.Multiplication(m, w.Value)));
+    else v.Change(BigNumber.Multiplication(a, w.Value), BigNumber.Add(1, BigNumber.Multiplication(m, w.Value)));
   }
 
   public static LinearDelete(v: Variable, a: BigNumber, m: BigNumber, w: Variable, e: Variable = null) {
@@ -41,7 +39,7 @@ export class EffectFactory {
     if (!asnumber) {
       if (!BigNumber.IsEqual(a, 0)) str = w != null ? str + BigNumber.Multiplication(a, w.Value).ToString() : str + a.ToString();
       if ((!BigNumber.IsEqual(m, 1) && w == null) || (!BigNumber.IsEqual(m, 0) && w != null))
-        str = w != null ? str + BigNumber.Multiplication(m, w.Value).ToStringPercent() : str + BigNumber.Multiplication(BigNumber.Subtract(m, 1), 100).ToStringPercent();
+        str = w != null ? str + BigNumber.Multiplication(m, w.Value).ToString() : str + BigNumber.Multiplication(BigNumber.Subtract(m, 1), 100).ToString() + "%";
       if (BigNumber.IsEqual(a, 0) && BigNumber.IsEqual(m, 1)) str = str + "0%";
     } else
       str =
@@ -118,8 +116,7 @@ export class EffectFactory {
     if (e != null) a = BigNumber.Multiplication(a, e.Value);
     let str;
     if (!asnumber) {
-      // str = (100.0 * a * (w.Value +  1.0).Pow(m.ToDouble())).ToReadableString() + "%";
-      str = "niby procent";
+      str = BigNumber.Multiplication(100, BigNumber.Multiplication(a, BigNumber.Add(w.Value, 1.0).Pow(m.ToDouble()))).ToReadableString() + "%";
     } else {
       let bigNumber1 = new BigNumber(1);
       let bigNumber2 = a;
@@ -162,5 +159,23 @@ export class EffectFactory {
       str = "0@" + bigNumber4.ToString();
     }
     return str;
+  }
+
+  public static LogA(v: Variable, a: BigNumber, m: BigNumber, w: Variable, e: Variable = null) {
+    if (e != null) a = BigNumber.Multiplication(a, e.Value);
+
+    v.Change(0.0, 1.0 + BigNumber.Add(BigNumber.Multiplication(a, w.Value), 1).Log_a(m.ToDouble()));
+  }
+
+  public static LogADelete(v: Variable, a: BigNumber, m: BigNumber, w: Variable, e: Variable = null) {
+    if (e != null) a = BigNumber.Multiplication(a, e.Value);
+    v.Change(0.0, 1.0 / (1.0 + BigNumber.Add(BigNumber.Multiplication(a, w.Value), 1).Log_a(m.ToDouble())));
+  }
+
+  public static LogAPreview(a: BigNumber, m: BigNumber, w: Variable, e: Variable = null, asnumber = false) {
+    if (e != null) a = BigNumber.Multiplication(a, e.Value);
+    return asnumber
+      ? "0@" + (1.0 + BigNumber.Add(BigNumber.Multiplication(a, w.Value), 1).Log_a(m.ToDouble())).toString()
+      : new BigNumber(100.0 * BigNumber.Add(BigNumber.Multiplication(a, w.Value), 1).Log_a(m.ToDouble())).ToReadableString() + "%";
   }
 }

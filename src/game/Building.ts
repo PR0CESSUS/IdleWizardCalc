@@ -168,7 +168,7 @@ export class Building extends Buyable {
 
   CalculatePps() {
     this.recalculateTotalLevel();
-    console.log("CalculatePps", this.TotalLevel.ValueInt, this.GetBasePPS, this);
+    // console.log("CalculatePps", this.TotalLevel.ValueInt, this.GetBasePPS, this);
 
     return this.Pps.SetValue(BigNumber.Multiplication(this.TotalLevel.ValueInt, this.GetBasePPS));
   }

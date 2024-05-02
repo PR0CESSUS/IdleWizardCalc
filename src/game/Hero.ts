@@ -8,6 +8,8 @@ import { SimpleEffect } from "./SimpleEffect";
 import { StringBuilder } from "./StringBuilder";
 import { Statistic } from "./Statistic";
 
+import { Spells } from "@/type/Spells";
+
 export class Hero extends Spec {
   NameKey: HeroesNames;
   Level: VariableInt;
@@ -15,7 +17,7 @@ export class Hero extends Spec {
   Exp2LevelUp: BigNumber;
   CurrentExp: BigNumber;
   Feature;
-  SpellList = [];
+  SpellList: Spells[] = [];
   ClosedBuildings = [];
   experience: VariableBignumber = new VariableBignumber(new BigNumber(0.0));
   RequedClasses;

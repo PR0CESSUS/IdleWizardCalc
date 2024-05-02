@@ -1,23 +1,24 @@
 import { Attributes } from "@/type/Attributes";
-import { VariableInt } from "./VariableInt";
 import { CharacterEffect } from "./CharacterEffect";
 import { SimpleEffect } from "./SimpleEffect";
+import { VariableInt } from "./VariableInt";
 
 export class CharacterAttribute {
   Key: Attributes;
   Level: VariableInt;
   TrueLevel: VariableInt;
   main_effect: CharacterEffect;
-  Description;
-  perks;
+  Description: string;
+  perks: Perk[] = [];
 
-  //   IsAvailable {
-  //     get {
-  //       if (this.Key == Attributes.Mastery)
-  //         return GameManager.Instance.Paragon.MasteryIsAvailable;
-  //       return this.Key != Attributes.Empathy || GameManager.Instance.Paragon.EmpathyIsAvailable;
-  //     }
-  //   }
+  get IsAvailable() {
+    //  {
+    //   if (this.Key == Attributes.Mastery)
+    //     return GameManager.Instance.Paragon.MasteryIsAvailable;
+    //   return this.Key != Attributes.Empathy || GameManager.Instance.Paragon.EmpathyIsAvailable;
+    // }
+    return true;
+  }
 
   //   Reset() {
   //     valueInt = this.TrueLevel.ValueInt;
@@ -26,17 +27,46 @@ export class CharacterAttribute {
   //     this.Level.Change(-valueInt);
   //   }
 
-  //   Preview() {return this.main_effect.Preview();}
-  // GetDescription() => this.Description.Replace("#1", this.effect.parameter == null || !Settings.ColoredTips ? this.effect.Preview("") : "<color=#e2b018>" + this.effect.Preview("") + "</color>");
+  Preview() {
+    return this.main_effect.Preview();
+  }
+  GetDescription() {
+    return this.Description.replace("#1", this.main_effect.GetMainBonus().ToStringPercent());
+  }
+}
 
-  // Activate() {
-  //   if (this.activated)
-  //     return;
-  //   this.effect.Apply();
-  //   if (this.effect != null && this.effect.parameter != null)
-  //     this.effect.parameter.OnChange += new Action(((EffectDiminishing) this.effect).Update);
-  //   this.activated = true;
-  // }
+export class Perk {
+  Level: number;
+  Description: string;
+  effect: SimpleEffect;
+  activated: boolean;
+  attribute: string;
+  Data;
+
+  constructor(level: number, e: SimpleEffect, des: string) {
+    this.Level = level;
+    this.effect = e;
+    this.Description = des;
+  }
+  GetDescription() {
+    // if (this.Level == 50) console.log("s");
+
+    return this.Description.replace("#1", this.effect.Preview());
+  }
+
+  Activate() {
+    if (this.activated) return;
+
+    try {
+      this.effect.Apply();
+    } catch (error) {
+      console.log(this.attribute, this.Level, this.effect);
+    }
+
+    // if (this.effect != null && this.effect.parameter != null)
+    //   this.effect.parameter.OnChange += new Action(((EffectDiminishing) this.effect).Update);
+    this.activated = true;
+  }
 
   // Deactivate() {
   //   if (!this.activated)
@@ -46,17 +76,4 @@ export class CharacterAttribute {
   //   this.effect.Delete();
   //   this.activated = false;
   // }
-}
-
-export class Perk {
-  Level;
-  Description;
-  effect: SimpleEffect;
-  activated;
-
-  constructor(level, e: SimpleEffect, des) {
-    this.Level = level;
-    this.effect = e;
-    this.Description = des;
-  }
 }

@@ -53,8 +53,12 @@ export class SimpleEffect extends EffectDiminishing {
     return newClass;
   }
 
-  public static SimpleEffect4(t: Variable, a: BigNumber, m: BigNumber, param: Variable, effName = "Linear", pow_diminish = 1) {
+  public static Create(t: Variable, a: BigNumber | number, m: BigNumber | number, param: Variable = null, effName = "Linear", pow_diminish = 1) {
     const newClass = new SimpleEffect();
+
+    if (typeof a == "number") a = new BigNumber(a);
+    if (typeof m == "number") m = new BigNumber(m);
+
     newClass.effect = GameContext.GetEffect(effName);
     newClass.target = t;
     newClass.parameter = param;
@@ -131,6 +135,9 @@ export class SimpleEffect extends EffectDiminishing {
   Preview(key = "") {
     let str = "";
     this.GetEfficiency();
+    // let asnumber = this.mult.Exponent == 0 && this.mult.Mantissa == 1;
+    // console.log("SimpleEffect Preview", asnumber, this.mult.Mantissa, this.mult.Exponent, key);
+
     switch (key) {
       case "":
         str = this.effect.preview(this.add, this.mult, this.parameter, this.preview_eff);
@@ -164,7 +171,7 @@ export class SimpleEffect extends EffectDiminishing {
         // }
         break;
     }
-    console.log(str);
+    // console.log(str);
 
     return str;
   }

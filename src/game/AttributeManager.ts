@@ -9,6 +9,7 @@ import { VariableInt } from "./VariableInt";
 import { AttributeFormat } from "@/type/AttributeFormat";
 import { CharacterEffect } from "./CharacterEffect";
 import { SimpleEffect } from "./SimpleEffect";
+import { GameManager } from "./GameManager";
 
 export class AttributeManager {
   IsEnabled = true;
@@ -36,9 +37,7 @@ export class AttributeManager {
   // Attributes: ([ keyof typeof Attributes])
   Attributes: CharacterAttribute[] = [];
 
-  constructor() {
-    this.Init();
-  }
+  constructor() {}
 
   Init() {
     this.Total = new VariableInt(0);
@@ -48,7 +47,7 @@ export class AttributeManager {
     this.BonusToAll = new VariableBignumber(0.0);
     this.BonusToAllMem = new VariableBignumber(0.0);
     this.BonusPoints = new VariableInt(0);
-    this.MaxValue = new VariableInt(100);
+    this.MaxValue = new VariableInt(250); // 100
     this.AttributePower = new VariableFloat(1);
     this.VersatilityPower = new VariableFloat(1);
     this.Resets = 1;
@@ -145,33 +144,41 @@ export class AttributeManager {
     let attributeFormatList: AttributeFormat[];
     let characterAttribute = new CharacterAttribute();
     characterAttribute.Key = key;
-
+    characterAttribute.Level = new VariableInt(0);
     characterAttribute.TrueLevel = new VariableInt(0);
     characterAttribute.perks = [];
     switch (key) {
       case Attributes.Intelligence:
         attributeFormatList = GlobalData.Intelligence;
+        characterAttribute.Level = new VariableInt(GameManager.Instance.SaveFile.Int);
         break;
       case Attributes.Insight:
         attributeFormatList = GlobalData.Insight;
+        characterAttribute.Level = new VariableInt(GameManager.Instance.SaveFile.Ins);
         break;
       case Attributes.Spellcraft:
         attributeFormatList = GlobalData.Spellcraft;
+        characterAttribute.Level = new VariableInt(GameManager.Instance.SaveFile.Scr);
         break;
       case Attributes.Wisdom:
         attributeFormatList = GlobalData.Wisdom;
+        characterAttribute.Level = new VariableInt(GameManager.Instance.SaveFile.Wis);
         break;
       case Attributes.Dominance:
         attributeFormatList = GlobalData.Dominance;
+        characterAttribute.Level = new VariableInt(GameManager.Instance.SaveFile.Dom);
         break;
       case Attributes.Patience:
         attributeFormatList = GlobalData.Patience;
+        characterAttribute.Level = new VariableInt(GameManager.Instance.SaveFile.Pat);
         break;
       case Attributes.Mastery:
         attributeFormatList = GlobalData.Mastery;
+        characterAttribute.Level = new VariableInt(GameManager.Instance.SaveFile.Mas);
         break;
       case Attributes.Empathy:
         attributeFormatList = GlobalData.Empathy;
+        characterAttribute.Level = new VariableInt(GameManager.Instance.SaveFile.Emp);
         break;
       default:
         attributeFormatList = GlobalData.Intelligence;
@@ -187,19 +194,28 @@ export class AttributeManager {
       } else if (attributeFormat.Target) {
         let e = SimpleEffect.SimpleEffect();
         if (attributeFormat.e) e.effect = GameContext.GetEffect(attributeFormat.e);
+        // console.log(attributeFormat.e);
+
         e.target = GameContext.GetResource(attributeFormat.Target);
         e.add = !attributeFormat.a ? new BigNumber(0) : new BigNumber(attributeFormat.a);
         e.mult = !attributeFormat.m ? new BigNumber(1) : new BigNumber(attributeFormat.m);
         if (attributeFormat.w) e.parameter = GameContext.GetResource(attributeFormat.w);
         characterAttribute.perks.push(new Perk(level, e, attributeFormat.Description));
+        characterAttribute.perks[characterAttribute.perks.length - 1].attribute = Attributes[key];
+        characterAttribute.perks[characterAttribute.perks.length - 1].Data = attributeFormat;
       }
     }
     this.Attributes[key] = characterAttribute;
     GameContext.ContextAddResource(`Char.${Attributes[key]}`, this.Attributes[key].Level);
     //   bar.parameter = characterAttribute;
     //   bar.Init();
-    //   bar.parameter.main_effect.Start();
-    //   this.CheckButon();
+    this.Attributes[key].main_effect.Start();
+
+    for (let index = 0; index < this.Attributes[key].perks.length; index++) {
+      const perk = this.Attributes[key].perks[index];
+
+      if (this.Attributes[key].Level.ValueInt >= perk.Level) perk.Activate();
+    }
   }
 
   // CreateDump(dump: AttributeBarDump) {

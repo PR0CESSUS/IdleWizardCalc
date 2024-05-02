@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import PanelHero from "@/components/PanelHero.vue";
-import StatisticInfo from "@/components/StatisticInfo.vue";
-import { GameContext } from "@/game/GameContext";
 import { GameManager } from "@/game/GameManager";
-import { GlobalData } from "@/game/GlobalData";
-import { Statistic } from "@/game/Statistic";
 import { inject, ref } from "vue";
 import { definePage } from "vue-router/auto";
 
@@ -20,21 +15,9 @@ definePage({
 </script>
 
 <template>
-  <button @click="console.log(game)">DEBUG</button>
-  <button @click="console.dir(Statistic)">Statistic</button>
-  <button @click="console.dir(GameContext)">GameContext</button>
-  <button @click="console.dir(GlobalData)">GlobalData</button>
-  <button @click="console.log(game.UpgradeManager.InitUpgrade())">Init Upgrade</button>
-  <button @click="console.log(game.VoidManaManager.UpdateEffect())">Void UpdateEffect</button>
-  <button @click="console.log(game.CurrentHero.Hero.ApplyEffects())">Hero Apply Effect</button>
+  <h3>Upgrade</h3>
   Upgrade Applied: {{ game.UpgradeManager.UpgradeList.filter((upgrade) => upgrade.applied).length }} / {{ game.SaveFile.Upgrades.length }}
   <hr />
-  <PanelHero />
-  <hr />
-  <StatisticInfo />
-  <hr />
-
-  <h3>Upgrade</h3>
   <table>
     <th @click="game.UpgradeManager.UpgradeList.sort((a, b) => (a.ID > b.ID ? 1 : b.ID > a.ID ? -1 : 0))">ID</th>
     <th>Name</th>

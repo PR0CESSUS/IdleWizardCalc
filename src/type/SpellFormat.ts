@@ -1,0 +1,20 @@
+export type SpellFormat = {
+  Name: string;
+  Description: string;
+  Key: string;
+  Build: string;
+  TypeBehavior: string;
+  SpellType: string;
+  Duration: string;
+  Requirements: string;
+  ResetUses?: string;
+  SB?: string;
+  Limited?: string;
+  Curse?: string;
+  Shadow?: string;
+  Acc?: string;
+  Priority?: string;
+  AddCost?: string;
+  AddCostValue?: string;
+  AddCostName?: string;
+};

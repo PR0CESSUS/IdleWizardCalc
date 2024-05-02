@@ -1,6 +1,7 @@
 import { BigNumber } from "./BigNumber";
 import { Variable } from "./Variable";
 import { VariableComplex } from "./VariableComplex";
+import { VariableInt } from "./VariableInt";
 
 export class BonusBehavior {
   baseTimeInterval = 5;
@@ -15,7 +16,7 @@ export class BonusBehavior {
   BonusScatter: VariableComplex;
   BonusLifeTime: VariableComplex;
   BuffOnCollect: VariableComplex;
-  DecreaseSpawnOnCollect: number; //VariableInt;
+  DecreaseSpawnOnCollect: VariableInt;
   Objects;
   OnCollect;
   IncomeMode: Variable;
@@ -27,7 +28,7 @@ export class BonusBehavior {
     this.BonusProfit = new VariableComplex(this.baseBonus);
     this.BonusLifeTime = new VariableComplex(this.baseLifeTime);
     this.BuffOnCollect = new VariableComplex(0.0);
-    this.DecreaseSpawnOnCollect = 0;
+    this.DecreaseSpawnOnCollect = new VariableInt(0);
     this.IncomeMode = incomeMod;
     this.OnCollect = OnCollectEvent;
   }

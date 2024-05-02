@@ -56,6 +56,10 @@ export class BuildingManager {
   //   }
   // }
 
+  UpdateEffect() {
+    for (const building of this.Buildings) building.building.CalculatePps();
+  }
+
   EnableTrade() {
     //   this.CatalystTradeButton.SetActive(true);
     //   VariableBignumber catalystAmount = this.CatalystAmount;

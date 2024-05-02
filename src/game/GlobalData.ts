@@ -1,5 +1,6 @@
 import { AttributeFormat } from "@/type/AttributeFormat";
 import { BuildingFormat } from "@/type/BuildingFormat";
+import { SpellFormat } from "@/type/SpellFormat";
 import { UpgradeFormat } from "@/type/UpgradeFormat";
 
 export class GlobalData {
@@ -13,4 +14,5 @@ export class GlobalData {
   public static Empathy: AttributeFormat[];
   public static Upgrades: UpgradeFormat[];
   public static Buildings: BuildingFormat[];
+  public static Spells: SpellFormat[];
 }
