@@ -7,14 +7,24 @@ const game = ref(inject<GameManager>("game"));
 </script>
 
 <template>
+  <button @click="game.SpellBook.ApplyAll()">Apply All</button>
   <div class="spellGrid">
     <div v-for="spell in game.SpellBook.SpellChooses" class="spell" :class="{ active: spell.active }">
       <AppTooltip>
-        <template #trigger><img :src="'spell/' + spell.Data.Key + '.png'" style="object-fit: scale-down" width="70" @click="spell.Apply()" /></template>
+        <template #trigger
+          ><img
+            :src="'spell/' + spell.Data.Key + '.png'"
+            width="70"
+            @click="
+              spell.Apply();
+              spell.Update();
+            "
+        /></template>
         <template #content><p v-html="spell.getTip()"></p> </template>
       </AppTooltip>
     </div>
   </div>
+  <!-- style="object-fit: scale-down" -->
 </template>
 <style scoped>
 .spellGrid {
@@ -25,12 +35,14 @@ const game = ref(inject<GameManager>("game"));
 }
 
 .active {
-  filter: hue-rotate(230deg);
+  /* filter: hue-rotate(230deg); */
+  background-color: yellow;
+  background-blend-mode: darken;
 }
 
-.active img {
+/* .active img {
   filter: hue-rotate(-230deg);
-}
+} */
 
 .spell {
   background-image: url("/spell/Spell.png");

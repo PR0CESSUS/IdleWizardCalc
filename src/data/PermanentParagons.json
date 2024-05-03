@@ -1,0 +1,1100 @@
+[
+  {
+    "Level": "1",
+    "Req": "Char.Total",
+    "ReqParam": "50",
+    "ReqDescr": "Earn Attributes",
+    "RewardDescr": "Increases Character experience gained from mana sources by & (additive)",
+    "Reward": "Hero.ExpMS",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "2",
+    "Req": "Achiev.Challenge",
+    "ReqParam": "12",
+    "ReqDescr": "Complete challenges",
+    "RewardDescr": "Increases Mysteries power by #",
+    "Reward": "Base.SoulPower",
+    "RewardM": "1.5"
+  },
+  {
+    "Level": "3",
+    "Req": "Achiev.Count",
+    "ReqParam": "300",
+    "ReqDescr": "Unlock achieves",
+    "RewardDescr": "Increases green catalysts power by & (additive)",
+    "Reward": "Catalysts.GreenBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "4",
+    "Req": "Achiev.Points",
+    "ReqParam": "4000",
+    "ReqDescr": "Earn achievement points",
+    "RewardDescr": "Increases red catalysts power by & (additive)",
+    "Reward": "Catalysts.RedBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "5",
+    "Req": "Hero.MaxLevelAllTime",
+    "ReqParam": "110",
+    "ReqDescr": "Reach Character level",
+    "RewardDescr": "Increases Character experience gained from actions by #",
+    "Reward": "Hero.ExpBoost",
+    "RewardM": "1.5"
+  },
+  {
+    "Level": "6",
+    "Req": "Trial.TotalCompleted",
+    "ReqParam": "15",
+    "ReqDescr": "Complete Trials",
+    "RewardDescr": "Increases reward from trials by & (additive)",
+    "Reward": "Trial.Reward",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "7",
+    "Req": "Char.Total",
+    "ReqParam": "300",
+    "ReqDescr": "Earn attributes",
+    "RewardDescr": "Increases Character experience gained from mana sources by & (additive)",
+    "Reward": "Hero.ExpMS",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "8",
+    "Req": "Base.CatalystsTotal",
+    "ReqParam": "100",
+    "ReqDescr": "Collect catalyst shards",
+    "RewardDescr": "Increases all catalysts income by & (additive)",
+    "Reward": "Catalysts.AllIncome",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "9",
+    "Req": "Base.Bats",
+    "ReqParam": "100",
+    "ReqDescr": "Collect bats",
+    "RewardDescr": "Increases bats' spawn rate by & (additive)",
+    "Reward": "Bats.SpawnRate",
+    "RewardA": "0.025"
+  },
+  {
+    "Level": "10",
+    "Req": "Achiev.Count",
+    "ReqParam": "400",
+    "ReqDescr": "Unlock achieves",
+    "RewardDescr": "Increases green catalysts power by & (additive)",
+    "Reward": "Catalysts.GreenBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "11",
+    "Req": "Items.GatherTotal",
+    "ReqParam": "10000",
+    "ReqDescr": "Collect craft resources",
+    "RewardDescr": "Increases maximum resources in jars by # (additive)",
+    "Reward": "Items.Bank",
+    "RewardA": "500"
+  },
+  {
+    "Level": "12",
+    "Req": "Items.UnlockedTotal",
+    "ReqParam": "5",
+    "ReqDescr": "Unlock items",
+    "RewardDescr": "Increases crafting dust cap by # (additive)",
+    "Reward": "Items.Cap",
+    "RewardA": "10000"
+  },
+  {
+    "Level": "13",
+    "Req": "Trial.TotalCompleted",
+    "ReqParam": "30",
+    "ReqDescr": "Complete Trials",
+    "RewardDescr": "Increases reward from trials by & (additive)",
+    "Reward": "Trial.Reward",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "14",
+    "Req": "Achiev.Count",
+    "ReqParam": "500",
+    "ReqDescr": "Unlock achieves",
+    "RewardDescr": "Increases green catalysts power by & (additive)",
+    "Reward": "Catalysts.GreenBonus",
+    "RewardA": "0.2"
+  },
+  {
+    "Level": "15",
+    "Req": "Achiev.Challenge",
+    "ReqParam": "60",
+    "ReqDescr": "Complete challenges",
+    "RewardDescr": "Increases the multiplier of each individual blue catalyst by & (additive)",
+    "Reward": "Catalysts.BlueBonus",
+    "RewardA": "0.0025"
+  },
+  {
+    "Level": "16",
+    "Req": "Items.Uncommon",
+    "ReqParam": "4",
+    "ReqDescr": "Unlock items of at least Uncommon quality",
+    "RewardDescr": "Increases maximum resources in jars by # (additive)",
+    "Reward": "Items.Bank",
+    "RewardA": "500"
+  },
+  {
+    "Level": "17",
+    "Req": "Base.Bats",
+    "ReqParam": "250",
+    "ReqDescr": "Collect bats",
+    "RewardDescr": "Increases bats' spawn rate by & (additive)",
+    "Reward": "Bats.SpawnRate",
+    "RewardA": "0.025"
+  },
+  {
+    "Level": "18",
+    "Req": "Hero.MaxLevelAllTime",
+    "ReqParam": "130",
+    "ReqDescr": "Reach Character level",
+    "RewardDescr": "Increases Character experience gained from actions by #",
+    "Reward": "Hero.ExpBoost",
+    "RewardM": "1.5"
+  },
+  {
+    "Level": "19",
+    "Req": "Base.CatalystsTotal",
+    "ReqParam": "1200",
+    "ReqDescr": "Collect catalyst shards",
+    "RewardDescr": "Increases all catalysts income by & (additive)",
+    "Reward": "Catalysts.AllIncome",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "20",
+    "Req": "Char.Total",
+    "ReqParam": "500",
+    "ReqDescr": "Earn Attributes",
+    "RewardDescr": "Increases Character experience gained from mana sources by & (additive)",
+    "Reward": "Hero.ExpMS",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "21",
+    "Req": "Achiev.Count",
+    "ReqParam": "600",
+    "ReqDescr": "Unlock achieves",
+    "RewardDescr": "Increases green catalysts power by & (additive)",
+    "Reward": "Catalysts.GreenBonus",
+    "RewardA": "0.2"
+  },
+  {
+    "Level": "22",
+    "Req": "Items.Epic",
+    "ReqParam": "2",
+    "ReqDescr": "Unlock items of at least Epic quality",
+    "RewardDescr": "Increases maximum resources in jars by # (additive)",
+    "Reward": "Items.Bank",
+    "RewardA": "500"
+  },
+  {
+    "Level": "23",
+    "Req": "Achiev.Points",
+    "ReqParam": "11000",
+    "ReqDescr": "Earn achievement points",
+    "RewardDescr": "Increases red catalysts power by & (additive)",
+    "Reward": "Catalysts.RedBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "24",
+    "Req": "Items.EDustTotal",
+    "ReqParam": "2000",
+    "ReqDescr": "Collect enchanting dust",
+    "RewardDescr": "Increases enchanting dust income by & (additive)",
+    "Reward": "Dust.EnchantingBonus",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "25",
+    "Req": "Hero.MaxLevelAllTime",
+    "ReqParam": "150",
+    "ReqDescr": "Reach Character level",
+    "RewardDescr": "Increases Character experience gained from actions by #",
+    "Reward": "Hero.ExpBoost",
+    "RewardM": "1.5"
+  },
+  {
+    "Level": "26",
+    "Req": "Base.Bats",
+    "ReqParam": "600",
+    "ReqDescr": "Collect bats",
+    "RewardDescr": "Increases bats' spawn rate by & (additive)",
+    "Reward": "Bats.SpawnRate",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "27",
+    "Req": "Char.Total",
+    "ReqParam": "700",
+    "ReqDescr": "Earn attributes",
+    "RewardDescr": "Increases Character experience gained from mana sources by & (additive)",
+    "Reward": "Hero.ExpMS",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "28",
+    "Req": "Items.Legendary",
+    "ReqParam": "6",
+    "ReqDescr": "Unlock items of at least Legendary quality",
+    "RewardDescr": "Increases maximum resources in jars by # (additive)",
+    "Reward": "Items.Bank",
+    "RewardA": "500"
+  },
+  {
+    "Level": "29",
+    "Req": "Achiev.Count",
+    "ReqParam": "700",
+    "ReqDescr": "Unlock achieves",
+    "RewardDescr": "Increases green catalysts power by & (additive)",
+    "Reward": "Catalysts.GreenBonus",
+    "RewardA": "0.3"
+  },
+  {
+    "Level": "30",
+    "Req": "Base.CatalystsTotal",
+    "ReqParam": "5000",
+    "ReqDescr": "Collect catalyst shards",
+    "RewardDescr": "Increases all catalysts income by & (additive)",
+    "Reward": "Catalysts.AllIncome",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "31",
+    "Req": "Hero.MaxLevelAllTime",
+    "ReqParam": "175",
+    "ReqDescr": "Reach Character level",
+    "RewardDescr": "Increases Character experience gained from actions by #",
+    "Reward": "Hero.ExpBoost",
+    "RewardM": "1.5"
+  },
+  {
+    "Level": "32",
+    "Req": "Trial.TotalCompleted",
+    "ReqParam": "60",
+    "ReqDescr": "Complete Trials",
+    "RewardDescr": "Increases reward from trials by & (additive)",
+    "Reward": "Trial.Reward",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "33",
+    "Req": "Achiev.Challenge",
+    "ReqParam": "100",
+    "ReqDescr": "Complete challenges",
+    "RewardDescr": "Increases the multiplier of each individual blue catalyst by & (additive)",
+    "Reward": "Catalysts.BlueBonus",
+    "RewardA": "0.0025"
+  },
+  {
+    "Level": "34",
+    "Req": "Items.EDustTotal",
+    "ReqParam": "1e5",
+    "ReqDescr": "Collect enchanting dust",
+    "RewardDescr": "Increases enchanting dust income by & (additive)",
+    "Reward": "Dust.EnchantingBonus",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "35",
+    "Req": "Achiev.Points",
+    "ReqParam": "14000",
+    "ReqDescr": "Earn achievement points",
+    "RewardDescr": "Increases red catalysts power by & (additive)",
+    "Reward": "Catalysts.RedBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "36",
+    "Req": "Items.Uncommon",
+    "ReqParam": "90",
+    "ReqDescr": "Unlock items of at least Uncommon quality",
+    "RewardDescr": "Increases crafting dust cap by # (additive)",
+    "Reward": "Items.Cap",
+    "RewardA": "10000"
+  },
+  {
+    "Level": "37",
+    "Req": "Hero.MaxLevelAllTime",
+    "ReqParam": "200",
+    "ReqDescr": "Reach Character level",
+    "RewardDescr": "Increases Character experience gained from actions by #",
+    "Reward": "Hero.ExpBoost",
+    "RewardM": "1.5"
+  },
+  {
+    "Level": "38",
+    "Req": "Trial.TotalCompleted",
+    "ReqParam": "120",
+    "ReqDescr": "Complete Trials",
+    "RewardDescr": "Increases reward from trials by & (additive)",
+    "Reward": "Trial.Reward",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "39",
+    "Req": "Items.Legendary",
+    "ReqParam": "25",
+    "ReqDescr": "Unlock items of at least Legendary quality",
+    "RewardDescr": "Increases maximum resources in jars by # (additive)",
+    "Reward": "Items.Bank",
+    "RewardA": "500"
+  },
+  {
+    "Level": "40",
+    "Req": "Base.Bats",
+    "ReqParam": "1000",
+    "ReqDescr": "Collect bats",
+    "RewardDescr": "Increases bats' spawn rate by & (additive)",
+    "Reward": "Bats.SpawnRate",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "41",
+    "Req": "Achiev.Points",
+    "ReqParam": "15000",
+    "ReqDescr": "Earn achievement points",
+    "RewardDescr": "Increases red catalysts power by & (additive)",
+    "Reward": "Catalysts.RedBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "42",
+    "Req": "Hero.MaxLevelAllTime",
+    "ReqParam": "220",
+    "ReqDescr": "Reach Character level",
+    "RewardDescr": "Increases Character experience gained from actions by #",
+    "Reward": "Hero.ExpBoost",
+    "RewardM": "2"
+  },
+  {
+    "Level": "43",
+    "Req": "Base.CatalystsTotal",
+    "ReqParam": "35000",
+    "ReqDescr": "Collect catalyst shards",
+    "RewardDescr": "Increases all catalysts income by & (additive)",
+    "Reward": "Catalysts.AllIncome",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "44",
+    "Req": "Trial.TotalCompleted",
+    "ReqParam": "200",
+    "ReqDescr": "Complete Trials",
+    "RewardDescr": "Increases reward from trials by & (additive)",
+    "Reward": "Trial.Reward",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "45",
+    "Req": "Items.EDustTotal",
+    "ReqParam": "7.5e5",
+    "ReqDescr": "Collect enchanting dust",
+    "RewardDescr": "Increases enchanting dust income by & (additive)",
+    "Reward": "Dust.EnchantingBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "46",
+    "Req": "Items.Legendary",
+    "ReqParam": "50",
+    "ReqDescr": "Unlock items of at least Legendary quality",
+    "RewardDescr": "Increases crafting dust cap by # (additive)",
+    "Reward": "Items.Cap",
+    "RewardA": "10000"
+  },
+  {
+    "Level": "47",
+    "Req": "Achiev.Count",
+    "ReqParam": "800",
+    "ReqDescr": "Unlock achieves",
+    "RewardDescr": "Increases green catalysts power by & (additive)",
+    "Reward": "Catalysts.GreenBonus",
+    "RewardA": "0.3"
+  },
+  {
+    "Level": "48",
+    "Req": "Base.Bats",
+    "ReqParam": "1500",
+    "ReqDescr": "Collect bats",
+    "RewardDescr": "Increases bats' spawn rate by & (additive)",
+    "Reward": "Bats.SpawnRate",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "49",
+    "Req": "Hero.MaxLevelAllTime",
+    "ReqParam": "240",
+    "ReqDescr": "Reach Character level",
+    "RewardDescr": "Increases Character experience gained from actions by #",
+    "Reward": "Hero.ExpBoost",
+    "RewardM": "2"
+  },
+  {
+    "Level": "50",
+    "Req": "Items.GatherTotal",
+    "ReqParam": "200000",
+    "ReqDescr": "Collect craft resources",
+    "RewardDescr": "Increases maximum resources in jars by # (additive)",
+    "Reward": "Items.Bank",
+    "RewardA": "500"
+  },
+  {
+    "Level": "51",
+    "Req": "Pantheon.MaxLevel",
+    "ReqParam": "40",
+    "ReqDescr": "Reach God's level",
+    "RewardDescr": "Increases Gods' experience bonus by & (additive)",
+    "Reward": "Pantheon.ExpBonus",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "52",
+    "Req": "Achiev.Points",
+    "ReqParam": "16000",
+    "ReqDescr": "Earn achievement points",
+    "RewardDescr": "Increases red catalysts power by & (additive)",
+    "Reward": "Catalysts.RedBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "53",
+    "Req": "Items.Legendary",
+    "ReqParam": "75",
+    "ReqDescr": "Unlock items of at least Legendary quality",
+    "RewardDescr": "Increases crafting dust cap by # (additive)",
+    "Reward": "Items.Cap",
+    "RewardA": "10000"
+  },
+  {
+    "Level": "54",
+    "Req": "Base.CatalystsTotal",
+    "ReqParam": "1e5",
+    "ReqDescr": "Collect catalyst shards",
+    "RewardDescr": "Increases all catalysts income by & (additive)",
+    "Reward": "Catalysts.AllIncome",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "55",
+    "Req": "Items.EDustTotal",
+    "ReqParam": "2.5e6",
+    "ReqDescr": "Collect enchanting dust",
+    "RewardDescr": "Increases enchanting dust income by & (additive)",
+    "Reward": "Dust.EnchantingBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "56",
+    "Req": "Char.Total",
+    "ReqParam": "1400",
+    "ReqDescr": "Earn Attributes",
+    "RewardDescr": "Increases Character experience gained from mana sources by & (additive)",
+    "Reward": "Hero.ExpMS",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "57",
+    "Req": "Trial.TotalCompleted",
+    "ReqParam": "300",
+    "ReqDescr": "Complete Trials",
+    "RewardDescr": "Increases reward from trials by & (additive)",
+    "Reward": "Trial.Reward",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "58",
+    "Req": "Pantheon.MaxLevel",
+    "ReqParam": "70",
+    "ReqDescr": "Reach God's level",
+    "RewardDescr": "Increases Gods' experience bonus by & (additive)",
+    "Reward": "Pantheon.ExpBonus",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "59",
+    "Req": "Achiev.Points",
+    "ReqParam": "17000",
+    "ReqDescr": "Earn achievement points",
+    "RewardDescr": "Increases the multiplier of each individual blue catalyst by & (additive)",
+    "Reward": "Catalysts.BlueBonus",
+    "RewardA": "0.0025"
+  },
+  {
+    "Level": "60",
+    "Req": "Hero.MaxLevelAllTime",
+    "ReqParam": "260",
+    "ReqDescr": "Reach Character level",
+    "RewardDescr": "Increases Character experience gained from actions by #",
+    "Reward": "Hero.ExpBoost",
+    "RewardM": "2"
+  },
+  {
+    "Level": "61",
+    "Req": "Items.Rare",
+    "ReqParam": "120",
+    "ReqDescr": "Unlock items of at least Rare quality",
+    "RewardDescr": "Increases crafting dust cap by # (additive)",
+    "Reward": "Items.Cap",
+    "RewardA": "10000"
+  },
+  {
+    "Level": "62",
+    "Req": "Base.CatalystsTotal",
+    "ReqParam": "1e6",
+    "ReqDescr": "Collect catalyst shards",
+    "RewardDescr": "Increases all catalysts income by & (additive)",
+    "Reward": "Catalysts.AllIncome",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "63",
+    "Req": "Items.GatherTotal",
+    "ReqParam": "500000",
+    "ReqDescr": "Collect craft resources",
+    "RewardDescr": "Increases maximum resources in jars by # (additive)",
+    "Reward": "Items.Bank",
+    "RewardA": "500"
+  },
+  {
+    "Level": "64",
+    "Req": "Char.Total",
+    "ReqParam": "1600",
+    "ReqDescr": "Earn Attributes",
+    "RewardDescr": "Increases Character experience gained from mana sources by & (additive)",
+    "Reward": "Hero.ExpMS",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "65",
+    "Req": "Items.EDustTotal",
+    "ReqParam": "1e7",
+    "ReqDescr": "Collect enchanting dust",
+    "RewardDescr": "Increases enchanting dust income by & (additive)",
+    "Reward": "Dust.EnchantingBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "66",
+    "Req": "Items.Legendary",
+    "ReqParam": "110",
+    "ReqDescr": "Unlock items of at least Legendary quality",
+    "RewardDescr": "Increases crafting dust cap by # (additive)",
+    "Reward": "Items.Cap",
+    "RewardA": "10000"
+  },
+  {
+    "Level": "67",
+    "Req": "Base.Bats",
+    "ReqParam": "2000",
+    "ReqDescr": "Collect bats",
+    "RewardDescr": "Increases bats' spawn rate by & (additive)",
+    "Reward": "Bats.SpawnRate",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "68",
+    "Req": "Trial.TotalCompleted",
+    "ReqParam": "400",
+    "ReqDescr": "Complete Trials",
+    "RewardDescr": "Increases the multiplier of each individual blue catalyst by & (additive)",
+    "Reward": "Catalysts.BlueBonus",
+    "RewardA": "0.0025"
+  },
+  {
+    "Level": "69",
+    "Req": "Pantheon.MaxLevel",
+    "ReqParam": "100",
+    "ReqDescr": "Reach God's level",
+    "RewardDescr": "Increases Gods' experience bonus by & (additive)",
+    "Reward": "Pantheon.ExpBonus",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "70",
+    "Req": "Base.CatalystsTotal",
+    "ReqParam": "1e7",
+    "ReqDescr": "Collect catalyst shards",
+    "RewardDescr": "Increases all catalysts income by & (additive)",
+    "Reward": "Catalysts.AllIncome",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "71",
+    "Req": "Achiev.Count",
+    "ReqParam": "900",
+    "ReqDescr": "Unlock achieves",
+    "RewardDescr": "Increases bats' spawn rate by & (additive)",
+    "Reward": "Bats.SpawnRate",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "72",
+    "Req": "Hero.MaxLevelAllTime",
+    "ReqParam": "270",
+    "ReqDescr": "Reach Character level",
+    "RewardDescr": "Increases Character experience gained from actions by #",
+    "Reward": "Hero.ExpBoost",
+    "RewardM": "2"
+  },
+  {
+    "Level": "73",
+    "Req": "Pantheon.MaxLevel",
+    "ReqParam": "120",
+    "ReqDescr": "Reach God's level",
+    "RewardDescr": "Increases Gods' experience bonus by & (additive)",
+    "Reward": "Pantheon.ExpBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "74",
+    "Req": "Trial.TotalCompleted",
+    "ReqParam": "600",
+    "ReqDescr": "Complete Trials",
+    "RewardDescr": "Increases reward from trials by & (additive)",
+    "Reward": "Trial.Reward",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "75",
+    "Req": "Items.EDustTotal",
+    "ReqParam": "4e7",
+    "ReqDescr": "Collect enchanting dust",
+    "RewardDescr": "Increases enchanting dust income by & (additive)",
+    "Reward": "Dust.EnchantingBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "76",
+    "Req": "Base.CatalystsTotal",
+    "ReqParam": "1e8",
+    "ReqDescr": "Collect catalyst shards",
+    "RewardDescr": "Increases all catalysts income by & (additive)",
+    "Reward": "Catalysts.AllIncome",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "77",
+    "Req": "Base.Bats",
+    "ReqParam": "5000",
+    "ReqDescr": "Collect bats",
+    "RewardDescr": "Increases bats' spawn rate by & (additive)",
+    "Reward": "Bats.SpawnRate",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "78",
+    "Req": "VoidGilding.MaxLvl",
+    "ReqParam": "10",
+    "ReqDescr": "Reach an Echo trap's level",
+    "RewardDescr": "Increases experience gained from Echoes by & (additive)",
+    "Reward": "VoidGilding.Exp",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "79",
+    "Req": "Achiev.Points",
+    "ReqParam": "18000",
+    "ReqDescr": "Earn achievement points",
+    "RewardDescr": "Increases the multiplier of each individual blue catalyst by & (additive)",
+    "Reward": "Catalysts.BlueBonus",
+    "RewardA": "0.0025"
+  },
+  {
+    "Level": "80",
+    "Req": "Realm.TotalMemories",
+    "ReqParam": "1e6",
+    "ReqDescr": "Earn Memories",
+    "RewardDescr": "Increases Memetic Splinters income by #",
+    "Reward": "SplinterIncome",
+    "RewardM": "1.05"
+  },
+  {
+    "Level": "81",
+    "Req": "Pantheon.MaxLevel",
+    "ReqParam": "200",
+    "ReqDescr": "Reach God's level",
+    "RewardDescr": "Increases Gods' experience bonus by & (additive)",
+    "Reward": "Pantheon.ExpBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "82",
+    "Req": "Achiev.Count",
+    "ReqParam": "950",
+    "ReqDescr": "Unlock achieves",
+    "RewardDescr": "Increases bats' spawn rate by & (additive)",
+    "Reward": "Bats.SpawnRate",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "83",
+    "Req": "Items.EDustTotal",
+    "ReqParam": "1e8",
+    "ReqDescr": "Collect enchanting dust",
+    "RewardDescr": "Increases enchanting dust income by & (additive)",
+    "Reward": "Dust.EnchantingBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "84",
+    "Req": "VoidGilding.MaxLvl",
+    "ReqParam": "25",
+    "ReqDescr": "Reach an Echo trap's level",
+    "RewardDescr": "Increases experience gained from Echoes by & (additive)",
+    "Reward": "VoidGilding.Exp",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "85",
+    "Req": "Items.Legendary",
+    "ReqParam": "130",
+    "ReqDescr": "Unlock items of at least Legendary quality",
+    "RewardDescr": "Increases crafting dust cap by # (additive)",
+    "Reward": "Items.Cap",
+    "RewardA": "10000"
+  },
+  {
+    "Level": "86",
+    "Req": "Trial.TotalCompleted",
+    "ReqParam": "1200",
+    "ReqDescr": "Complete Trials",
+    "RewardDescr": "Increases reward from trials by & (additive)",
+    "Reward": "Trial.Reward",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "87",
+    "Req": "Experiment.Total",
+    "ReqParam": "10000",
+    "ReqDescr": "Perform experiments",
+    "RewardDescr": "Increases crafting dust income by & (additive)",
+    "Reward": "Items.Jars",
+    "RewardA": "0.01"
+  },
+  {
+    "Level": "88",
+    "Req": "Realm.TotalMemories",
+    "ReqParam": "2.5e6",
+    "ReqDescr": "Earn Memories",
+    "RewardDescr": "Increases Memetic Splinters income by #",
+    "Reward": "SplinterIncome",
+    "RewardM": "1.05"
+  },
+  {
+    "Level": "89",
+    "Req": "Pantheon.MaxLevel",
+    "ReqParam": "300",
+    "ReqDescr": "Reach God's level",
+    "RewardDescr": "Increases Gods' experience bonus by & (additive)",
+    "Reward": "Pantheon.ExpBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "90",
+    "Req": "Base.Bats",
+    "ReqParam": "10000",
+    "ReqDescr": "Collect bats",
+    "RewardDescr": "Increases bats' spawn rate by & (additive)",
+    "Reward": "Bats.SpawnRate",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "91",
+    "Req": "Base.CatalystsTotal",
+    "ReqParam": "1e9",
+    "ReqDescr": "Collect catalyst shards",
+    "RewardDescr": "Increases all catalysts income by & (additive)",
+    "Reward": "Catalysts.AllIncome",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "92",
+    "Req": "Items.EDustTotal",
+    "ReqParam": "5e8",
+    "ReqDescr": "Collect enchanting dust",
+    "RewardDescr": "Increases enchanting dust income by & (additive)",
+    "Reward": "Dust.EnchantingBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "93",
+    "Req": "Achiev.Count",
+    "ReqParam": "1000",
+    "ReqDescr": "Unlock achieves",
+    "RewardDescr": "Increases minor Gods' Ability Power by & (additive)",
+    "Reward": "Pantheon.MinorAP",
+    "RewardA": "0.01"
+  },
+  {
+    "Level": "94",
+    "Req": "Items.Legendary",
+    "ReqParam": "150",
+    "ReqDescr": "Unlock items of at least Legendary quality",
+    "RewardDescr": "Increases crafting dust cap by # (additive)",
+    "Reward": "Items.Cap",
+    "RewardA": "10000"
+  },
+  {
+    "Level": "95",
+    "Req": "Trial.TotalCompleted",
+    "ReqParam": "2000",
+    "ReqDescr": "Complete Trials",
+    "RewardDescr": "Increases reward from trials by & (additive)",
+    "Reward": "Trial.Reward",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "96",
+    "Req": "Realm.TotalMemories",
+    "ReqParam": "5e6",
+    "ReqDescr": "Earn Memories",
+    "RewardDescr": "Increases Memetic Splinters income by #",
+    "Reward": "SplinterIncome",
+    "RewardM": "1.05"
+  },
+  {
+    "Level": "97",
+    "Req": "Pantheon.MinorMaxLevel",
+    "ReqParam": "50",
+    "ReqDescr": "Reach minor God's level",
+    "RewardDescr": "Increases minor Gods' experience bonus by & (additive)",
+    "Reward": "Pantheon.MinorExp",
+    "RewardA": "0.12"
+  },
+  {
+    "Level": "98",
+    "Req": "Experiment.Total",
+    "ReqParam": "15000",
+    "ReqDescr": "Perform experiments",
+    "RewardDescr": "Increases crafting dust income by & (additive)",
+    "Reward": "Items.Jars",
+    "RewardA": "0.01"
+  },
+  {
+    "Level": "99",
+    "Req": "Base.Bats",
+    "ReqParam": "20000",
+    "ReqDescr": "Collect bats",
+    "RewardDescr": "Increases bats' spawn rate by & (additive)",
+    "Reward": "Bats.SpawnRate",
+    "RewardA": "0.05"
+  },
+  {
+    "Level": "100",
+    "Req": "Base.CatalystsTotal",
+    "ReqParam": "5e9",
+    "ReqDescr": "Collect catalyst shards",
+    "RewardDescr": "Increases all catalysts income by & (additive)",
+    "Reward": "Catalysts.AllIncome",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "101",
+    "Req": "Achiev.Count",
+    "ReqParam": "1050",
+    "ReqDescr": "Unlock achieves",
+    "RewardDescr": "Increases minor Gods' Ability Power by & (additive)",
+    "Reward": "Pantheon.MinorAP",
+    "RewardA": "0.01"
+  },
+  {
+    "Level": "102",
+    "Req": "Items.Legendary",
+    "ReqParam": "160",
+    "ReqDescr": "Unlock items of at least Legendary quality",
+    "RewardDescr": "Increases crafting dust cap by # (additive)",
+    "Reward": "Items.Cap",
+    "RewardA": "10000"
+  },
+  {
+    "Level": "103",
+    "Req": "Pantheon.MinorMaxLevel",
+    "ReqParam": "80",
+    "ReqDescr": "Reach minor God's level",
+    "RewardDescr": "Increases minor Gods' experience bonus by & (additive)",
+    "Reward": "Pantheon.MinorExp",
+    "RewardA": "0.13"
+  },
+  {
+    "Level": "104",
+    "Req": "Items.EDustTotal",
+    "ReqParam": "1e9",
+    "ReqDescr": "Collect enchanting dust",
+    "RewardDescr": "Increases enchanting dust income by & (additive)",
+    "Reward": "Dust.EnchantingBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "105",
+    "Req": "Hero.MaxLevelAllTime",
+    "ReqParam": "285",
+    "ReqDescr": "Reach Character level",
+    "RewardDescr": "Increases Character experience gained from actions by #",
+    "Reward": "Hero.ExpBoost",
+    "RewardM": "2"
+  },
+  {
+    "Level": "106",
+    "Req": "Pantheon.MaxLevel",
+    "ReqParam": "450",
+    "ReqDescr": "Reach God's level",
+    "RewardDescr": "Increases Gods' experience bonus by & (additive)",
+    "Reward": "Pantheon.ExpBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "107",
+    "Req": "Realm.TotalMemories",
+    "ReqParam": "1e7",
+    "ReqDescr": "Earn Memories",
+    "RewardDescr": "Increases Memetic Splinters income by #",
+    "Reward": "SplinterIncome",
+    "RewardM": "1.05"
+  },
+  {
+    "Level": "108",
+    "Req": "SpellGilding.MaxSpellLevel",
+    "ReqParam": "20",
+    "ReqDescr": "Reach any Spell Memetic level",
+    "RewardDescr": "Reduce Ink cost by # (additive)",
+    "Reward": "SpellGilding.CostReduction",
+    "RewardA": "5"
+  },
+  {
+    "Level": "109",
+    "Req": "Realm.DelusionTotal",
+    "ReqParam": "20",
+    "ReqDescr": "Earn Delusions",
+    "RewardDescr": "Increases Ascension Ability Power by #",
+    "Reward": "Ascension.AbilityPower",
+    "RewardM": "1.1"
+  },
+  {
+    "Level": "110",
+    "Req": "Ascension.MaxLvl",
+    "ReqParam": "30",
+    "ReqDescr": "Reach Ascension Form level",
+    "RewardDescr": "Increases Ascension Forms experience bonus by & (additive)",
+    "Reward": "Ascension.ExpBonus",
+    "RewardA": "0.20"
+  },
+  {
+    "Level": "111",
+    "Req": "Pantheon.MinorMaxLevel",
+    "ReqParam": "100",
+    "ReqDescr": "Reach minor God's level",
+    "RewardDescr": "Increases minor Gods' experience bonus by & (additive)",
+    "Reward": "Pantheon.MinorExp",
+    "RewardA": "0.15"
+  },
+  {
+    "Level": "112",
+    "Req": "Achiev.Count",
+    "ReqParam": "1100",
+    "ReqDescr": "Unlock achieves",
+    "RewardDescr": "Increases minor Gods' Ability Power by & (additive)",
+    "Reward": "Pantheon.MinorAP",
+    "RewardA": "0.01"
+  },
+  {
+    "Level": "113",
+    "Req": "Base.CatalystsTotal",
+    "ReqParam": "1e11",
+    "ReqDescr": "Collect catalyst shards",
+    "RewardDescr": "Increases all catalysts income by & (additive)",
+    "Reward": "Catalysts.AllIncome",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "114",
+    "Req": "Items.EDustTotal",
+    "ReqParam": "1e10",
+    "ReqDescr": "Collect enchanting dust",
+    "RewardDescr": "Increases enchanting dust income by & (additive)",
+    "Reward": "Dust.EnchantingBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "115",
+    "Req": "Items.Legendary",
+    "ReqParam": "170",
+    "ReqDescr": "Unlock items of at least Legendary quality",
+    "RewardDescr": "Increases crafting dust cap by # (additive)",
+    "Reward": "Items.Cap",
+    "RewardA": "10000"
+  },
+  {
+    "Level": "116",
+    "Req": "SpellGilding.MaxSpellLevel",
+    "ReqParam": "30",
+    "ReqDescr": "Reach any Spell Memetic level",
+    "RewardDescr": "Reduce Ink cost by # (additive)",
+    "Reward": "SpellGilding.CostReduction",
+    "RewardA": "5"
+  },
+  {
+    "Level": "117",
+    "Req": "Ascension.MaxLvl",
+    "ReqParam": "50",
+    "ReqDescr": "Reach Ascension Form level",
+    "RewardDescr": "Increases Ascension Forms experience bonus by & (additive)",
+    "Reward": "Ascension.ExpBonus",
+    "RewardA": "0.30"
+  },
+  {
+    "Level": "118",
+    "Req": "Hero.MaxLevelAllTime",
+    "ReqParam": "300",
+    "ReqDescr": "Reach Character level",
+    "RewardDescr": "Increases Character experience gained from actions by #",
+    "Reward": "Hero.ExpBoost",
+    "RewardM": "2"
+  },
+  {
+    "Level": "119",
+    "Req": "Items.EDustTotal",
+    "ReqParam": "1e11",
+    "ReqDescr": "Collect enchanting dust",
+    "RewardDescr": "Increases enchanting dust income by & (additive)",
+    "Reward": "Dust.EnchantingBonus",
+    "RewardA": "0.1"
+  },
+  {
+    "Level": "120",
+    "Req": "Realm.TotalMemories",
+    "ReqParam": "2e7",
+    "ReqDescr": "Earn Memories",
+    "RewardDescr": "Increases Memetic Splinters income by #",
+    "Reward": "SplinterIncome",
+    "RewardM": "1.05"
+  },
+  {
+    "Level": "121",
+    "Req": "Items.Legendary",
+    "ReqParam": "180",
+    "ReqDescr": "Unlock items of at least Legendary quality",
+    "RewardDescr": "Increases crafting dust cap by # (additive)",
+    "Reward": "Items.Cap",
+    "RewardA": "10000"
+  },
+  {
+    "Level": "122",
+    "Req": "Realm.DelusionTotal",
+    "ReqParam": "50",
+    "ReqDescr": "Earn Delusions",
+    "RewardDescr": "Increases Ascension Ability Power by #",
+    "Reward": "Ascension.AbilityPower",
+    "RewardM": "1.1"
+  }
+]

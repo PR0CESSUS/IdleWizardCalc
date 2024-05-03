@@ -66,7 +66,7 @@ export class VariableComplex extends Variable {
   //   this.mult = (BigNumber) 1.0;
   // }
 
-  Change(addendum: BigNumber, multiplier: BigNumber) {
+  Change(addendum: BigNumber | number, multiplier: BigNumber | number) {
     this.add = BigNumber.Add(this.add, addendum);
     this.mult = BigNumber.Multiplication(this.mult, multiplier);
     if (this.OnChange != null) this.OnChange();
@@ -75,7 +75,7 @@ export class VariableComplex extends Variable {
     this.OnChangeVector(addendum, multiplier);
   }
 
-  ApplyModOnVar(target: BigNumber) {
+  ApplyModOnVar(target: BigNumber | number) {
     return BigNumber.Multiplication(BigNumber.Add(target, this.add), this.mult);
   }
 

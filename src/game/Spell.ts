@@ -239,4 +239,10 @@ export class Spell {
     this.addSpellEffect?.effect.Apply();
     this.active = true;
   }
+
+  Update() {
+    if (!this.active) return;
+    for (const effect of this.effects) effect.Update();
+    this.addSpellEffect?.effect.Update();
+  }
 }

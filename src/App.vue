@@ -55,7 +55,7 @@ function importSaveFile(event: Event & { target: HTMLInputElement }) {
     <div id="content"><router-view></router-view></div>
     <div id="buildings"></div>
     <div id="footer" class="footer">
-      Version: <span id="version"> {{ packageInfo.version }} </span> <a href="https://github.com/pr0cessus/IEH2Calculator">Github Repository Page</a>
+      Version: <span id="version"> {{ packageInfo.version }} </span> <a :href="packageInfo.homepage">Github Repository Page</a>
     </div>
   </div>
 </template>

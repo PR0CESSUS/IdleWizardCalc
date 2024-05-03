@@ -142,9 +142,12 @@ export class SimpleEffect extends EffectDiminishing {
       case "":
         str = this.effect.preview(this.add, this.mult, this.parameter, this.preview_eff);
         break;
-      // case "t":
-      //   str = BigNumber.Multiplication(BigNumber.Subtract(BigNumber.Multiplication(this.mult, this.preview_eff.Value), 1), 100).ToStringPercent();
-      //   break;
+      case "t":
+        // str = new BigNumber(this.effect.preview(this.add, this.mult, this.parameter, this.preview_eff)).ToStringPercent();
+        str = BigNumber.Multiplication(this.parameter.Value.ToInt(), BigNumber.Multiplication(this.mult, this.preview_eff.Value)).ToStringPercent();
+        // str = BigNumber.Multiplication(BigNumber.Subtract(1, BigNumber.Multiplication(this.mult, this.preview_eff.Value)), 100).ToReadableString();
+
+        break;
       // case "k":
       //   str = (new BigNumber(this.effect.preview(this.add, this.mult, this.parameter, (Variable) this.preview_eff, true).Split('@', StringSplitOptions.None)[0]) * new BigNumber(100)).ToReadableString() + "%";
       //   break;

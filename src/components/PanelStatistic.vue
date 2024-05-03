@@ -11,6 +11,16 @@ const game = ref(inject<GameManager>("game"));
   ><br />
   Ability Power: <span>{{ game.CurrentHero.AbilityPower.Value.ToStringPercent() }}</span
   ><br />
+  Idle Bonus: <span>{{ game.Idle.IdleBonus.Value.ToStringPercent() }}</span
+  ><br />
+  Mysteries: <span>{{ game.Reborn.Souls.Value.ToString() }}</span
+  ><br />
+
+  Each Mystery increases Profit by <span>{{ game.Reborn.SoulPower.Value.ToStringPercent() }}</span
+  ><br />
+
+  Current bonus: <span>{{ game.Reborn.GetSoulPower().ToStringPercent() }}</span
+  ><br />
   <h3>Void</h3>
   Void Mana: {{ game.VoidMana.Value.ToString() }}<br />
   Increase mana profits by: <span> {{ game.VoidManaManager.prev.ToStringPercent() }}</span

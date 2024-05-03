@@ -8,6 +8,7 @@ import Patience from "@/data/patience.json";
 import Spellcraft from "@/data/spellcraft.json";
 import Upgrades from "@/data/upgrades.json";
 import Wisdom from "@/data/wisdom.json";
+import TrialMilestones from "@/data/TrialMilestones.json";
 import Spells from "@/data/Spells.json";
 import { GlobalData } from "@/game/GlobalData";
 import { AttributeManager } from "./AttributeManager";
@@ -30,12 +31,17 @@ import { Reborn } from "./Reborn";
 import { MovableBonusSpawner } from "./MovableBonusSpawner";
 import { CardGameManager } from "./CardGameManager";
 import { SpellBook } from "./SpellBook";
+import { StatisticWindow } from "./StatisticWindow";
+import { PantheonManager } from "./PantheonManager";
+import { ResourceManager } from "./ResourceManager";
+import { GildingManager } from "./GildingManager";
+import { Paragons } from "./Paragons";
 export class GameManager {
   public static Instance: GameManager;
   SaveFile: DefaultSaveFile;
   AttributeManager: AttributeManager;
   UpgradeManager: UpgradeManager;
-  ManaManager: ManaManager; //TODO ManaManager
+  ManaManager: ManaManager;
   BuildingManager: BuildingManager;
   VoidManaManager: VoidMana;
   Profit: VariableComplex;
@@ -52,6 +58,11 @@ export class GameManager {
   MBSpawner: MovableBonusSpawner;
   CardGame: CardGameManager;
   SpellBook: SpellBook;
+  Statistic: StatisticWindow;
+  Pantheon: PantheonManager;
+  Resources: ResourceManager;
+  Gilding: GildingManager;
+  Paragon: Paragons;
 
   constructor() {
     GameManager.Instance = this;
@@ -65,8 +76,11 @@ export class GameManager {
     Statistic.Init();
     GameContext.AddItems();
     GameContext.GenerateEffects();
-
+    this.Paragon = new Paragons();
+    this.Resources = new ResourceManager();
+    this.Gilding = new GildingManager();
     this.Scrolls = new ScrollPanel();
+    this.ManaManager = new ManaManager();
     this.VoidManaManager = new VoidMana();
     this.AttributeManager = new AttributeManager();
     this.CurrentPet = new PetSlot();
@@ -80,12 +94,12 @@ export class GameManager {
     this.MBSpawner = new MovableBonusSpawner();
     this.CardGame = new CardGameManager();
     this.SpellBook = new SpellBook();
+    this.Statistic = new StatisticWindow();
+    this.Pantheon = new PantheonManager();
 
     // generate game resources
 
     // for (let index = 0; index < this.SaveFile.BuildingLevels.length; index++) GameContext.ContextAddBuilding(new Building(this.SaveFile.BuildingLevels[index], index));
-
-    this.Init();
   }
 
   get Buildings() {
@@ -94,6 +108,10 @@ export class GameManager {
 
   get VoidMana() {
     return this.VoidManaManager.Value;
+  }
+
+  get Mana() {
+    return this.ManaManager.Mana;
   }
 
   Init() {
@@ -111,7 +129,10 @@ export class GameManager {
     this.UpgradeManager.InitUpgrade();
     this.CurrentHero.Hero.ApplyEffects();
     this.VoidManaManager.UpdateEffect();
+    this.Trials.Init();
+    this.Reborn.Init();
     this.BuildingManager.UpdateEffect();
+    this.Pantheon.Init();
   }
 
   InitGlobalData() {
@@ -126,5 +147,6 @@ export class GameManager {
     GlobalData.Upgrades = Upgrades;
     GlobalData.Buildings = Buildings;
     GlobalData.Spells = Spells;
+    GlobalData.TrialMilestones = TrialMilestones;
   }
 }

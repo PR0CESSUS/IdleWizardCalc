@@ -25,6 +25,7 @@ definePage({
       <button @click="console.dir(Statistic)">Statistic</button>
       <button @click="console.dir(GameContext)">GameContext</button>
       <button @click="console.dir(GlobalData)">GlobalData</button>
+      <button @click="game.Pantheon.Reactivate()">Pantheon</button>
       <!-- <button @click="console.log(game.UpgradeManager.InitUpgrade())">Init Upgrade</button> -->
       <!-- <button @click="console.log(game.VoidManaManager.UpdateEffect())">Void UpdateEffect</button> -->
       <!-- <button @click="console.log(game.CurrentHero.Hero.ApplyEffects())">Hero Apply Effect</button> -->
@@ -44,7 +45,7 @@ definePage({
 .main-wrap {
   display: grid;
   /* grid-gap: 10px; */
-  grid-template-columns: auto;
+  grid-template-columns: auto 316px;
   grid-template-areas: "content buildings";
   color: #444;
 }

@@ -24,7 +24,10 @@ export class VariableBignumber extends Variable {
     this.OnChange();
   }
 
-  Change(addendum: BigNumber, multiplier: BigNumber = new BigNumber(1)) {
+  Change(addendum: BigNumber | number, multiplier: BigNumber | number = new BigNumber(1)) {
+    if (typeof addendum == "number") addendum = new BigNumber(addendum);
+    if (typeof multiplier == "number") multiplier = new BigNumber(multiplier);
+
     let bigNumber: BigNumber = this._value;
     this._value = BigNumber.Multiplication(BigNumber.Add(this._value, addendum), multiplier);
     if (this.OnChange != null) this.OnChange();

@@ -1,0 +1,84 @@
+import { BigNumber } from "./BigNumber";
+import { GameManager } from "./GameManager";
+import { Statistic } from "./Statistic";
+import { StringBuilder } from "./StringBuilder";
+
+export class StatisticWindow {
+  base_label_1: string;
+  base_label_2: string;
+
+  update_base_page() {
+    let stringBuilder1 = new StringBuilder();
+    let stringBuilder2 = new StringBuilder();
+    stringBuilder1.AppendLine("Mana");
+    stringBuilder2.AppendLine(GameManager.Instance.Mana.Value.ToReadableString());
+    stringBuilder1.AppendLine("Mana per second");
+    stringBuilder2.AppendLine(GameManager.Instance.PPS.Value.ToReadableString());
+    stringBuilder1.AppendLine("Bought mana sources");
+    stringBuilder2.AppendLine(Statistic.TotalBuildings.ValueInt);
+    stringBuilder1.AppendLine("Bought upgrades");
+    stringBuilder2.AppendLine(Statistic.BoughtUpgrades.ValueInt);
+    stringBuilder1.AppendLine("Mysteries");
+    stringBuilder2.AppendLine(GameManager.Instance.Reborn.Souls.Value.ToReadableString());
+    stringBuilder1.AppendLine("Mysteries power");
+
+    stringBuilder2.Append(BigNumber.Add(GameManager.Instance.Reborn.SoulPower.add, GameManager.Instance.Reborn.SoulPower.GetInternalValue).ToStringPercent());
+    stringBuilder2.Append(" (base) / ");
+    stringBuilder2.Append(GameManager.Instance.Reborn.SoulPowerTotal.Value.ToStringPercent());
+    stringBuilder2.AppendLine(" (total)");
+    stringBuilder1.AppendLine("Idle bonus");
+    // stringBuilder2.Append(((GameManager.Instance.Idle.GetIdleBonus())).ToReadableString());
+    stringBuilder2.AppendLine("%");
+    stringBuilder1.AppendLine("Offline bonus");
+    // stringBuilder2.Append(((GameManager.Instance.OfflineProduction.Value - 1.0) * 100.0).ToReadableString());
+    stringBuilder2.AppendLine("%");
+    stringBuilder1.AppendLine();
+    stringBuilder2.AppendLine();
+    stringBuilder1.AppendLine();
+    stringBuilder2.AppendLine();
+    stringBuilder1.AppendLine("Void Mana");
+    stringBuilder2.AppendLine(GameManager.Instance.VoidMana.Value.ToReadableString());
+    stringBuilder1.AppendLine("Void Mana per Entity");
+    stringBuilder2.AppendLine(GameManager.Instance.VoidManaManager.VoidCore.BonusProfit.Value.ToReadableString());
+    stringBuilder1.AppendLine("Entities spawnrate");
+    // stringBuilder2.Append((GameManager.Instance.VoidManaManager.VoidCore.SpawnSpeed.Value * 100.0).ToReadableString());
+    stringBuilder2.AppendLine("%");
+    stringBuilder1.AppendLine("Entities life time");
+    stringBuilder2.Append(GameManager.Instance.VoidManaManager.VoidCore.BonusLifeTime.Value.ToReadableString());
+    stringBuilder2.AppendLine(" sec");
+    stringBuilder1.AppendLine("Void Mana profit");
+    stringBuilder2.Append(GameManager.Instance.VoidManaManager.Power.Value.ToStringPercent());
+    // stringBuilder2.Append((GameManager.Instance.VoidManaManager.Power.Value * 100.0).ToReadableString());
+    stringBuilder2.AppendLine("");
+    stringBuilder1.AppendLine("Degeneration rate");
+    stringBuilder2.Append(GameManager.Instance.VoidManaManager.Decrease.ApplyModOnVar(1.0).ToStringPercent());
+    stringBuilder2.AppendLine("");
+    stringBuilder1.AppendLine("Max amount ");
+    stringBuilder2.AppendLine(Statistic.MaxVoidManaSession.Value.ToReadableString());
+    stringBuilder1.AppendLine();
+    stringBuilder2.AppendLine();
+    stringBuilder1.AppendLine("Click profit");
+    stringBuilder2.AppendLine(GameManager.Instance.Orb.click_profit.Value.ToReadableString());
+    stringBuilder1.AppendLine("Critical chance");
+    // stringBuilder2.Append(GameManager.Instance.Orb.GetCritChange.ToString("F2"));
+    stringBuilder2.AppendLine("%");
+    stringBuilder1.AppendLine("Critical profit");
+    // stringBuilder2.Append((GameManager.Instance.Orb.crit_profit.Value * 100.0).ToReadableString());
+    stringBuilder2.AppendLine("%");
+    stringBuilder1.AppendLine("Autoclick profit");
+    // stringBuilder2.Append((GameManager.Instance.Orb.autoclick_profit.Value * 100.0).ToReadableString());
+    stringBuilder2.AppendLine("%");
+    stringBuilder1.AppendLine("Passive Spell Shards generation");
+    stringBuilder2.AppendLine(GameManager.Instance.Scrolls.ShardsPassive.Value.ToReadableString());
+    stringBuilder1.AppendLine("Shards from clicks");
+    stringBuilder2.AppendLine(GameManager.Instance.Scrolls.ShardsPerClick.Value.ToReadableString());
+    stringBuilder1.AppendLine("Shards pool efficiency");
+    stringBuilder2.Append(GameManager.Instance.Scrolls.ShardsPool.Efficiency.Value.ToReadableString());
+    stringBuilder2.AppendLine(" sec");
+    stringBuilder1.AppendLine("Shards pool capacity");
+    stringBuilder2.Append(GameManager.Instance.Scrolls.ShardsPool.Capacity.Value.ToReadableString("F0"));
+    stringBuilder2.AppendLine(" sec");
+    this.base_label_1 = stringBuilder1.ToString();
+    this.base_label_2 = stringBuilder2.ToString();
+  }
+}

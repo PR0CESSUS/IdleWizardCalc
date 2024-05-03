@@ -1,4 +1,6 @@
 import { GameContext } from "./GameContext";
+import { GameManager } from "./GameManager";
+import { TrialBonuses } from "./TrialBonuses";
 import { VariableBignumber } from "./VariableBignumber";
 import { VariableComplex } from "./VariableComplex";
 import { VariableFloat } from "./VariableFloat";
@@ -21,16 +23,30 @@ export class TrialManager {
   ResearchSpeed: VariableFloat;
   Milestones: VariableInt;
   MilestonesCap: VariableInt;
+  tries: number;
+  bonuses: TrialBonuses;
   // RewardList: TrialRewardList;
   // QuestManager: QuestManager;
 
+  constructor() {
+    this.bonuses = new TrialBonuses();
+  }
+
+  GetCompleted() {
+    return Math.floor((this.Completed.ValueInt + this.CompletedStartedBonus.ValueInt) * this.CompletedBonus.ValueFloat);
+  }
+
+  Init() {
+    this.bonuses.Init();
+  }
+
   InitContext() {
-    this.Keys = new VariableInt(1);
-    this.Completed = new VariableInt(0);
+    this.Keys = new VariableInt(GameManager.Instance.SaveFile.Trial.keys);
+    this.Completed = new VariableInt(GameManager.Instance.SaveFile.Trial.completed);
     this.CompletedBonus = new VariableFloat(1);
     this.CompletedStartedBonus = new VariableInt(0);
-    this.CompletedValue = new VariableBignumber(0.0);
-    this.TotalCompleted = new VariableInt(0);
+    this.CompletedValue = new VariableBignumber(this.GetCompleted());
+    this.TotalCompleted = new VariableInt(GameManager.Instance.SaveFile.Trial.totalCompleted);
     this.Milestones = new VariableInt(0);
     this.MilestonesCap = new VariableInt(400);
     this.RewardSize = new VariableComplex(1.0);
@@ -41,6 +57,7 @@ export class TrialManager {
     this.apTimeReduction = new VariableInt(0);
     this.maxRunes = new VariableInt(10);
     this.ResearchSpeed = new VariableFloat(1);
+    this.tries = GameManager.Instance.SaveFile.Trial.tries;
     this.AddToContext();
   }
 

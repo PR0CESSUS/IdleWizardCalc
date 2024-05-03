@@ -1,4 +1,5 @@
 import { BigNumberSaveFile } from "@/type/BigNumberSaveFile";
+import { Gods } from "@/type/Gods";
 import { HeroesNames } from "@/type/HeroesNames";
 
 export class DefaultSaveFile {
@@ -231,8 +232,22 @@ export class DefaultSaveFile {
   ActiveChID: number;
   CompletedChIDs: number[];
   ChProgress: BigNumberSaveFile = { Mantissa: 0, Exponent: 0 };
-  Trial: null;
-  Pantheon: null;
+  Trial: {
+    completed: number;
+    data: number[][];
+    keys: number;
+    timer: number;
+    tos: boolean;
+    totalCompleted: number;
+    tries: number;
+  };
+  Pantheon: {
+    chooses: number[];
+    exp: { [key in keyof typeof Gods]?: BigNumberSaveFile };
+    maxLvl: number;
+    minorLvl: number;
+    prayingExp: BigNumberSaveFile;
+  };
   Shop: null;
   AttTotal: number;
   AttSearched: number;

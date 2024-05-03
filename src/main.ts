@@ -16,6 +16,7 @@ app.use(router);
 app.use(pinia);
 
 const game = new GameManager();
+game.Init();
 
 globalThis.Game = game;
 globalThis.globalStore = useGlobalStore();

@@ -1,5 +1,6 @@
 import { AttributeFormat } from "@/type/AttributeFormat";
 import { BuildingFormat } from "@/type/BuildingFormat";
+import { ObjectiveData } from "@/type/ObjectiveData";
 import { SpellFormat } from "@/type/SpellFormat";
 import { UpgradeFormat } from "@/type/UpgradeFormat";
 
@@ -15,4 +16,5 @@ export class GlobalData {
   public static Upgrades: UpgradeFormat[];
   public static Buildings: BuildingFormat[];
   public static Spells: SpellFormat[];
+  public static TrialMilestones: ObjectiveData[];
 }

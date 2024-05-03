@@ -13,7 +13,7 @@ export class StringBuilder {
     }
   }
 
-  AppendLine(str: string = "") {
+  AppendLine(str: string | number = "") {
     this._str += str + "<br>";
   }
 

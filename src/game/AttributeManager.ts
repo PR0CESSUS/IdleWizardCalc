@@ -213,7 +213,6 @@ export class AttributeManager {
 
     for (let index = 0; index < this.Attributes[key].perks.length; index++) {
       const perk = this.Attributes[key].perks[index];
-
       if (this.Attributes[key].Level.ValueInt >= perk.Level) perk.Activate();
     }
   }

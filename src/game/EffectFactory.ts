@@ -147,8 +147,8 @@ export class EffectFactory {
     if (e != null) bigNumber1 = BigNumber.Multiplication(bigNumber1, e.Value);
     let str;
     if (!asnumber) {
-      // str = (100.0 * bigNumber1 * (a * (w.Value + 1.0)).Pow(m.ToDouble())).ToReadableString() + "%";
-      str = "ni chuja";
+      str =
+        BigNumber.Multiplication(100.0, BigNumber.Multiplication(bigNumber1, BigNumber.Multiplication(a, BigNumber.Add(w.Value, 1.0).Pow(m.ToDouble())))).ToReadableString() + "%";
     } else {
       let bigNumber2 = 1.0;
       let bigNumber3 = bigNumber1;

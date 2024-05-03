@@ -11,6 +11,7 @@ const mouseMove = (event) => {
   content.value.style.left = `${event.clientX + 20}px`;
   // console.log(rect, ySpaceAvailable);
   // console.log(content.value.getBoundingClientRect());
+  // console.log(content);
 
   if (rect.height > ySpaceAvailable) {
     content.value.style.top = `${event.clientY - (rect.height - ySpaceAvailable)}px`;

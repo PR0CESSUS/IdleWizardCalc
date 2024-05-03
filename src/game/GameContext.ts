@@ -1,7 +1,6 @@
 import { Building } from "./Building";
 import { EffectFactory } from "./EffectFactory";
 import { GameManager } from "./GameManager";
-import { Reborn } from "./Reborn";
 import { Statistic } from "./Statistic";
 import { Variable } from "./Variable";
 
@@ -106,11 +105,11 @@ export class GameContext {
     // GameContext.resource[`Base.Mana`] = GameManager.Instance.Mana;
     GameContext.resource[`Base.AllBuildingsProfit`] = GameManager.Instance.Profit;
     GameContext.resource[`Base.PPS`] = GameManager.Instance.PPS;
-    GameContext.resource[`Base.Souls`] = Reborn.Souls;
-    GameContext.resource[`Base.SoulPower`] = Reborn.SoulPower;
-    GameContext.resource["Base.SoulPowerFactor"] = Reborn.SoulPowerFactor;
-    GameContext.resource["Base.SoulPowerTotal"] = Reborn.SoulPowerTotal;
-    GameContext.resource["Base.StartingSouls"] = Reborn.StartingSouls;
+    GameContext.resource[`Base.Souls`] = GameManager.Instance.Reborn.Souls;
+    GameContext.resource[`Base.SoulPower`] = GameManager.Instance.Reborn.SoulPower;
+    GameContext.resource["Base.SoulPowerFactor"] = GameManager.Instance.Reborn.SoulPowerFactor;
+    GameContext.resource["Base.SoulPowerTotal"] = GameManager.Instance.Reborn.SoulPowerTotal;
+    GameContext.resource["Base.StartingSouls"] = GameManager.Instance.Reborn.StartingSouls;
     GameContext.resource[`Base.Ascends`] = Statistic.Ascends;
     GameContext.resource[`Base.IdleTime`] = GameManager.Instance.Idle.TimeToIdle;
     GameContext.resource[`Base.IdleBonus`] = GameManager.Instance.Idle.IdleBonus;

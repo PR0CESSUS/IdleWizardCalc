@@ -31,7 +31,7 @@ export class VariableInt extends Variable {
     //   this.OnChange();
   }
 
-  Change(addendum: BigNumber, multiplier: BigNumber = new BigNumber(1), isCallback = true) {
+  Change(addendum: BigNumber | number, multiplier: BigNumber | number = new BigNumber(1), isCallback = true) {
     // let num = this._value;
 
     this._value = BigNumber.Multiplication(BigNumber.Add(this._value, addendum), multiplier);

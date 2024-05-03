@@ -83,6 +83,13 @@ export class BigNumber {
   ToDouble() {
     return this.ToFloat();
   }
+  Sqrt() {
+    let Exponent = this.Exponent / 2;
+    return new BigNumber(
+      this.Exponent - Exponent * 2 != 1 ? (this.Exponent - Exponent * 2 != -1 ? Math.sqrt(this.Mantissa) : Math.sqrt(this.Mantissa / 10.0)) : Math.sqrt(this.Mantissa * 10.0),
+      Exponent
+    );
+  }
 
   Log10() {
     if (this.Mantissa != 0.0) return this.Exponent + Math.log10(this.Mantissa);
@@ -200,5 +207,21 @@ export class BigNumber {
     if (num1.Exponent == num2.Exponent && Math.abs(num1.Mantissa - num2.Mantissa) < 1e-13) return new BigNumber(0.0);
     num2.Mantissa = -num2.Mantissa;
     return BigNumber.Add(num1, num2);
+  }
+
+  public static BiggerOrEqualThan(num1: BigNumber | number, num2: BigNumber | number) {
+    if (typeof num1 == "number") num1 = new BigNumber(num1);
+    if (typeof num2 == "number") num2 = new BigNumber(num2);
+    if (num1.Mantissa == 0.0) return 0.0 > num2.Mantissa;
+    if (num2.Mantissa == 0.0) return num1.Mantissa > 0.0;
+
+    return (
+      (num1.Mantissa >= 0.0 && num2.Mantissa < 0.0) ||
+      ((num1.Mantissa > 0.0 || num2.Mantissa <= 0.0) && (num1.Exponent >= num2.Exponent || (num1.Exponent >= num2.Exponent && num1.Mantissa > num2.Mantissa)))
+    );
+  }
+
+  public static Sign(n: BigNumber) {
+    return Math.sign(n.Mantissa);
   }
 }

@@ -7,6 +7,10 @@ import { SimpleEffect } from "./SimpleEffect";
 import { GameContext } from "./GameContext";
 import { BigNumber } from "./BigNumber";
 import { SpellTypeGroup } from "@/type/SpellTypeGroup";
+import { CombineEffect } from "./CombineEffect";
+import { Statistic } from "./Statistic";
+import { EffectAddProduction } from "./EffectAddProduction";
+import { EffectUseMM } from "./EffectUseMM";
 
 export class SpellBook {
   // public SpriteAtlas atlas;
@@ -22,7 +26,7 @@ export class SpellBook {
   // public Dictionary<Spells, IEffect>
   persistentPassive: { [key in keyof typeof Spells]?: IEffect } = {};
   // public List<Spells> MemeticBanList;
-  // public List<Spells> NonscaledSpells;
+  NonscaledSpells: number[] = [];
   // private Text ChooseTip;
   SpellChooses: Spell[] = [];
 
@@ -36,6 +40,10 @@ export class SpellBook {
     this.create_all();
     this.PostLoad();
     this.ChangeSpellSet();
+  }
+
+  ApplyAll() {
+    for (const spell of this.SpellChooses) spell.Apply();
   }
 
   create_all() {
@@ -124,7 +132,26 @@ export class SpellBook {
     this.effect_map[Spells.RadiantPools] = [
       SimpleEffect.Create(GameContext.GetResource("Building.3.Profit"), 2.1500000953674316, 0.81000000238418579, this.GetSpell(Spells.RadiantPools).Use, "PowA"),
     ];
+
+    this.effect_map[Spells.FireWithFire] = [SimpleEffect.Create(GameManager.Instance.Profit, 1, 1.3999999761581421, GameManager.Instance.Scrolls.ShardsPassive, "Pow")];
+    this.effect_map[Spells.SyphonPower] = [SimpleEffect.Create(GameManager.Instance.Scrolls.ShardsPassive, 0.5, 0.85000002384185791, this.GetSpell(Spells.SyphonPower).Use, "Pow")];
+
+    let combineEffect13 = new CombineEffect(GameManager.Instance.Scrolls.EvocationEfficiency);
+    combineEffect13.AddEffect(5.0, 0.89999997615814209, this.GetSpell(Spells.NullZone).Use, GameContext.GetEffect("Pow"));
+    combineEffect13.AddEffect(0.5, 0.949999988079071, GameManager.Instance.BuildingManager.GetBuilding(6).TotalLevel, GameContext.GetEffect("Pow"), false);
+    this.effect_map[Spells.NullZone] = [combineEffect13];
+
+    let combineEffect1 = new CombineEffect(GameManager.Instance.Profit);
+    combineEffect1.AddEffect(1.0, 0.44999998807907104, Statistic.TotalBuildings, GameContext.GetEffect("Pow"));
+    combineEffect1.AddEffect(0.0074999998323619366, 0.25, Statistic.CastSpell, GameContext.GetEffect("Pow"), false);
+    this.effect_map[Spells.KarnaphensSpellshroud] = [combineEffect1];
+
     // this.effect_map[Spells.JAMissileStorm] = new EffectUseMM();
+
+    this.effect_map[Spells.MagicMissile] = [new EffectAddProduction(30, 0.0, 0.0)];
+
+    this.effect_map[Spells.JAMissileStorm] = [new EffectUseMM(1000, 1.3, 10, this.GetSpell(Spells.JAMissileStorm).UseThisRun)];
+    this.NonscaledSpells.push(Spells.JAMissileStorm);
   }
 
   GetSpell(key: Spells) {

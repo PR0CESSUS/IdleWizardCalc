@@ -1,0 +1,765 @@
+[
+  {
+    "Key": "MagicMissile",
+    "Name": "Magic Missile",
+    "Icon": "MagicMissile",
+    "Description": "Deal #1 damage",
+    "Cd": "3",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "SpellFocus",
+    "Name": "Spell Focus",
+    "Icon": "SpellFocus",
+    "Description": "Deal #1 damage, draw 2 new scrolls",
+    "Cd": "2",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "LightningBolt",
+    "Name": "Lightning Bolt",
+    "Icon": "LightningBolt",
+    "Description": "Deal #1 damage, charge all other scrolls by 50%",
+    "Cd": "3",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "GemResonance",
+    "Name": "Gem Resonance",
+    "Icon": "GemResonance",
+    "Description": "Restore #1 health",
+    "Cd": "4",
+    "Duration": "0",
+    "SpellType": "Incantation",
+    "Target": "Self"
+  },
+  {
+    "Key": "RitualOfPower",
+    "Name": "Ritual of Power",
+    "Icon": "RitualOfPower",
+    "Description": "Increase drawing by #1 for 15 seconds",
+    "Cd": "6",
+    "Duration": "15",
+    "SpellType": "Incantation",
+    "Target": "Self"
+  },
+  {
+    "Key": "ConjureLesserElemental",
+    "Name": "Conjure Lesser Elemental",
+    "Icon": "ConjureLesserElemental",
+    "Description": "Protects you from 40% damage",
+    "Cd": "8",
+    "Duration": "20",
+    "SpellType": "Summoning",
+    "Target": "Self"
+  },
+  {
+    "Key": "Voidbolt",
+    "Name": "Void Bolt",
+    "Icon": "Voidbolt",
+    "Description": "Deal #2 damage, interrupt next enemy spell",
+    "Cd": "5",
+    "Duration": "0",
+    "SpellType": "Evocation",
+    "LevelUnlock": "2"
+  },
+  {
+    "Key": "Empower",
+    "Name": "Empower",
+    "Icon": "Empower",
+    "Description": "Increase defence by #1 for 10 seconds",
+    "Cd": "5",
+    "Duration": "10",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "3"
+  },
+  {
+    "Key": "FireBall",
+    "Name": "Fire Ball",
+    "Icon": "FireBall",
+    "Description": "Deal #1 damage on cast and #2 damage every second for 4 seconds",
+    "Cd": "7",
+    "Duration": "4",
+    "SpellType": "Evocation",
+    "LevelUnlock": "4"
+  },
+  {
+    "Key": "Counterspell",
+    "Name": "Counterspell",
+    "Icon": "CounterSpell",
+    "Description": "Deal #1 damage, remove one positive effect from target",
+    "Cd": "5",
+    "Duration": "0",
+    "SpellType": "Evocation",
+    "LevelUnlock": "5"
+  },
+  {
+    "Key": "MagicalWeapon",
+    "Name": "Magical Weapon",
+    "Icon": "MagicalWeapon",
+    "Description": "Increase damage dealing by #1 for 8 seconds",
+    "Cd": "5",
+    "Duration": "8",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "8"
+  },
+  {
+    "Key": "SummonWoodlandCreatures",
+    "Name": "Summon Woodland Creatures",
+    "Icon": "SummonWoodlandCreatures",
+    "Description": "Deals #1 damage every 2 seconds",
+    "Cd": "9",
+    "Duration": "10",
+    "SpellType": "Summoning",
+    "LevelUnlock": "10"
+  },
+  {
+    "Key": "SynteticEntity",
+    "Name": "Synthetic Entity",
+    "Icon": "SyntheticEntity",
+    "Description": "Earn #1 Void Mana",
+    "Cd": "8",
+    "Duration": "0",
+    "SpellType": "Evocation",
+    "LevelUnlock": "12"
+  },
+  {
+    "Key": "RulesOfNature",
+    "Name": "Rules Of Nature",
+    "Icon": "RulesOfNature",
+    "Description": "Increase summoning by #1 for 20 seconds",
+    "Cd": "12",
+    "Duration": "14",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "14"
+  },
+  {
+    "Key": "VoidLure",
+    "Name": "Void Lure",
+    "Icon": "VoidLure",
+    "Description": "Reduce your Void Mana degeneration and increase enemy's Void Mana degeneration by #1 for 10 seconds",
+    "Cd": "7",
+    "Duration": "10",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "16"
+  },
+  {
+    "Key": "ConjureGreaterElemental",
+    "Name": "Conjure Greater Elemental",
+    "Icon": "ConjureGreaterElemental",
+    "Description": "Deals #1 damage every 4 seconds",
+    "Cd": "8.5",
+    "Duration": "12",
+    "SpellType": "Summoning",
+    "LevelUnlock": "18"
+  },
+  {
+    "Key": "PrimalPower",
+    "Name": "Primal Power",
+    "Icon": "PrimalPower",
+    "Description": "Increase evocation by #1 for 14 seconds",
+    "Cd": "12",
+    "Duration": "14",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "20"
+  },
+  {
+    "Key": "VoidRadiance",
+    "Name": "Void Radiance",
+    "Icon": "VoidRadiance",
+    "Description": "Earn #1 Void Mana every second for 10 seconds",
+    "Cd": "14",
+    "Duration": "10",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "23"
+  },
+  {
+    "Key": "SummonGuardianOfTheCanopies",
+    "Name": "Summon Guardian Of The Canopies",
+    "Icon": "SummonGuardianOfTheCanopies",
+    "Description": "Protects you from 50% damage, deals #1 damage every 3 seconds, restores a portion of its health every second",
+    "Cd": "12",
+    "Duration": "16",
+    "SpellType": "Summoning",
+    "LevelUnlock": "26"
+  },
+  {
+    "Key": "KelphiorsBlackBeam",
+    "Name": "Kelphior's Black Beam",
+    "Icon": "KelphiorsBlackBeam",
+    "Description": "Deal #1 damage",
+    "Cd": "11",
+    "Duration": "0",
+    "SpellType": "Evocation",
+    "LevelUnlock": "29"
+  },
+  {
+    "Key": "SpellStaffOfChamaon",
+    "Name": "Spellstaff Of Chamaon",
+    "Icon": "SpellStaffOfChamaon",
+    "Description": "Increase charging by #2 for 12 seconds and draw 1 scroll from a minor slot",
+    "Cd": "12",
+    "Duration": "10",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "32"
+  },
+  {
+    "Key": "TemplarBrothers",
+    "Name": "Templar Brothers",
+    "Icon": "TemplarBrothers",
+    "Description": "Protects you from 60% damage, has 1 invulnerability charge",
+    "Cd": "14",
+    "Duration": "10",
+    "SpellType": "Summoning",
+    "LevelUnlock": "35"
+  },
+  {
+    "Key": "DreadedScriptOfHarvest",
+    "Name": "Dreaded Script Of Harvest",
+    "Icon": "DreadedScriptOfHarvest",
+    "Description": "Reduce enemy's damage by #1 for 12 seconds",
+    "Cd": "11",
+    "Duration": "8",
+    "SpellType": "Incantation",
+    "LevelUnlock": "38"
+  },
+  {
+    "Key": "ForceOfWill",
+    "Name": "Force of Will",
+    "Icon": "ForceOfWill",
+    "Description": "Restore #1 health every 2 seconds for 10 seconds",
+    "Cd": "8",
+    "Duration": "10",
+    "SpellType": "Evocation",
+    "Target": "Self",
+    "LevelUnlock": "41"
+  },
+  {
+    "Key": "RitualOfPotency",
+    "Name": "Ritual of Potency",
+    "Icon": "RitualOfPotency",
+    "Description": "Increase drawing by #1 for 6 seconds",
+    "Cd": "8",
+    "Duration": "6",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "44"
+  },
+  {
+    "Key": "FlashFire",
+    "Name": "Flash Fire",
+    "Icon": "FlashFire",
+    "Description": "Deal #1 damage, reduce enemy's Void Mana by #2",
+    "Cd": "7",
+    "Duration": "0",
+    "SpellType": "Evocation",
+    "LevelUnlock": "47"
+  },
+  {
+    "Key": "HallowedWritings",
+    "Name": "Hallowed Writings",
+    "Icon": "HallowedWritings",
+    "Description": "Restore #1 health to all summons",
+    "Cd": "9",
+    "Duration": "0",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "50"
+  },
+  {
+    "Key": "EbonTruncheon",
+    "Name": "Ebon Truncheon",
+    "Icon": "EbonTruncheon",
+    "Description": "Increase damage dealing by #1 for 14 seconds",
+    "Cd": "8",
+    "Duration": "14",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "54"
+  },
+  {
+    "Key": "SummonEvergrowingForest",
+    "Name": "Summon Evergrowing Forest",
+    "Icon": "SummonEvergrowingForest",
+    "Description": "Restores #1 health to you every second",
+    "Cd": "8",
+    "Duration": "10",
+    "SpellType": "Summoning",
+    "LevelUnlock": "58"
+  },
+  {
+    "Key": "Debilitate",
+    "Name": "Debilitate",
+    "Icon": "Debilitate",
+    "Description": "Deal #1 damage, reduce enemy's Spell speed by #2",
+    "Cd": "6",
+    "Duration": "0",
+    "SpellType": "Evocation",
+    "LevelUnlock": "62"
+  },
+  {
+    "Key": "RealityWarping",
+    "Name": "Reality Warping",
+    "Icon": "RealityWarping",
+    "Description": "Consume #1 of your Void Mana and increase charging by #2 for 20 seconds",
+    "Cd": "11",
+    "Duration": "20",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "66"
+  },
+  {
+    "Key": "ConjureManabeast",
+    "Name": "Conjure Manabeast",
+    "Icon": "ConjureManabeast",
+    "Description": "Deals #1 damage and decrease your remaining draw timer by 1 every second",
+    "Cd": "11",
+    "Duration": "13",
+    "SpellType": "Summoning",
+    "LevelUnlock": "70"
+  },
+  {
+    "Key": "KarnaphensSpellshroud",
+    "Name": "Karnaphen’s Spellshroud",
+    "Icon": "KarnaphensSpellshroud",
+    "Description": "Increase defence by #1 for 20 seconds",
+    "Cd": "8",
+    "Duration": "15",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "74"
+  },
+  {
+    "Key": "Nightfall",
+    "Name": "Nightfall",
+    "Icon": "Nightfall",
+    "Description": "Reduce enemy's buff efficiency by #1 for 14 seconds",
+    "Cd": "13",
+    "Duration": "14",
+    "SpellType": "Incantation",
+    "LevelUnlock": "78"
+  },
+  {
+    "Key": "Crystallization",
+    "Name": "Crystallization",
+    "Icon": "Crystallization",
+    "Description": "Reset drawing time to 0, charge all scrolls in hand by #2",
+    "Cd": "5",
+    "Duration": "0",
+    "SpellType": "Evocation",
+    "Target": "Self",
+    "LevelUnlock": "82"
+  },
+  {
+    "Key": "VoidSyphon",
+    "Name": "Void Syphon",
+    "Icon": "VoidSyphon",
+    "Description": "Earn #1 Void Mana",
+    "Cd": "10",
+    "Duration": "0",
+    "SpellType": "Evocation",
+    "LevelUnlock": "86"
+  },
+  {
+    "Key": "ForceOfNature",
+    "Name": "Force Of Nature",
+    "Icon": "ForceOfNature",
+    "Description": "Draw 2 summoning scrolls",
+    "Cd": "15",
+    "Duration": "0",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "90"
+  },
+  {
+    "Key": "Silence",
+    "Name": "Silence",
+    "Icon": "Silence",
+    "Description": "Prevents enemy from using Spells for #1 seconds",
+    "Cd": "16",
+    "Duration": "6",
+    "SpellType": "Incantation",
+    "LevelUnlock": "94"
+  },
+  {
+    "Key": "SummonWingedNight",
+    "Name": "Summon Winged Night",
+    "Icon": "SummonWingedNight",
+    "Description": "Earn #1 Void Mana every 2 seconds",
+    "Cd": "12",
+    "Duration": "14",
+    "SpellType": "Summoning",
+    "LevelUnlock": "98"
+  },
+  {
+    "Key": "HellStorm",
+    "Name": "Hellstorm",
+    "Icon": "HellStorm",
+    "Description": "Deal #1 damage every second for 6 seconds",
+    "Cd": "13",
+    "Duration": "6",
+    "SpellType": "Evocation",
+    "LevelUnlock": "102"
+  },
+  {
+    "Key": "ShatteringStrike",
+    "Name": "Shattering Strike",
+    "Icon": "ShatteringStrike",
+    "Description": "Reduce enemy's defence by #1 for 9 seconds",
+    "Cd": "16",
+    "Duration": "9",
+    "SpellType": "Evocation",
+    "LevelUnlock": "106"
+  },
+  {
+    "Key": "VoidPrison",
+    "Name": "Void Prison",
+    "Icon": "VoidPrison",
+    "Description": "Converts #1 of enemy's Void Mana into yours every second for 9 seconds",
+    "Cd": "14",
+    "Duration": "10",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "110"
+  },
+  {
+    "Key": "SpiritOfValor",
+    "Name": "Spirit of Valor",
+    "Icon": "SpiritOfValor",
+    "Description": "Increase summons damage dealing by #1 for 12 seconds",
+    "Cd": "11",
+    "Duration": "12",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "111"
+  },
+  {
+    "Key": "AlterTheLaws",
+    "Name": "Alter The Laws",
+    "Icon": "AlterTheLaws",
+    "Description": "Reduce enemy's Attack speed by #1 for 12 seconds",
+    "Cd": "10",
+    "Duration": "8",
+    "SpellType": "Incantation",
+    "LevelUnlock": "112"
+  },
+  {
+    "Key": "Transmute",
+    "Name": "Transmute",
+    "Icon": "Transmute",
+    "Description": "Prevents enemy from using Attacks for #1 seconds",
+    "Cd": "14",
+    "Duration": "6",
+    "SpellType": "Incantation",
+    "LevelUnlock": "113"
+  },
+  {
+    "Key": "BattleTrance",
+    "Name": "Battle Trance",
+    "Icon": "BattleTrance",
+    "Description": "Give 1  invulnerability charge to each your summon",
+    "Cd": "14",
+    "Duration": "0",
+    "SpellType": "Evocation",
+    "Target": "Self",
+    "LevelUnlock": "114"
+  },
+  {
+    "Key": "HolyFervor",
+    "Name": "Holy Fervor",
+    "Icon": "HolyFervor",
+    "Description": "All your summons perform their actions instantly",
+    "Cd": "13",
+    "Duration": "0",
+    "SpellType": "Evocation",
+    "Target": "Self",
+    "LevelUnlock": "115"
+  },
+  {
+    "Key": "TrueSorcery",
+    "Name": "True Sorcery",
+    "Icon": "TrueSorcery",
+    "Description": "Replace all spells on hand with evocations from your Deck",
+    "Cd": "17",
+    "Duration": "0",
+    "SpellType": "Evocation",
+    "Target": "Self",
+    "LevelUnlock": "116"
+  },
+  {
+    "Key": "FuriousStrike",
+    "Name": "Furious Strike",
+    "Icon": "FuriousStrike",
+    "Description": "Deal #1 damage to each enemy.",
+    "Cd": "4",
+    "Duration": "0",
+    "SpellType": "Evocation",
+    "LevelUnlock": "117"
+  },
+  {
+    "Key": "ConjurePrimalElemental",
+    "Name": "Conjure Primal Elemental",
+    "Icon": "ConjurePrimalElemental",
+    "Description": "Protects you from 45% damage, deals #1 damage every 4 seconds",
+    "Cd": "19",
+    "Duration": "16",
+    "SpellType": "Summoning",
+    "LevelUnlock": "118"
+  },
+  {
+    "Key": "NullZone",
+    "Name": "Null Zone",
+    "Icon": "NullZone",
+    "Description": "Prevents enemy from using Attacks and Spells for #1 seconds",
+    "Cd": "18",
+    "Duration": "4",
+    "SpellType": "Incantation",
+    "LevelUnlock": "119"
+  },
+  {
+    "Key": "Hellrage",
+    "Name": "Hellrage",
+    "Icon": "Hellrage",
+    "Description": "Increase summons damage dealing by #1 for 6 seconds",
+    "Cd": "9",
+    "Duration": "6",
+    "SpellType": "Incantation",
+    "Target": "Self",
+    "LevelUnlock": "120"
+  },
+  {
+    "Key": "Bash",
+    "Name": "Bash",
+    "Icon": "MonsterSkill_Bash",
+    "Description": "Deal #1 damage",
+    "Cd": "1.9",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "Bite",
+    "Name": "Bite",
+    "Icon": "MonsterSkill_Bite",
+    "Description": "Deal #1 damage",
+    "Cd": "1.5",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "Slash",
+    "Name": "Slash",
+    "Icon": "MonsterSkill_Slash",
+    "Description": "Deal #1 damage",
+    "Cd": "2.4",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "Shot",
+    "Name": "Shot",
+    "Icon": "MonsterSkill_Shot",
+    "Description": "Deal #1 damage",
+    "Cd": "2.25",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "Stab",
+    "Name": "Stab",
+    "Icon": "MonsterSkill_Stab",
+    "Description": "Deal #1 damage",
+    "Cd": "2.5",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "Lash",
+    "Name": "Lash",
+    "Icon": "MonsterSkill_Lash",
+    "Description": "Deal #1 damage",
+    "Cd": "2",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "PoisonSpray",
+    "Name": "Poison Spray",
+    "Icon": "MonsterSkill_PoisonSpray",
+    "Description": "Deal #1 damage",
+    "Cd": "6.2",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "IceBlast",
+    "Name": "Ice Blast",
+    "Icon": "MonsterSkill_IceBlast",
+    "Description": "Deal #1 damage",
+    "Cd": "6.8",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "Block",
+    "Name": "Block",
+    "Icon": "MonsterSkill_Block",
+    "Description": "Increase defence by #1 for 6 seconds",
+    "Cd": "6",
+    "Duration": "6",
+    "SpellType": "Incantation",
+    "Target": "Self"
+  },
+  {
+    "Key": "Enrage",
+    "Name": "Enrage",
+    "Icon": "MonsterSkill_Enrage",
+    "Description": "Increase damage dealing by #1 for 8 seconds",
+    "Cd": "6",
+    "Duration": "8",
+    "SpellType": "Incantation",
+    "Target": "Self"
+  },
+  {
+    "Key": "Rush",
+    "Name": "Rush",
+    "Icon": "MonsterSkill_Rush",
+    "Description": "Increase speed by #1 for 10 seconds",
+    "Cd": "6",
+    "Duration": "6",
+    "SpellType": "Incantation",
+    "Target": "Self"
+  },
+  {
+    "Key": "Recover",
+    "Name": "Recover",
+    "Icon": "MonsterSkill_Recover",
+    "Description": "Restore #1 health.",
+    "Cd": "7",
+    "Duration": "0",
+    "SpellType": "Incantation",
+    "Target": "Self"
+  },
+  {
+    "Key": "LightningBoltMob",
+    "Name": "Lightning Bolt",
+    "Icon": "LightningBolt",
+    "Description": "Deal #1 damage.",
+    "Cd": "5",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "GemResonanceMob",
+    "Name": "Gem Resonance",
+    "Icon": "GemResonance",
+    "Description": "Restore #1 health.",
+    "Cd": "10",
+    "Duration": "0",
+    "SpellType": "Evocation",
+    "Target": "Self"
+  },
+  {
+    "Key": "ConjureLesserElementalMob",
+    "Name": "Conjure Lesser Elemental",
+    "Icon": "ConjureLesserElemental",
+    "Description": "Protects the summoner from damage",
+    "Cd": "12",
+    "Duration": "10",
+    "SpellType": "Summoning",
+    "Target": "Self"
+  },
+  {
+    "Key": "CounterspellMob",
+    "Name": "Counterspell",
+    "Icon": "CounterSpell",
+    "Description": "Deal #2 damage, remove one positive effect from the target",
+    "Cd": "8",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "MagicalWeaponMob",
+    "Name": "Magical Weapon",
+    "Icon": "MagicalWeapon",
+    "Description": "Increase damage dealing by #1 for 8 seconds",
+    "Cd": "6",
+    "Duration": "8",
+    "SpellType": "Incantation",
+    "Target": "Self"
+  },
+  {
+    "Key": "FireBallMob",
+    "Name": "Fire Ball",
+    "Icon": "FireBall",
+    "Description": "Deal #1 damage",
+    "Cd": "8",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "VoidSyphonMob",
+    "Name": "Void Syphon",
+    "Icon": "VoidSyphon",
+    "Description": "Earn #1 Void Mana",
+    "Cd": "10",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "VoidPrisonMob",
+    "Name": "Void Prison",
+    "Icon": "VoidPrison",
+    "Description": "Converts #1 of the opponent's Void Mana into caster's every second for 6 seconds",
+    "Cd": "9",
+    "Duration": "10",
+    "SpellType": "Incantation",
+    "Target": "Self"
+  },
+  {
+    "Key": "VoidboltMob",
+    "Name": "Void Bolt",
+    "Icon": "Voidbolt",
+    "Description": "Deal #1 damage, reduce all of the opponent's skills charging progress by #2 seconds",
+    "Cd": "14",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "SpiritOfValorMob",
+    "Name": "Spirit of Valor",
+    "Icon": "SpiritOfValor",
+    "Description": "Increase summons damage dealing by #1 for 20 seconds",
+    "Cd": "8",
+    "Duration": "12",
+    "SpellType": "Incantation",
+    "Target": "Self"
+  },
+  {
+    "Key": "SmiteMob",
+    "Name": "Smite",
+    "Icon": "Smite",
+    "Description": "Deal #1 damage",
+    "Cd": "8",
+    "Duration": "0",
+    "SpellType": "Evocation"
+  },
+  {
+    "Key": "TemplarBrothersMob",
+    "Name": "Templar Brothers",
+    "Icon": "TemplarBrothers",
+    "Description": "Protects the summoner from 80% damage, has 1 invulnerability charge\nDeals #1 damage every 2 seconds",
+    "Cd": "12",
+    "Duration": "10",
+    "SpellType": "Summoning"
+  }
+]

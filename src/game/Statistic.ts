@@ -74,6 +74,14 @@ export class Statistic {
     Statistic.TotalBuildings.SetValue(GameManager.Instance.SaveFile.TotalBuildings);
     Statistic.UnlockedItems.SetValue(GameManager.Instance.SaveFile.Craft.Items.length);
     Statistic.CastSpellRealm.SetValue(GameManager.Instance.SaveFile.AccumCasts);
+    Statistic.ManaRealm.SetValue(GameManager.Instance.SaveFile.ManaRealm);
+    Statistic.ManaAllTime.SetValue(GameManager.Instance.SaveFile.ManaAllTime);
+    Statistic.ManaSession.SetValue(GameManager.Instance.SaveFile.ManaSession);
+
     // Statistic.A.SetValue(GameManager.Instance.SaveFile.AccumCasts)
+  }
+
+  public static time_to_string(a) {
+    return "NOT IMPLEMENTED";
   }
 }
